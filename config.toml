@@ -1,0 +1,6 @@
+baseURL = "http://example.org/"
+languageCode = "fr-fr"
+DefaultContentLanguage = "fr"
+title = "Pour Magnelli"
+theme = "pourmagnelli-theme"
+pluralizeListTitles = false
