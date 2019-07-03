@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'GSNLight';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/GSN/GillSansNovaLight.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'GSN';
+  font-style: italic;
+  font-weight: 300;
+  src: url('../fonts/GSN/GillSansNovaLightItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'GSN';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/GSN/GillSansNovaBook.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'GSN';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/GSN/GillSansNovaBookItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'GSN';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/GSN/GillSansNovaMedium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'GSN';
+  font-style: italic;
+  font-weight: 500;
+  src: url('../fonts/GSN/GillSansNovaMediumItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'GSN';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/GSN/GillSansNovaSemibold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'GSN';
+  font-style: italic;
+  font-weight: 600;
+  src: url('../fonts/GSN/GillSansNovaSemiboldItalic.woff') format('woff');
+}

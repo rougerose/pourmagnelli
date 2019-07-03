@@ -1,0 +1,10 @@
+{{ if $.Param "jsLib" -}}
+{{ $lib := resources.Get "js/lib.min.js" | fingerprint -}}
+<script defer src="{{ $lib.RelPermalink }}"></script>
+{{ end -}}
+{{ if $.Param "mobileMenu" -}}
+{{ $mobilemenu := resources.Get "js/mobile.js" | minify | fingerprint -}}
+<script defer src="{{ $mobilemenu.RelPermalink }}"></script>
+{{ end -}}
+{{ $stickyHeader := resources.Get "js/stickyHeader.js" | minify | fingerprint -}}
+<script defer src="{{ $stickyHeader.RelPermalink }}"></script>

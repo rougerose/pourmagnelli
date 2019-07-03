@@ -7,11 +7,17 @@
     "author": "dirkolbrich <github@dirkolbrich.de>",
     "license": "MIT",
     "scripts": {
-        "start": "hugo --gc"
+        "hugo": "hugo --gc --disableFastRender",
+        "gulp": "gulp"
     },
     "devDependencies": {
         "@fullhuman/postcss-purgecss": "^1.2.0",
         "autoprefixer": "^9.6.0",
+        "body-scroll-lock": "^2.6.3",
+        "gulp": "^4.0.2",
+        "gulp-concat": "^2.6.1",
+        "headroom.js": "^0.9.4",
+        "jquery": "^3.4.1",
         "postcss": "^7.0.17",
         "postcss-cli": "^6.1.2",
         "postcss-import": "^12.0.1",
