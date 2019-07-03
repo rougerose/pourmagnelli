@@ -1,4 +1,4 @@
-/* Tailwind base - put variables under: tailwind.config.js */
+/* Tailwind base */
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
@@ -565,7 +565,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 /**
@@ -601,10 +601,94 @@ video {
   height: auto;
 }
 
-/* Tailwind component classes registered by plugins*/
+/* Site fonts */
+
+@font-face {
+  font-family: 'GSNLight';
+
+  font-style: normal;
+
+  font-weight: 300;
+
+  src: url('../fonts/GSN/GillSansNovaLight.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'GSN';
+
+  font-style: italic;
+
+  font-weight: 300;
+
+  src: url('../fonts/GSN/GillSansNovaLightItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'GSN';
+
+  font-style: normal;
+
+  font-weight: 400;
+
+  src: url('../fonts/GSN/GillSansNovaBook.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'GSN';
+
+  font-style: italic;
+
+  font-weight: 400;
+
+  src: url('../fonts/GSN/GillSansNovaBookItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'GSN';
+
+  font-style: normal;
+
+  font-weight: 500;
+
+  src: url('../fonts/GSN/GillSansNovaMedium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'GSN';
+
+  font-style: italic;
+
+  font-weight: 500;
+
+  src: url('../fonts/GSN/GillSansNovaMediumItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'GSN';
+
+  font-style: normal;
+
+  font-weight: 600;
+
+  src: url('../fonts/GSN/GillSansNovaSemibold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'GSN';
+
+  font-style: italic;
+
+  font-weight: 600;
+
+  src: url('../fonts/GSN/GillSansNovaSemiboldItalic.woff') format('woff');
+}
+
+/* Tailwind components */
 
 .container {
   width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 @media (min-width: 640px) {
@@ -631,13 +715,230 @@ video {
   }
 }
 
-/* Site Specific */
+/* Site components */
 
-.starter {
-  color: blue;
+/* =====================================
+*  grid
+*  ===================================== */
+
+.grid {
+  display: -webkit-box;
+  display: flex;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
-/* Tailwind's utility classes - generated based on config file */
+/* =====================================
+*  page
+*  ===================================== */
+
+.page {
+  font-family: GSN, sans-serif;
+  padding-top: 109px;
+}
+
+/* =====================================
+*  page-header
+*  ===================================== */
+
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  background-color: #fff;
+}
+
+/* =====================================
+*  site-logo
+*  ===================================== */
+
+.site-logo {
+  position: relative;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.site-logo__s2 {
+  color: #000;
+}
+
+.menu-mobile .site-logo__s2 {
+  color: #fff;
+}
+
+/* =====================================
+*  menu-mobile
+*  ===================================== */
+
+.menu-mobile {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  background-color: #2d3748;
+  max-height: 0;
+  -webkit-transition: max-height 1.25s cubic-bezier(0.26, 0.02, 0, 0.99);
+  transition: max-height 1.25s cubic-bezier(0.26, 0.02, 0, 0.99);
+}
+
+.menu-mobile.is-open {
+  max-height: 100%;
+}
+
+.menu-btn {
+  position: relative;
+}
+
+.menu-item--mobile {
+  display: block;
+  position: relative;
+  opacity: 0;
+  -webkit-transition: all .1s 1s ease;
+  transition: all .1s 1s ease;
+  -webkit-transform: translateX(-150px);
+          transform: translateX(-150px);
+}
+
+.menu-mobile.is-open .menu-item--mobile {
+  opacity: 1;
+  -webkit-transform: none;
+          transform: none;
+  transition: opacity 1s 1s ease, transform 1s 1s cubic-bezier(0.1, 0.02, 0, 0.99),-webkit-transform 1s 1s cubic-bezier(0.1, 0.02, 0, 0.99);
+}
+
+.menu-mobile.is-open .menu-item--mobile:nth-child(1) {
+  -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+}
+
+.menu-mobile.is-open .menu-item--mobile:nth-child(2) {
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+.menu-mobile.is-open .menu-item--mobile:nth-child(3) {
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+
+.menu-mobile.is-open .menu-item--mobile:nth-child(4) {
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+}
+
+.menu-link--mobile {
+  color: #fff;
+}
+
+.menu-link--mobile:hover {
+  color: #c05621;
+}
+
+/* =====================================
+*  btn
+*  ===================================== */
+
+/*
+  *  btn-burger
+  *  ------------------------------------- */
+
+/* source animation https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css */
+
+.btn-burger {
+}
+
+.btn-burger__box {
+  display: inline-block;
+  position: relative;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.btn-burger__inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+  -webkit-transition-duration: 0.075s;
+          transition-duration: 0.075s;
+  -webkit-transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+          transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.btn-burger__inner,
+    .btn-burger__inner::before,
+    .btn-burger__inner::after {
+  position: absolute;
+  height: 0.25rem;
+  width: 1.5rem;
+  border-radius: 0.25rem;
+  background-color: #000;
+  -webkit-transition: -webkit-transform .15s ease;
+  transition: -webkit-transform .15s ease;
+  transition: transform .15s ease;
+  transition: transform .15s ease, -webkit-transform .15s ease;
+}
+
+.menu-mobile .btn-burger__inner,
+    .menu-mobile .btn-burger__inner::before,
+    .menu-mobile .btn-burger__inner::after {
+  background-color: #fff;
+}
+
+.btn-burger__inner::before,
+    .btn-burger__inner::after {
+  content: '';
+  display: block;
+}
+
+.btn-burger__inner::before {
+  top: -8px;
+  -webkit-transition: top 0.075s 0.12s ease, opacity 0.075s ease;
+  transition: top 0.075s 0.12s ease, opacity 0.075s ease;
+}
+
+.btn-burger__inner::after {
+  bottom: -8px;
+  -webkit-transition: bottom 0.075s 0.12s ease, -webkit-transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: bottom 0.075s 0.12s ease, -webkit-transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: bottom 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: bottom 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19), -webkit-transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.btn-burger.is-open .btn-burger__inner {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transition-delay: 0.12s;
+          transition-delay: 0.12s;
+  -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.btn-burger.is-open .btn-burger__inner::before {
+  top: 0;
+  opacity: 0;
+  -webkit-transition: top 0.075s ease, opacity 0.075s 0.12s ease;
+  transition: top 0.075s ease, opacity 0.075s 0.12s ease;
+}
+
+.btn-burger.is-open .btn-burger__inner::after {
+  bottom: 0;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transition: bottom 0.075s ease, -webkit-transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: bottom 0.075s ease, -webkit-transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/* Tailwind utilites */
 
 .appearance-none {
   -webkit-appearance: none;
@@ -3608,15 +3909,7 @@ video {
 }
 
 .font-sans {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-
-.font-serif {
-  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-}
-
-.font-mono {
-  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: GSN, sans-serif;
 }
 
 .font-hairline {
@@ -4999,6 +5292,10 @@ video {
   margin-left: -1px;
 }
 
+.max-h-0 {
+  max-height: 0;
+}
+
 .max-h-full {
   max-height: 100%;
 }
@@ -5838,6 +6135,20 @@ video {
   left: auto;
 }
 
+.inset-1\/2 {
+  top: 50%;
+  right: 50%;
+  bottom: 50%;
+  left: 50%;
+}
+
+.-inset-20 {
+  top: -5rem;
+  right: -5rem;
+  bottom: -5rem;
+  left: -5rem;
+}
+
 .inset-y-0 {
   top: 0;
   bottom: 0;
@@ -5856,6 +6167,26 @@ video {
 .inset-x-auto {
   right: auto;
   left: auto;
+}
+
+.inset-y-1\/2 {
+  top: 50%;
+  bottom: 50%;
+}
+
+.inset-x-1\/2 {
+  right: 50%;
+  left: 50%;
+}
+
+.-inset-y-20 {
+  top: -5rem;
+  bottom: -5rem;
+}
+
+.-inset-x-20 {
+  right: -5rem;
+  left: -5rem;
 }
 
 .top-0 {
@@ -5888,6 +6219,38 @@ video {
 
 .left-auto {
   left: auto;
+}
+
+.top-1\/2 {
+  top: 50%;
+}
+
+.right-1\/2 {
+  right: 50%;
+}
+
+.bottom-1\/2 {
+  bottom: 50%;
+}
+
+.left-1\/2 {
+  left: 50%;
+}
+
+.-top-20 {
+  top: -5rem;
+}
+
+.-right-20 {
+  right: -5rem;
+}
+
+.-bottom-20 {
+  bottom: -5rem;
+}
+
+.-left-20 {
+  left: -5rem;
 }
 
 .resize-none {
@@ -7601,6 +7964,102 @@ video {
 
 .z-auto {
   z-index: auto;
+}
+
+/* Site animations */
+
+/* =====================================
+*  animated
+*  ===================================== */
+
+.animated {
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  will-change: transform, opacity;
+}
+
+@-webkit-keyframes slideDown {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes slideUp {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+
+  100% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+
+  100% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+}
+
+.animated.slideUp {
+  -webkit-animation-name: slideUp;
+          animation-name: slideUp;
+}
+
+.animated.slideDown {
+  -webkit-animation-name: slideDown;
+          animation-name: slideDown;
+}
+
+/* Site mediaqueries */
+
+@media (min-width: 640px) {
+  .page {
+    padding-top: 118px;
+  }
+
+  .grid {
+    padding-left: 5rem;
+    padding-right: 3rem;
+  }
+
+  .site-logo {
+    margin-left: -5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
 @media (min-width: 640px) {
@@ -10573,15 +11032,7 @@ video {
   }
 
   .sm\:font-sans {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  }
-
-  .sm\:font-serif {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-  }
-
-  .sm\:font-mono {
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: GSN, sans-serif;
   }
 
   .sm\:font-hairline {
@@ -11964,6 +12415,10 @@ video {
     margin-left: -1px;
   }
 
+  .sm\:max-h-0 {
+    max-height: 0;
+  }
+
   .sm\:max-h-full {
     max-height: 100%;
   }
@@ -12803,6 +13258,20 @@ video {
     left: auto;
   }
 
+  .sm\:inset-1\/2 {
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
+    left: 50%;
+  }
+
+  .sm\:-inset-20 {
+    top: -5rem;
+    right: -5rem;
+    bottom: -5rem;
+    left: -5rem;
+  }
+
   .sm\:inset-y-0 {
     top: 0;
     bottom: 0;
@@ -12821,6 +13290,26 @@ video {
   .sm\:inset-x-auto {
     right: auto;
     left: auto;
+  }
+
+  .sm\:inset-y-1\/2 {
+    top: 50%;
+    bottom: 50%;
+  }
+
+  .sm\:inset-x-1\/2 {
+    right: 50%;
+    left: 50%;
+  }
+
+  .sm\:-inset-y-20 {
+    top: -5rem;
+    bottom: -5rem;
+  }
+
+  .sm\:-inset-x-20 {
+    right: -5rem;
+    left: -5rem;
   }
 
   .sm\:top-0 {
@@ -12853,6 +13342,38 @@ video {
 
   .sm\:left-auto {
     left: auto;
+  }
+
+  .sm\:top-1\/2 {
+    top: 50%;
+  }
+
+  .sm\:right-1\/2 {
+    right: 50%;
+  }
+
+  .sm\:bottom-1\/2 {
+    bottom: 50%;
+  }
+
+  .sm\:left-1\/2 {
+    left: 50%;
+  }
+
+  .sm\:-top-20 {
+    top: -5rem;
+  }
+
+  .sm\:-right-20 {
+    right: -5rem;
+  }
+
+  .sm\:-bottom-20 {
+    bottom: -5rem;
+  }
+
+  .sm\:-left-20 {
+    left: -5rem;
   }
 
   .sm\:resize-none {
@@ -17539,15 +18060,7 @@ video {
   }
 
   .md\:font-sans {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  }
-
-  .md\:font-serif {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-  }
-
-  .md\:font-mono {
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: GSN, sans-serif;
   }
 
   .md\:font-hairline {
@@ -18930,6 +19443,10 @@ video {
     margin-left: -1px;
   }
 
+  .md\:max-h-0 {
+    max-height: 0;
+  }
+
   .md\:max-h-full {
     max-height: 100%;
   }
@@ -19769,6 +20286,20 @@ video {
     left: auto;
   }
 
+  .md\:inset-1\/2 {
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
+    left: 50%;
+  }
+
+  .md\:-inset-20 {
+    top: -5rem;
+    right: -5rem;
+    bottom: -5rem;
+    left: -5rem;
+  }
+
   .md\:inset-y-0 {
     top: 0;
     bottom: 0;
@@ -19787,6 +20318,26 @@ video {
   .md\:inset-x-auto {
     right: auto;
     left: auto;
+  }
+
+  .md\:inset-y-1\/2 {
+    top: 50%;
+    bottom: 50%;
+  }
+
+  .md\:inset-x-1\/2 {
+    right: 50%;
+    left: 50%;
+  }
+
+  .md\:-inset-y-20 {
+    top: -5rem;
+    bottom: -5rem;
+  }
+
+  .md\:-inset-x-20 {
+    right: -5rem;
+    left: -5rem;
   }
 
   .md\:top-0 {
@@ -19819,6 +20370,38 @@ video {
 
   .md\:left-auto {
     left: auto;
+  }
+
+  .md\:top-1\/2 {
+    top: 50%;
+  }
+
+  .md\:right-1\/2 {
+    right: 50%;
+  }
+
+  .md\:bottom-1\/2 {
+    bottom: 50%;
+  }
+
+  .md\:left-1\/2 {
+    left: 50%;
+  }
+
+  .md\:-top-20 {
+    top: -5rem;
+  }
+
+  .md\:-right-20 {
+    right: -5rem;
+  }
+
+  .md\:-bottom-20 {
+    bottom: -5rem;
+  }
+
+  .md\:-left-20 {
+    left: -5rem;
   }
 
   .md\:resize-none {
@@ -24505,15 +25088,7 @@ video {
   }
 
   .lg\:font-sans {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  }
-
-  .lg\:font-serif {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-  }
-
-  .lg\:font-mono {
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: GSN, sans-serif;
   }
 
   .lg\:font-hairline {
@@ -25896,6 +26471,10 @@ video {
     margin-left: -1px;
   }
 
+  .lg\:max-h-0 {
+    max-height: 0;
+  }
+
   .lg\:max-h-full {
     max-height: 100%;
   }
@@ -26735,6 +27314,20 @@ video {
     left: auto;
   }
 
+  .lg\:inset-1\/2 {
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
+    left: 50%;
+  }
+
+  .lg\:-inset-20 {
+    top: -5rem;
+    right: -5rem;
+    bottom: -5rem;
+    left: -5rem;
+  }
+
   .lg\:inset-y-0 {
     top: 0;
     bottom: 0;
@@ -26753,6 +27346,26 @@ video {
   .lg\:inset-x-auto {
     right: auto;
     left: auto;
+  }
+
+  .lg\:inset-y-1\/2 {
+    top: 50%;
+    bottom: 50%;
+  }
+
+  .lg\:inset-x-1\/2 {
+    right: 50%;
+    left: 50%;
+  }
+
+  .lg\:-inset-y-20 {
+    top: -5rem;
+    bottom: -5rem;
+  }
+
+  .lg\:-inset-x-20 {
+    right: -5rem;
+    left: -5rem;
   }
 
   .lg\:top-0 {
@@ -26785,6 +27398,38 @@ video {
 
   .lg\:left-auto {
     left: auto;
+  }
+
+  .lg\:top-1\/2 {
+    top: 50%;
+  }
+
+  .lg\:right-1\/2 {
+    right: 50%;
+  }
+
+  .lg\:bottom-1\/2 {
+    bottom: 50%;
+  }
+
+  .lg\:left-1\/2 {
+    left: 50%;
+  }
+
+  .lg\:-top-20 {
+    top: -5rem;
+  }
+
+  .lg\:-right-20 {
+    right: -5rem;
+  }
+
+  .lg\:-bottom-20 {
+    bottom: -5rem;
+  }
+
+  .lg\:-left-20 {
+    left: -5rem;
   }
 
   .lg\:resize-none {
@@ -31471,15 +32116,7 @@ video {
   }
 
   .xl\:font-sans {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  }
-
-  .xl\:font-serif {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-  }
-
-  .xl\:font-mono {
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: GSN, sans-serif;
   }
 
   .xl\:font-hairline {
@@ -32862,6 +33499,10 @@ video {
     margin-left: -1px;
   }
 
+  .xl\:max-h-0 {
+    max-height: 0;
+  }
+
   .xl\:max-h-full {
     max-height: 100%;
   }
@@ -33701,6 +34342,20 @@ video {
     left: auto;
   }
 
+  .xl\:inset-1\/2 {
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
+    left: 50%;
+  }
+
+  .xl\:-inset-20 {
+    top: -5rem;
+    right: -5rem;
+    bottom: -5rem;
+    left: -5rem;
+  }
+
   .xl\:inset-y-0 {
     top: 0;
     bottom: 0;
@@ -33719,6 +34374,26 @@ video {
   .xl\:inset-x-auto {
     right: auto;
     left: auto;
+  }
+
+  .xl\:inset-y-1\/2 {
+    top: 50%;
+    bottom: 50%;
+  }
+
+  .xl\:inset-x-1\/2 {
+    right: 50%;
+    left: 50%;
+  }
+
+  .xl\:-inset-y-20 {
+    top: -5rem;
+    bottom: -5rem;
+  }
+
+  .xl\:-inset-x-20 {
+    right: -5rem;
+    left: -5rem;
   }
 
   .xl\:top-0 {
@@ -33751,6 +34426,38 @@ video {
 
   .xl\:left-auto {
     left: auto;
+  }
+
+  .xl\:top-1\/2 {
+    top: 50%;
+  }
+
+  .xl\:right-1\/2 {
+    right: 50%;
+  }
+
+  .xl\:bottom-1\/2 {
+    bottom: 50%;
+  }
+
+  .xl\:left-1\/2 {
+    left: 50%;
+  }
+
+  .xl\:-top-20 {
+    top: -5rem;
+  }
+
+  .xl\:-right-20 {
+    right: -5rem;
+  }
+
+  .xl\:-bottom-20 {
+    bottom: -5rem;
+  }
+
+  .xl\:-left-20 {
+    left: -5rem;
   }
 
   .xl\:resize-none {

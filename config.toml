@@ -4,3 +4,30 @@ DefaultContentLanguage = "fr"
 title = "Pour Magnelli"
 theme = "pourmagnelli-theme"
 pluralizeListTitles = false
+# sectionPagesMenu = "main"
+
+[menu]
+  [[menu.main]]
+    identifier = "association"
+    title = "L'association"
+    url = "/association/"
+    weight = 1
+  [[menu.main]]
+    identifier = "magnelli"
+    title = "Magnelli"
+    url = "/magnelli/"
+    weight = 2
+  [[menu.main]]
+    identifier = "actualites"
+    title = "Actualités"
+    url = "/actualites/"
+    weight = 3
+  [[menu.main]]
+    identifier = "search"
+    title = "Recherche"
+    url = "/"
+    weight = 4
+
+[params]
+  jsLib = true
+  mobileMenu = true
