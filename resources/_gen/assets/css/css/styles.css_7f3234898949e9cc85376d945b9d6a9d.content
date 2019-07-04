@@ -745,9 +745,10 @@ video {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 40;
   width: 100%;
   background-color: #fff;
+  height: 109px;
 }
 
 /* =====================================
@@ -758,6 +759,7 @@ video {
   position: relative;
   font-weight: 600;
   text-transform: uppercase;
+  line-height: 100px;
 }
 
 .site-logo__s2 {
@@ -787,6 +789,7 @@ video {
   max-height: 0;
   -webkit-transition: max-height 1.25s cubic-bezier(0.26, 0.02, 0, 0.99);
   transition: max-height 1.25s cubic-bezier(0.26, 0.02, 0, 0.99);
+  will-change: max-height;
 }
 
 .menu-mobile.is-open {
@@ -834,12 +837,27 @@ video {
           transition-delay: 0.4s;
 }
 
+/* .menu-list {} */
+
 .menu-link--mobile {
   color: #fff;
 }
 
 .menu-link--mobile:hover {
   color: #c05621;
+}
+
+.menu-link--header {
+  color: #c05621;
+  border-bottom-width: 2px;
+  border-color: #fff;
+  -webkit-transition: border-color .3s ease;
+  transition: border-color .3s ease;
+  /* line-height: 100px; */
+}
+
+.menu-link--header:hover {
+  border-color: #c05621;
 }
 
 /* =====================================
@@ -852,8 +870,7 @@ video {
 
 /* source animation https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css */
 
-.btn-burger {
-}
+/* .btn-burger {} */
 
 .btn-burger__box {
   display: inline-block;
@@ -884,6 +901,7 @@ video {
   transition: -webkit-transform .15s ease;
   transition: transform .15s ease;
   transition: transform .15s ease, -webkit-transform .15s ease;
+  will-change: transform;
 }
 
 .menu-mobile .btn-burger__inner,
@@ -936,6 +954,15 @@ video {
   transition: bottom 0.075s ease, -webkit-transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/* =====================================
+*  icon
+*  ===================================== */
+
+.icon-search {
+  height: 24px;
+  width: 24px;
 }
 
 /* Tailwind utilites */
@@ -8060,6 +8087,8 @@ video {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
+
+  /* .page-header {} */
 }
 
 @media (min-width: 640px) {

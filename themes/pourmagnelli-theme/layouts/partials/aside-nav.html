@@ -1,7 +1,7 @@
 <aside class="menu-mobile js-menu-mobile">
   <div class="container">
     <div class="grid flex-col">
-      <div class="flex items-baseline justify-between w-full py-8">
+      <div class="flex items-baseline justify-between w-full">
         {{- partial "site-logo.html" . -}}
         <div>
           {{- partial "btn-burger.html" . -}}
@@ -14,6 +14,9 @@
           <a class="menu-link menu-link--mobile text-4xl {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{.URL}}">{{ .Title }}</a>
         </li>
         {{ end }}
+        <li class="menu-item menu-item--mobile">
+          <a class="menu-link menu-link--mobile text-4xl" href="/">Recherche</a>
+        </li>
       </ul>
     </div>
   </div>

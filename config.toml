@@ -22,11 +22,6 @@ pluralizeListTitles = false
     title = "Actualités"
     url = "/actualites/"
     weight = 3
-  [[menu.main]]
-    identifier = "search"
-    title = "Recherche"
-    url = "/"
-    weight = 4
 
 [params]
   jsLib = true

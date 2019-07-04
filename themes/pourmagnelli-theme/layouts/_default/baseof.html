@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
     {{- partial "head/head.html" . -}}
-    <body class="page flex flex-col">
+    <body class="page flex flex-col md:pb-64">
         {{ partial "header/header.html" . }}
-        <main class="flex-1 xsm:mx-4 xmd:mx-12 xlg:mx-24 xmt-4 xsm:mt-16">
+        <main class="relative z-10 bg-white pb-8 flex-1 xsm:mx-4 xmd:mx-12 xlg:mx-24 xmt-4 xsm:mt-16">
         {{- block "main" . }}{{- end }}
         </main>
         {{- partial "aside-nav.html" . -}}
