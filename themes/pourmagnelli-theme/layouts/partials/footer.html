@@ -1,10 +1,14 @@
 <!-- <footer class="w-full text-center border-t border-gray-200 p-4 pin-b text-xs text-gray-400">
     <p>made with <a href="https://gohugo.io" class="underline hover:text-blue-400">Hugo</a> and <a href="https://tailwindcss.com" class="underline hover:text-blue-400">TailwindCSS</a></p>
 </footer> -->
-<footer class="md:fixed md:z-0 md:left-0 md:bottom-0 pt-8 w-full bg-orange-700">
+<footer class="relative md:fixed z-0 md:left-0 md:bottom-0 md:pt-8 w-full bg-orange-700">
   <div class="container">
-    <div class="grid">
-      <p>Pour Magnelli</p>
+    <div class="px-3"></div>
+    <div class="grid -mx-3">
+      <div class="w-full">
+        <a href="{{ .Site.Home.Permalink }}">Pour Magnelli</a>
+      </div>
+
     </div>
   </div>
 </footer>
