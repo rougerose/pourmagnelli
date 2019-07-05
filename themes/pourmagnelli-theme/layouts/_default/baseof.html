@@ -3,7 +3,7 @@
     {{- partial "head/head.html" . -}}
     <body class="page flex flex-col md:pb-48">
         {{ partial "header/header.html" . }}
-        <main class="relative z-10 bg-white pb-8 flex-1">
+        <main class="relative z-10 bg-white pb-8 flex-1 leading-tight">
         {{- block "main" . }}{{- end }}
         </main>
         {{- partial "aside-nav.html" . -}}

@@ -1,15 +1,42 @@
 {{ define "main" }}
 <div class="container">
   <div class="wrapper">
-    <article class="">
-        <h1 class="font-serif font-thin text-5xl text-gray-500">{{ .Title }}</h1>
-        {{ .Content }}
-    </article>
-    <div>
-      {{ range first 10 .Pages }}
-        {{ .Render "summary"}}
-      {{ end }}
+    {{ with .Site.GetPage "/association/association.md" }}
+    <div class="grid">
+      <div class="grid-cell md:w-2/3">
+        <div class="intro text text--larger">
+          {{ .Summary }}
+          <p class="more"><a href="{{ .Permalink }}" class="more-link">Lire la suite</a></p>
+        </div>
+      </div>
     </div>
+    {{ end }}
+
+    {{ with .Site.GetPage "/actualites/publications/abecedaire/01.md" }}
+    <div class="grid">
+      <div class="grid-cell md:w-1/2">
+        <article class="feature-section">
+          <h1 class="feature-section__title feature-section__title--abecedaire"><span>M</span> comme… {{ .Title }}</h1>
+          <div class="feature-section__text text">
+            {{ .Content }}
+          </div>
+        </article>
+      </div>
+    </div>
+    {{ end }}
+
+    {{ with .Site.GetPage "section" "actualites" }}
+    <div class="grid">
+      <div class="grid-cell md:w-1/2">
+        <section class="feature-section">
+          <h1 class="feature-section__title">{{ .Title }}</h1>
+          
+          <p>{{ .Title }}</p>
+          {{ end }}
+        </section>
+      </div>
+    </div>
+    {{ end }}
   </div>
 </div>
 {{ end }}

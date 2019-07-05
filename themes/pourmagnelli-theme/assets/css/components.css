@@ -162,6 +162,68 @@
 
 
 /* =====================================
+*  intro
+*  ===================================== */
+
+  .intro {
+    @apply my-12;
+  }
+
+
+/* =====================================
+*  feature-section
+*  ===================================== */
+
+  .feature-section {}
+
+  .feature-section__title {
+    @apply mb-3 font-semibold text-2xl uppercase;
+  }
+
+  .feature-section__title--abecedaire span {
+    @apply text-orange-700;
+  }
+
+  .feature-section__text {
+    @apply text-lg;
+  }
+
+
+/* =====================================
+*  text
+*  ===================================== */
+
+  .text {
+    @apply text-lg leading-snug;
+  }
+
+  .text p {
+    @apply pb-2;
+  }
+
+  .text--larger {
+    @apply text-xl;
+  }
+
+/* =====================================
+*  more
+*  ===================================== */
+
+  .more {
+    @apply font-semibold uppercase text-base;
+  }
+
+  .more-link {
+    @apply border-b-2 border-orange-700;
+    transition: color .3s ease;
+  }
+
+  .more-link:hover {
+    @apply text-orange-700;
+  }
+
+
+/* =====================================
 *  btn
 *  ===================================== */
 
