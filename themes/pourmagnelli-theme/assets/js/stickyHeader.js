@@ -1,6 +1,6 @@
 (function() {
   var header = document.querySelector("#header");
-  var offsetValue = header.getBoundingClientRect().height;
+  var offsetValue = header.getBoundingClientRect().height / 2;
   var headroom  = new Headroom(header, {
     tolerance: 5,
     offset: offsetValue,
