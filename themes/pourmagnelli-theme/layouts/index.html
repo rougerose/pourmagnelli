@@ -12,8 +12,8 @@
     </div>
     {{ end }}
 
-    {{ with .Site.GetPage "/actualites/publications/abecedaire/01.md" }}
-    <div class="grid">
+    <div class="grid grid--large">
+      {{- with .Site.GetPage "/abecedaire/01.md" -}}
       <div class="grid-cell md:w-1/2">
         <article class="feature-section">
           <h1 class="feature-section__title feature-section__title--abecedaire"><span>M</span> comme… {{ .Title }}</h1>
@@ -22,21 +22,25 @@
           </div>
         </article>
       </div>
-    </div>
-    {{ end }}
-
-    {{ with .Site.GetPage "section" "actualites" }}
-    <div class="grid">
+      {{- end -}}
+      {{- $actus := where (where $.Site.Pages ".Section" "eq" "actualites") ".Kind" "eq" "page" -}}
       <div class="grid-cell md:w-1/2">
         <section class="feature-section">
-          <h1 class="feature-section__title">{{ .Title }}</h1>
-          
-          <p>{{ .Title }}</p>
-          {{ end }}
+          <h1 class="feature-section__title">{{ with .Site.GetPage "section" "actualites" }}{{ .Title }}{{ end }}</h1>
+          {{- range first 3 $actus.ByDate.Reverse -}}
+            <article class="feature">
+              <a href="{{ .Permalink }}" class="feature__link">
+                <h1 class="feature__title">{{ .Title }}</h1>
+                <div class="feature__desc text">
+                  {{ .Summary }}
+                </div>
+              </a>
+              <p class="feature__meta">{{ .Date.Format "02/01/2006" }} &middot; {{.Params.section_title}}</p>
+            </article>
+          {{- end -}}
         </section>
       </div>
     </div>
-    {{ end }}
   </div>
 </div>
 {{ end }}
