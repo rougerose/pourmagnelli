@@ -3,7 +3,7 @@
 *  ===================================== */
 
   .wrapper {
-    @apply flex px-6;
+    @apply px-6;
   }
 
 
@@ -11,8 +11,15 @@
   *  grid
   *  ===================================== */
 
+  /* Repris de https://github.com/nicoqh/inuit-flexgrid/blob/master/objects/_objects.grid.scss */
   .grid {
-    @apply flex;
+    @apply flex flex-row flex-wrap -ml-6;
+  }
+
+  .grid-cell {
+    @apply pl-6;
+    flex: 0 1 auto;
+    width: 100%;
   }
 
 
