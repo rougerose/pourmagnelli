@@ -13,11 +13,18 @@
   }
 }
 
+
 @screen md {
   .container {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
+}
 
-  /* .page-header {} */
+
+@screen xl {
+  .container {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
 }
