@@ -1,0 +1,7 @@
+<ul>
+  {{ range .Pages.ByWeight }}
+  <li class="pf-section__item">
+    <a href="{{ .Permalink }}" class="pf-section__link">{{ .Title }}</a>
+  </li>
+  {{ end }}
+</ul>

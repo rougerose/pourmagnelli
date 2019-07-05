@@ -7,6 +7,15 @@
   }
 
 
+  /* =====================================
+  *  grid
+  *  ===================================== */
+
+  .grid {
+    @apply flex;
+  }
+
+
 /* =====================================
 *  page
 *  ===================================== */
@@ -26,6 +35,39 @@
     height: 109px;
   }
 
+
+/* =====================================
+*  page-footer
+*  ===================================== */
+
+  .page-footer {
+    @apply pt-16 pb-8;
+  }
+
+  .pf-section {
+    @apply pb-4;
+  }
+
+  .pf-section:last-child {
+    padding-bottom: 0;
+  }
+
+  .pf-section__title {
+    @apply font-semibold uppercase;
+  }
+
+  .pf-section__item {
+    @apply text-sm uppercase;
+  }
+
+  .pf-section__link {
+    @apply border-b border-orange-700;
+    transition: border-color .3s ease, color .3s ease;
+  }
+
+  .pf-section__link:hover {
+    @apply border-white text-white;
+  }
 
 /* =====================================
 *  site-logo
@@ -105,7 +147,6 @@
   .menu-link--header {
     @apply text-orange-700 border-b-2 border-white;
     transition: border-color .3s ease;
-    /* line-height: 100px; */
   }
 
   .menu-link--header:hover {

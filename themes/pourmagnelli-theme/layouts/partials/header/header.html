@@ -11,7 +11,7 @@
             {{ $currentPage := . }}
             {{ range .Site.Menus.main.ByWeight }}
             <li class="menu-item">
-              <a class="menu-link menu-link--header flex ml-4 uppercase {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{.URL}}">{{ .Title }}</a>
+              <a class="menu-link menu-link--header flex ml-4 uppercase {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ .URL }}">{{ .Title }}</a>
             </li>
             {{ end }}
             <li class="menu-item">
