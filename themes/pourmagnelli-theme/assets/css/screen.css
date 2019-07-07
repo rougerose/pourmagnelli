@@ -19,6 +19,20 @@
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
+
+  .media {
+    flex-direction: row;
+  }
+
+  .media__img {
+    width: 30%;
+    margin-right: 2rem;
+    margin-bottom: 0;
+  }
+
+  .media__body {
+    width: 70%;
+  }
 }
 
 

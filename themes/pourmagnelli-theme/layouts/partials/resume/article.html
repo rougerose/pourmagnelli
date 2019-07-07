@@ -1,0 +1,9 @@
+<article class="article-resume">
+  <a href="{{ .Permalink }}" class="article-resume__link">
+    <h1 class="article-resume__title">{{ .Title }}</h1>
+    <div class="article-resume__desc text">
+      {{- partial "resume/article-desc.html" . -}}
+      <p class="more"><span class="more-span">Lire la suite</span></p>
+    </div>
+  </a>
+</article>

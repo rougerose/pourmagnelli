@@ -1,11 +1,18 @@
 {{ define "main" }}
-{{ range .Pages }}
   <div class="container">
-    <p>defaut list.html</p>
-    <article class="">
-        <h1 class="">{{ .Title }}</h1>
-        {{ .Content }}
-    </article>
+    <div class="wrapper">
+      <div class="grid">
+        <div class="grid-cell md:w-2/3">
+          <article class="rubrique">
+            <header class="rubrique__header">
+              <h1 class="rubrique__titre text-3xl md:text-4xl">{{ .Title }}</h1>
+            </header>
+            {{ range .Pages }}
+              {{- partial "resume/article.html" . -}}
+            {{ end }}
+          </article>
+        </div>
+      </div>
+    </div>
   </div>
-{{ end }}
 {{ end }}
