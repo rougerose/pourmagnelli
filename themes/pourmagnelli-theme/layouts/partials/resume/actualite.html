@@ -5,7 +5,7 @@
       {{ if isset .Params "image" }}
         <figure class="media__img"><img src="{{ .Params.image }}" alt=""></figure>
       {{ end }}
-      <div class="media__body feature__desc text">
+      <div class="media__body {{ if isset .Params "image" }}{{ else }}media__body--noimg{{ end }} feature__desc text ">
         {{- partial "resume/article-desc.html" . -}}
         <p class="more"><span class="more-span">Lire la suite</span></p>
         <p class="feature__meta">{{ .Date.Format "02/01/2006" }} &middot; {{.Params.section_title}}</p>

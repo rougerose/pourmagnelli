@@ -34,6 +34,10 @@
     width: 70%;
   }
 
+  .media__body--noimg {
+    width: 100%;
+  }
+
   .article {
     max-width: 700px;
   }
