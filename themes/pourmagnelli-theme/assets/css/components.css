@@ -256,7 +256,7 @@
    }
 
    .feature__meta {
-     @apply mt-2 uppercase text-sm tracking-wide text-gray-400;
+     @apply mt-4 uppercase text-sm tracking-wide text-gray-400;
    }
 
 
@@ -312,6 +312,24 @@
 
   .rubrique__titre {
     @apply font-semibold;
+  }
+
+
+/* =====================================
+*  article
+*  ===================================== */
+
+  .article {
+    width: 100%;
+  }
+
+  .article__header,
+  .article__logo {
+    @apply mb-8;
+  }
+
+  .article__body {
+
   }
 
 

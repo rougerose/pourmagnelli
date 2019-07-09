@@ -33,6 +33,10 @@
   .media__body {
     width: 70%;
   }
+
+  .article {
+    max-width: 700px;
+  }
 }
 
 

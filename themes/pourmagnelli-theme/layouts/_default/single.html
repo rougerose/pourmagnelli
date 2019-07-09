@@ -1,8 +1,23 @@
 {{ define "main" }}
-<div class="container">
-  <article class="text-gray-700 mx-4 sm:mx-12">
-      <h1 class="font-bold text-3xl text-gray-700">{{ .Title }}</h1>
-      {{ .Content }}
-  </article>
-</div>
+  <div class="container">
+    <div class="wrapper">
+      <div class="grid">
+        <div class="grid-cell">
+          <article class="article">
+            <header class="article__header">
+              <h1 class="article__titre text-3xl md:text-4xl">{{ .Title }}</h1>
+            </header>
+            {{ if isset .Params "image" }}
+              <figure class="article__logo">
+                <img src="{{ .Params.image }}" alt="">
+              </figure>
+            {{ end }}
+            <div class="article__body">
+              {{ .Content }}
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
 {{ end }}
