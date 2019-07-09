@@ -323,13 +323,14 @@
     width: 100%;
   }
 
-  .article__header,
-  .article__logo {
-    @apply mb-8;
+  .article__header {
+    @apply mt-8;
   }
 
+  .article__header,
+  .article__logo,
   .article__body {
-
+    @apply mb-16;
   }
 
 
@@ -342,7 +343,7 @@
   }
 
   .text p {
-    @apply pb-2;
+    @apply pb-4;
   }
 
   .text--larger {
