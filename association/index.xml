@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>L’association on Pour Magnelli</title>
-    <link>http://example.org/association/</link>
+    <link>https://rougerose.github.io/pourmagnelli/association/</link>
     <description>Recent content in L’association on Pour Magnelli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <lastBuildDate>Thu, 04 Jul 2019 23:17:48 +0200</lastBuildDate>
     
-	<atom:link href="http://example.org/association/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://rougerose.github.io/pourmagnelli/association/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>L&#39;association Pour Magnelli</title>
-      <link>http://example.org/association/association/</link>
+      <link>https://rougerose.github.io/pourmagnelli/association/association/</link>
       <pubDate>Thu, 27 Jun 2019 13:56:36 +0200</pubDate>
       
-      <guid>http://example.org/association/association/</guid>
+      <guid>https://rougerose.github.io/pourmagnelli/association/association/</guid>
       <description>&lt;p&gt;L&amp;rsquo;association Pour Magnelli a été créée à la mémoire du peintre et de son œuvre, à l&amp;rsquo;initiative de ses amis proches et de ses exécuteurs testamentaires réunis autour de Susi Magnelli, sa veuve. &lt;/p&gt;
 
 &lt;p&gt;L&amp;rsquo;association est aujourd&amp;rsquo;hui constituée d&amp;rsquo;amis du peintre, d&amp;rsquo;historiens de l&amp;rsquo;art, de conservateurs, de directeurs de galeries et de collectionneurs. &lt;/p&gt;
@@ -27,19 +27,19 @@
     
     <item>
       <title>Authentification</title>
-      <link>http://example.org/association/authentification/</link>
+      <link>https://rougerose.github.io/pourmagnelli/association/authentification/</link>
       <pubDate>Thu, 27 Jun 2019 13:56:36 +0200</pubDate>
       
-      <guid>http://example.org/association/authentification/</guid>
+      <guid>https://rougerose.github.io/pourmagnelli/association/authentification/</guid>
       <description>[Résumé] L&amp;rsquo;association Pour Magnelli peut réaliser une authentification sous certaines conditions.</description>
     </item>
     
     <item>
       <title>Contact</title>
-      <link>http://example.org/association/contact/</link>
+      <link>https://rougerose.github.io/pourmagnelli/association/contact/</link>
       <pubDate>Sat, 06 Jul 2019 09:57:46 +0200</pubDate>
       
-      <guid>http://example.org/association/contact/</guid>
+      <guid>https://rougerose.github.io/pourmagnelli/association/contact/</guid>
       <description>[Résumé page de contact]</description>
     </item>
     

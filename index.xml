@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hi, and welcome. on Pour Magnelli</title>
-    <link>http://example.org/</link>
+    <link>https://rougerose.github.io/pourmagnelli/</link>
     <description>Recent content in Hi, and welcome. on Pour Magnelli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <lastBuildDate>Wed, 15 May 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://rougerose.github.io/pourmagnelli/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Biographie</title>
-      <link>http://example.org/magnelli/biographie/</link>
+      <link>https://rougerose.github.io/pourmagnelli/magnelli/biographie/</link>
       <pubDate>Thu, 04 Jul 2019 23:47:49 +0200</pubDate>
       
-      <guid>http://example.org/magnelli/biographie/</guid>
+      <guid>https://rougerose.github.io/pourmagnelli/magnelli/biographie/</guid>
       <description></description>
     </item>
     
     <item>
       <title>L&#39;association Pour Magnelli</title>
-      <link>http://example.org/association/association/</link>
+      <link>https://rougerose.github.io/pourmagnelli/association/association/</link>
       <pubDate>Thu, 27 Jun 2019 13:56:36 +0200</pubDate>
       
-      <guid>http://example.org/association/association/</guid>
+      <guid>https://rougerose.github.io/pourmagnelli/association/association/</guid>
       <description>&lt;p&gt;L&amp;rsquo;association Pour Magnelli a été créée à la mémoire du peintre et de son œuvre, à l&amp;rsquo;initiative de ses amis proches et de ses exécuteurs testamentaires réunis autour de Susi Magnelli, sa veuve. &lt;/p&gt;
 
 &lt;p&gt;L&amp;rsquo;association est aujourd&amp;rsquo;hui constituée d&amp;rsquo;amis du peintre, d&amp;rsquo;historiens de l&amp;rsquo;art, de conservateurs, de directeurs de galeries et de collectionneurs. &lt;/p&gt;
@@ -36,46 +36,46 @@
     
     <item>
       <title>Œuvre</title>
-      <link>http://example.org/magnelli/oeuvre/</link>
+      <link>https://rougerose.github.io/pourmagnelli/magnelli/oeuvre/</link>
       <pubDate>Thu, 04 Jul 2019 23:47:59 +0200</pubDate>
       
-      <guid>http://example.org/magnelli/oeuvre/</guid>
+      <guid>https://rougerose.github.io/pourmagnelli/magnelli/oeuvre/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Authentification</title>
-      <link>http://example.org/association/authentification/</link>
+      <link>https://rougerose.github.io/pourmagnelli/association/authentification/</link>
       <pubDate>Thu, 27 Jun 2019 13:56:36 +0200</pubDate>
       
-      <guid>http://example.org/association/authentification/</guid>
+      <guid>https://rougerose.github.io/pourmagnelli/association/authentification/</guid>
       <description>[Résumé] L&amp;rsquo;association Pour Magnelli peut réaliser une authentification sous certaines conditions.</description>
     </item>
     
     <item>
       <title>Contact</title>
-      <link>http://example.org/association/contact/</link>
+      <link>https://rougerose.github.io/pourmagnelli/association/contact/</link>
       <pubDate>Sat, 06 Jul 2019 09:57:46 +0200</pubDate>
       
-      <guid>http://example.org/association/contact/</guid>
+      <guid>https://rougerose.github.io/pourmagnelli/association/contact/</guid>
       <description>[Résumé page de contact]</description>
     </item>
     
     <item>
       <title>Bibliographie</title>
-      <link>http://example.org/magnelli/bibliographie/</link>
+      <link>https://rougerose.github.io/pourmagnelli/magnelli/bibliographie/</link>
       <pubDate>Thu, 04 Jul 2019 23:48:16 +0200</pubDate>
       
-      <guid>http://example.org/magnelli/bibliographie/</guid>
+      <guid>https://rougerose.github.io/pourmagnelli/magnelli/bibliographie/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Magnelli</title>
-      <link>http://example.org/abecedaire/01/</link>
+      <link>https://rougerose.github.io/pourmagnelli/abecedaire/01/</link>
       <pubDate>Fri, 05 Jul 2019 13:46:12 +0200</pubDate>
       
-      <guid>http://example.org/abecedaire/01/</guid>
+      <guid>https://rougerose.github.io/pourmagnelli/abecedaire/01/</guid>
       <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem quis, quaerat exercitationem assumenda similique eligendi alias deserunt ducimus laborum harum quo, repellendus atque, delectus aperiam commodi! Facere consectetur adipisci dicta.
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, aut, distinctio. Qui cum repellendus nihil assumenda doloremque! Soluta rem harum unde nobis culpa cum sed! Omnis assumenda rem, deleniti inventore!
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</description>
@@ -83,46 +83,46 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
     
     <item>
       <title>[Titre] Tempor orci eu lobortis elementum nibh tellus </title>
-      <link>http://example.org/actualites/expositions/expo02/</link>
+      <link>https://rougerose.github.io/pourmagnelli/actualites/expositions/expo02/</link>
       <pubDate>Mon, 01 Jul 2019 16:49:15 +0200</pubDate>
       
-      <guid>http://example.org/actualites/expositions/expo02/</guid>
+      <guid>https://rougerose.github.io/pourmagnelli/actualites/expositions/expo02/</guid>
       <description>[Résumé] Tortor id aliquet lectus proin nibh. Odio facilisis mauris sit amet massa vitae tortor condimentum lacinia. Arcu vitae elementum curabitur vitae nunc. Faucibus scelerisque eleifend donec pretium.</description>
     </item>
     
     <item>
       <title>[Titre] Nulla porttitor massa id neque.</title>
-      <link>http://example.org/actualites/expositions/expo03/</link>
+      <link>https://rougerose.github.io/pourmagnelli/actualites/expositions/expo03/</link>
       <pubDate>Wed, 19 Jun 2019 16:46:21 +0200</pubDate>
       
-      <guid>http://example.org/actualites/expositions/expo03/</guid>
+      <guid>https://rougerose.github.io/pourmagnelli/actualites/expositions/expo03/</guid>
       <description>[Résumé] In massa tempor nec feugiat nisl. Dictum fusce ut placerat orci nulla pellentesque dignissim.</description>
     </item>
     
     <item>
       <title>[Titre] Id eu nisl nunc mi ipsum faucibus vitae</title>
-      <link>http://example.org/actualites/publications/pub01/</link>
+      <link>https://rougerose.github.io/pourmagnelli/actualites/publications/pub01/</link>
       <pubDate>Wed, 05 Jun 2019 16:49:54 +0200</pubDate>
       
-      <guid>http://example.org/actualites/publications/pub01/</guid>
+      <guid>https://rougerose.github.io/pourmagnelli/actualites/publications/pub01/</guid>
       <description>[Résumé] Quis auctor elit sed vulputate mi. At in tellus integer feugiat scelerisque. Nunc mattis enim ut tellus elementum sagittis. Imperdiet proin fermentum leo vel. Consequat semper viverra nam libero.</description>
     </item>
     
     <item>
       <title>[Titre] Pharetra diam sit amet nisl suscipit</title>
-      <link>http://example.org/actualites/expositions/expo01/</link>
+      <link>https://rougerose.github.io/pourmagnelli/actualites/expositions/expo01/</link>
       <pubDate>Sun, 26 May 2019 16:49:06 +0200</pubDate>
       
-      <guid>http://example.org/actualites/expositions/expo01/</guid>
+      <guid>https://rougerose.github.io/pourmagnelli/actualites/expositions/expo01/</guid>
       <description>[Résumé] Leo vel orci porta non pulvinar neque laoreet. Viverra nam libero justo laoreet sit. Magna fringilla urna porttitor rhoncus dolor. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo.</description>
     </item>
     
     <item>
       <title>[Titre] Sed ullamcorper morbi tincidunt ornare</title>
-      <link>http://example.org/actualites/publications/pub02/</link>
+      <link>https://rougerose.github.io/pourmagnelli/actualites/publications/pub02/</link>
       <pubDate>Sun, 05 May 2019 16:50:00 +0200</pubDate>
       
-      <guid>http://example.org/actualites/publications/pub02/</guid>
+      <guid>https://rougerose.github.io/pourmagnelli/actualites/publications/pub02/</guid>
       <description>[Résumé] Magna fringilla urna porttitor rhoncus dolor. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo. Tempor orci eu lobortis elementum nibh tellus molestie nunc. Eget dolor morbi non arcu risus quis varius quam.</description>
     </item>
     

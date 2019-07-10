@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publications récentes on Pour Magnelli</title>
-    <link>http://example.org/actualites/publications/</link>
+    <link>https://rougerose.github.io/pourmagnelli/actualites/publications/</link>
     <description>Recent content in Publications récentes on Pour Magnelli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <lastBuildDate>Fri, 05 Jul 2019 00:15:15 +0200</lastBuildDate>
     
-	<atom:link href="http://example.org/actualites/publications/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://rougerose.github.io/pourmagnelli/actualites/publications/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>[Titre] Id eu nisl nunc mi ipsum faucibus vitae</title>
-      <link>http://example.org/actualites/publications/pub01/</link>
+      <link>https://rougerose.github.io/pourmagnelli/actualites/publications/pub01/</link>
       <pubDate>Wed, 05 Jun 2019 16:49:54 +0200</pubDate>
       
-      <guid>http://example.org/actualites/publications/pub01/</guid>
+      <guid>https://rougerose.github.io/pourmagnelli/actualites/publications/pub01/</guid>
       <description>[Résumé] Quis auctor elit sed vulputate mi. At in tellus integer feugiat scelerisque. Nunc mattis enim ut tellus elementum sagittis. Imperdiet proin fermentum leo vel. Consequat semper viverra nam libero.</description>
     </item>
     
     <item>
       <title>[Titre] Sed ullamcorper morbi tincidunt ornare</title>
-      <link>http://example.org/actualites/publications/pub02/</link>
+      <link>https://rougerose.github.io/pourmagnelli/actualites/publications/pub02/</link>
       <pubDate>Sun, 05 May 2019 16:50:00 +0200</pubDate>
       
-      <guid>http://example.org/actualites/publications/pub02/</guid>
+      <guid>https://rougerose.github.io/pourmagnelli/actualites/publications/pub02/</guid>
       <description>[Résumé] Magna fringilla urna porttitor rhoncus dolor. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo. Tempor orci eu lobortis elementum nibh tellus molestie nunc. Eget dolor morbi non arcu risus quis varius quam.</description>
     </item>
     

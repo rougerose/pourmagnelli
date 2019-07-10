@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Abecedaire on Pour Magnelli</title>
-    <link>http://example.org/abecedaire/</link>
+    <link>https://rougerose.github.io/pourmagnelli/abecedaire/</link>
     <description>Recent content in Abecedaire on Pour Magnelli</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <lastBuildDate>Fri, 05 Jul 2019 13:46:12 +0200</lastBuildDate>
     
-	<atom:link href="http://example.org/abecedaire/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://rougerose.github.io/pourmagnelli/abecedaire/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Magnelli</title>
-      <link>http://example.org/abecedaire/01/</link>
+      <link>https://rougerose.github.io/pourmagnelli/abecedaire/01/</link>
       <pubDate>Fri, 05 Jul 2019 13:46:12 +0200</pubDate>
       
-      <guid>http://example.org/abecedaire/01/</guid>
+      <guid>https://rougerose.github.io/pourmagnelli/abecedaire/01/</guid>
       <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem quis, quaerat exercitationem assumenda similique eligendi alias deserunt ducimus laborum harum quo, repellendus atque, delectus aperiam commodi! Facere consectetur adipisci dicta.
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, aut, distinctio. Qui cum repellendus nihil assumenda doloremque! Soluta rem harum unde nobis culpa cum sed! Omnis assumenda rem, deleniti inventore!
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</description>
