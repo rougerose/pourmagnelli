@@ -3,7 +3,7 @@
     <div class="wrapper">
       <div class="grid">
         <div class="grid-cell">
-          <article class="article">
+          <article class="article content-container">
             <header class="article__header">
               <h1 class="article__titre text-3xl md:text-4xl">{{ .Title }}</h1>
             </header>
@@ -16,6 +16,8 @@
               {{ .Content }}
             </div>
           </article>
+          {{- partial "prevnext.html" . -}}
+          {{- partial "breadcrumb.html" . -}}
         </div>
       </div>
     </div>

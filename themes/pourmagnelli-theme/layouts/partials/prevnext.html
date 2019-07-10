@@ -1,0 +1,30 @@
+<nav class="content-container c-nav c-pagination c-pagination--prevnext c-pagination--bottom" role="navigation">
+    <ul class="c-nav__list">
+        <li class="c-nav__list-item c-pagination__item c-pagination__item--prev">
+          {{ if .PrevInSection }}
+            <a href="{{.PrevInSection.Permalink}}" class="c-pagination__link c-pagination__link--prev">
+              <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M30 40h-6l-7-16 7-16h6l-7 16" fill-rule="evenodd"/></svg>
+              <span class="c-nav__text c-pagination__text">Article précédent</span>
+            </a>
+          {{ else }}
+            <span class="c-pagination__link c-pagination__link--prev is-disabled">
+              <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M30 40h-6l-7-16 7-16h6l-7 16" fill-rule="evenodd"/></svg>
+              <span class="c-nav__text c-pagination__text">Article précédent</span>
+            </span>
+          {{ end }}
+        </li>
+        <li class="c-nav__list-item c-pagination__item c-pagination__item--next">
+          {{ if .NextInSection }}
+            <a href="{{.NextInSection.Permalink}}" class="c-pagination__link c-pagination__link--next">
+              <span class="c-nav__text c-pagination__text">Article suivant</span>
+              <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M19 8h6l7 16-7 16h-6l7-16" fill-rule="evenodd"/></svg>
+            </a>
+          {{ else }}
+            <span class="c-pagination__link c-pagination__link--next is-disabled">
+              <span class="c-nav__text c-pagination__text">Article suivant</span>
+              <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M19 8h6l7 16-7 16h-6l7-16" fill-rule="evenodd"/></svg>
+            </span>
+          {{ end }}
+        </li>
+    </ul>
+  </nav>

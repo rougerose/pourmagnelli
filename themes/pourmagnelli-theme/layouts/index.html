@@ -4,7 +4,7 @@
     {{ with .Site.GetPage "/association/association.md" }}
     <div class="grid">
       <div class="grid-cell md:w-2/3">
-        <div class="intro text text--larger">
+        <div class="intro text text--larger js-scrollReveal">
           {{ .Summary }}
           <p class="more"><a href="{{ .Permalink }}" class="more-link">Lire la suite</a></p>
         </div>
@@ -15,7 +15,7 @@
     <div class="grid grid--large">
       {{- with .Site.GetPage "/abecedaire/01.md" -}}
       <div class="grid-cell md:w-1/2">
-        <article class="feature-section">
+        <article class="feature-section js-scrollReveal">
           <h1 class="feature-section__title feature-section__title--abecedaire"><span>M</span> comme… {{ .Title }}</h1>
           <div class="feature-section__text text">
             {{ .Content }}
@@ -25,7 +25,7 @@
       {{- end -}}
       {{- $actus := where (where $.Site.Pages ".Section" "eq" "actualites") ".Kind" "eq" "page" -}}
       <div class="grid-cell md:w-1/2">
-        <section class="feature-section">
+        <section class="feature-section js-scrollReveal">
           <h1 class="feature-section__title">{{ with .Site.GetPage "section" "actualites" }}{{ .Title }}{{ end }}</h1>
           {{- range first 3 $actus.ByDate.Reverse -}}
             <article class="feature">

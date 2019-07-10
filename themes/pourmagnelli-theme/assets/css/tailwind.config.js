@@ -4,6 +4,10 @@ module.exports = {
       sans: ["GSN", "sans-serif"]
     },
     extend: {
+      colors: {
+        primaire: '#b01421',
+        secondaire: '#2b2073'
+      },
       container: {
         center: true
       },
