@@ -1,0 +1,1 @@
+(function($){var $menu=$(".js-menu-mobile"),$btn=$(".js-btn"),sel=false;$btn.on("click",function(){sel=!sel;$btn.toggleClass("is-open");$menu.toggleClass("is-open",sel);if(sel){bodyScrollLock.disableBodyScroll($menu);}else{bodyScrollLock.enableBodyScroll($menu);}});})(jQuery);
