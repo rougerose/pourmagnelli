@@ -4,7 +4,7 @@ date: 2019-06-05T16:49:54+02:00
 draft: false
 section_title: "Publications"
 summary: "[Résumé] Quis auctor elit sed vulputate mi. At in tellus integer feugiat scelerisque. Nunc mattis enim ut tellus elementum sagittis. Imperdiet proin fermentum leo vel. Consequat semper viverra nam libero."
-image: "/images/img2.jpg"
+image: "images/img2.jpg"
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacinia quis vel eros donec. Mauris pharetra et ultrices neque ornare. Pretium fusce id velit ut tortor pretium. Dolor magna eget est lorem ipsum. Ut tortor pretium viverra suspendisse potenti nullam ac tortor. Quis blandit turpis cursus in hac. At volutpat diam ut venenatis tellus in metus. In massa tempor nec feugiat nisl. Dictum fusce ut placerat orci nulla pellentesque dignissim. Enim sit amet venenatis urna cursus eget nunc. Nulla porttitor massa id neque. Quis enim lobortis scelerisque fermentum dui faucibus in. Tortor at auctor urna nunc id cursus metus.
 

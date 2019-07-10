@@ -2,7 +2,7 @@
   <a href="{{ .Permalink }}" class="article-selection__link">
     <h1 class="article-selection__title">{{ .Title }}</h1>
     <div class="media">
-      <div class="media__img"><img src="{{ .Params.image }}" alt=""></div>
+      <div class="media__img"><img src="{{ .Site.BaseURL}}{{ .Params.image }}" alt=""></div>
       <div class="media__body article-selection__desc text">
         {{- partial "resume/article-desc.html" . -}}
         <p class="more more--selection"><span class="more-span">Lire la suite</span></p>

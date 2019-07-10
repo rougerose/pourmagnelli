@@ -9,7 +9,7 @@
             </header>
             {{ if isset .Params "image" }}
               <figure class="article__logo">
-                <img src="{{ .Params.image }}" alt="">
+                <img src="{{ .Site.BaseURL}}{{ index .Params "image" }}" alt="">
               </figure>
             {{ end }}
             <div class="article__body text">
