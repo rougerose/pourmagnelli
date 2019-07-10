@@ -85,6 +85,7 @@
 
   .page-footer {
     @apply pt-16 pb-8;
+    background-color: #700C15;
   }
 
   .pf-section {
@@ -104,7 +105,8 @@
   }
 
   .pf-section__link {
-    @apply border-b border-secondaire text-white;
+    @apply border-b text-white;
+    border-color: #700C15;
     transition: border-color .3s ease, color .3s ease;
   }
 
@@ -570,4 +572,62 @@ a.c-pagination__link--next:hover > svg {
 
 a:hover > .icon-plus {
   transform: rotate(135deg) scale(1.5, 1.5);
+}
+
+
+/* =====================================
+*  styles contenus
+*  ===================================== */
+
+.ct-hN {
+  @apply text-3xl mt-10 mb-8 text-primaire;
+}
+
+.ct-hN.h3 {
+  @apply text-2xl mt-10 mb-6;
+}
+
+.ct-dl::before {
+  content: '';
+  width: 1px;
+  background-color: black;
+  height: 100%;
+}
+
+.ct-dl > dt {
+  @apply flex items-baseline justify-start font-semibold text-xl;
+}
+
+.ct-dl > dt::before {
+  @apply bg-secondaire;
+  margin-right: 1rem;
+  content: '';
+  display: block;
+  height: .8rem;
+  width: .8rem;
+  border-radius: 50%;
+}
+
+.ct-dl > dd {
+  margin-left: 2rem;
+}
+
+.ct-dl > dd + dt {
+  margin-top: 2rem;
+}
+
+.ct-figure {
+  @apply flex items-start border-b border-gray-300;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+.ct-figure > img {
+  width: 30%;
+  order: 2;
+}
+
+.ct-figure > figcaption {
+  margin-right: 2rem;
+  width: 70%;
 }

@@ -4,6 +4,7 @@ DefaultContentLanguage = "fr"
 title = "Pour Magnelli"
 theme = "pourmagnelli-theme"
 pluralizeListTitles = false
+canonifyURLs = true
 # sectionPagesMenu = "main"
 
 [menu]
