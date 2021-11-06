@@ -1,6 +1,20 @@
+# fichiers systemes
 .DS_Store
-node_modules
-yarn-error.log
-yarn.lock
 
-public
+# vscode
+.vscode/*
+
+# tmp css
+theme/src/css/**/*.css
+
+# yarn
+theme/.yarn/*
+!theme/.yarn/patches
+!theme/.yarn/plugins
+!theme/.yarn/releases
+!theme/.yarn/sdks
+
+# Swap the comments on the following lines if you don't wish to use zero-installs
+# Documentation here: https://yarnpkg.com/features/zero-installs
+!theme/.yarn/cache
+#theme/.pnp.*
