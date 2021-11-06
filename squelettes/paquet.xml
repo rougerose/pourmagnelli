@@ -1,0 +1,13 @@
+<paquet
+	prefix="pourmagnelli_squelettes"
+	categorie="squelette"
+	version="1.0.0"
+	etat="test"
+	compatibilite="[4.0.0;4.*.*]"
+	logo="pourmagnelli_squelettes.png"
+>
+	<nom>Pour Magnelli : squelettes du site</nom>
+	<auteur lien="http://rouge-rose.net">christophe le drean</auteur>
+	<licence>GPL v3</licence>
+	<necessite nom="zcore" compatibilite="[3.0.0;[" />
+</paquet>
