@@ -1,0 +1,15 @@
+<paquet
+	prefix="pourmagnelli_theme"
+	categorie="theme"
+	version="1.0.0"
+	etat="dev"
+	compatibilite="[4.0.0;4.9.*]"
+	logo="pourmagnelli_theme.png"
+>
+	<nom>Pour Magnelli : thème graphique</nom>
+
+	<auteur lien="http://rouge-rose.net">christophe le drean</auteur>
+	<licence>GPL v3</licence>
+	<necessite nom="pourmagnelli_squelettes" />
+	<chemin path="" />
+</paquet>
