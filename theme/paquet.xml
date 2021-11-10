@@ -3,7 +3,7 @@
 	categorie="theme"
 	version="1.0.0"
 	etat="dev"
-	compatibilite="[4.0.0;4.9.*]"
+	compatibilite="[4.0.0;4.99.*]"
 	logo="prive/themes/spip/images/pourmagnelli_theme-128.png"
 >
 	<nom>Pour Magnelli : thème graphique</nom>
@@ -12,4 +12,7 @@
 	<licence>GPL v3</licence>
 	<necessite nom="pourmagnelli_squelettes" />
 	<chemin path="" />
+  <spip compatibilite="[4.0.0;4.99.*]">
+		<style type="public" source="dist/css/styles.css" />
+	</spip>
 </paquet>

@@ -5,18 +5,21 @@ module.exports = {
   },
   tailwind: "tailwind.config.js",
   scss: {
-    src: "src/scss/",
+    src: "theme/src/scss/",
   },
   css: {
-    src: "src/css/",
-    dest: "dist/css/",
+    src: "theme/src/css/",
+    dest: "theme/dist/css/",
   },
   js: {
-    src: ["src/js/main.js"],
-    dest: "dist/js/",
+    src: ["theme/src/js/main.js"],
+    dest: "theme/dist/js/",
     name: "main.js",
   },
-  clean: ["dist/**/*", "!dist/"],
+  html: {
+    src: "squelettes/**/*.html",
+  },
+  clean: ["theme/dist/**/*", "!theme/dist/"],
   tasks: {
     css: true,
     cssVendor: false,

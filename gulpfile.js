@@ -28,16 +28,16 @@ const css = function (done) {
   // Make sure this feature is activated before running
   if (!config.tasks.css) return done();
 
-  return (
-    src(config.scss.src + "**/*.scss")
-      .pipe(sass.sync().on("error", sass.logError))
-      // .pipe(dest(config.css.src))
-      .pipe(postcss())
-      .pipe(rename({ basename: "styles" }))
-      .pipe(size({ title: "CSS", gzip: true, showFiles: true }))
-      .pipe(dest(config.css.dest))
-      .pipe(browserSync.stream())
-  );
+  return src(config.scss.src + "**/*.scss")
+    .pipe(
+      sass.sync().on("error", sass.logError)
+    )
+    .pipe(dest(config.css.src))
+    .pipe(postcss())
+    .pipe(rename({ basename: "styles" }))
+    .pipe(size({ title: "CSS", gzip: true, showFiles: true }))
+    .pipe(dest(config.css.dest))
+    .pipe(browserSync.stream());
 };
 
 // Scripts task
@@ -88,7 +88,7 @@ const watchSource = function (done) {
   watch(config.scss.src + "**/*.scss", series(css));
   watch(config.tailwind, series(css));
   watch(config.js.src, series(js, reloadBrowser));
-  // watch(config.html.src, reloadBrowser);
+  watch(config.html.src, reloadBrowser);
 
   // Signal completion
   done();
