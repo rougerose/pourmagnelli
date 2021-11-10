@@ -30,7 +30,9 @@ const css = function (done) {
 
   return src(config.scss.src + "**/*.scss")
     .pipe(
-      sass.sync().on("error", sass.logError)
+      sass
+        .sync({ includePaths: config.scss.loadPath })
+        .on("error", sass.logError)
     )
     .pipe(dest(config.css.src))
     .pipe(postcss())

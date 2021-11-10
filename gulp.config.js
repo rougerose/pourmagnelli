@@ -6,6 +6,7 @@ module.exports = {
   tailwind: "tailwind.config.js",
   scss: {
     src: "theme/src/scss/",
+    loadPath: ["node_modules"],
   },
   css: {
     src: "theme/src/css/",
