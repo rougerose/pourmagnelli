@@ -1,6 +1,10 @@
 {
   "name": "pourmagnelli.org",
-  "packageManager": "yarn@3.1.0",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/rougerose/pourmagnelli.git",
+  "author": "christophe le drean <christophe@rouge-rose.net>",
+  "license": "GPL v3",
   "private": true,
   "scripts": {
     "watch": "gulp",
