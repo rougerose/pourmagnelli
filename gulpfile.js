@@ -90,7 +90,7 @@ const watchSource = function (done) {
   watch(config.scss.src + "**/*.scss", series(css));
   watch(config.tailwind, series(css));
   watch(config.js.src, series(js, reloadBrowser));
-  watch(config.html.src, reloadBrowser);
+  watch(config.html.src, series(css, reloadBrowser));
 
   // Signal completion
   done();

@@ -20,7 +20,7 @@ module.exports = {
   html: {
     src: "squelettes/**/*.html",
   },
-  clean: ["theme/dist/**/*", "!theme/dist/"],
+  clean: ["theme/dist/css/*.css", "!theme/dist/"],
   tasks: {
     css: true,
     cssVendor: false,
