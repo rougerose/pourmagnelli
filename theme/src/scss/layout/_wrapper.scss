@@ -1,0 +1,29 @@
+// ========================================
+// container
+// ========================================
+
+// Ne pas utiliser le composant .container de tailwindcss
+// car il est appliqué un max-width identique au mediaquery
+
+@use "../abstracts";
+
+.l-wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  // width: 100%;
+  max-width: 1280px;
+
+  @include abstracts.mq($from: desktop) {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}
+
+.l-wrapper-content {
+  @include abstracts.mq($from: desktop) {
+    margin-left: 4.5rem;
+    margin-right: 4.5rem;
+  }
+}

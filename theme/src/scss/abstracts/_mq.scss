@@ -1,0 +1,15 @@
+// ========================================
+// breakpoints
+// ========================================
+
+// Ces variables doivent être cohérentes avec celles utilises par tailwind
+$breakpoints: (
+  mobile: 640px,
+  tablet: 768px,
+  desktop: 1024px,
+  wide: 1280px,
+  xwide: 1536px,
+);
+
+@use "sass-mq/mq" with ($breakpoints: $breakpoints);
+@forward 'sass-mq/mq';

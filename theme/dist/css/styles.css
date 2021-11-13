@@ -1,6 +1,4 @@
-/*! tailwindcss v2.2.19 | MIT License | https://tailwindcss.com */
-
-/*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+/*! tailwindcss v2.2.19 | MIT License | https://tailwindcss.com *//*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
 /*
 Document
@@ -14,7 +12,7 @@ Use a better box model (opinionated).
 *,
 ::before,
 ::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 /**
@@ -22,9 +20,9 @@ Use a more readable tab size (opinionated).
 */
 
 html {
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-     tab-size: 4;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	   tab-size: 4;
 }
 
 /**
@@ -33,8 +31,8 @@ html {
 */
 
 html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+	line-height: 1.15; /* 1 */
+	-webkit-text-size-adjust: 100%; /* 2 */
 }
 
 /*
@@ -47,7 +45,7 @@ Remove the margin in all browsers.
 */
 
 body {
-  margin: 0;
+	margin: 0;
 }
 
 /**
@@ -55,7 +53,7 @@ Improve consistency of default fonts in all browsers. (https://github.com/sindre
 */
 
 body {
-  font-family:
+	font-family:
 		system-ui,
 		-apple-system, /* Firefox supports this but not yet `system-ui` */
 		'Segoe UI',
@@ -78,8 +76,8 @@ Grouping content
 */
 
 hr {
-  height: 0; /* 1 */
-  color: inherit; /* 2 */
+	height: 0; /* 1 */
+	color: inherit; /* 2 */
 }
 
 /*
@@ -92,8 +90,8 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 */
 
 abbr[title] {
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+	-webkit-text-decoration: underline dotted;
+	        text-decoration: underline dotted;
 }
 
 /**
@@ -102,7 +100,7 @@ Add the correct font weight in Edge and Safari.
 
 b,
 strong {
-  font-weight: bolder;
+	font-weight: bolder;
 }
 
 /**
@@ -114,14 +112,14 @@ code,
 kbd,
 samp,
 pre {
-  font-family:
+	font-family:
 		ui-monospace,
 		SFMono-Regular,
 		Consolas,
 		'Liberation Mono',
 		Menlo,
 		monospace; /* 1 */
-  font-size: 1em; /* 2 */
+	font-size: 1em; /* 2 */
 }
 
 /**
@@ -129,7 +127,7 @@ Add the correct font size in all browsers.
 */
 
 small {
-  font-size: 80%;
+	font-size: 80%;
 }
 
 /**
@@ -138,18 +136,18 @@ Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
 
 sub,
 sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
 }
 
 sub {
-  bottom: -0.25em;
+	bottom: -0.25em;
 }
 
 sup {
-  top: -0.5em;
+	top: -0.5em;
 }
 
 /*
@@ -163,8 +161,8 @@ Tabular data
 */
 
 table {
-  text-indent: 0; /* 1 */
-  border-color: inherit; /* 2 */
+	text-indent: 0; /* 1 */
+	border-color: inherit; /* 2 */
 }
 
 /*
@@ -182,10 +180,10 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
+	font-family: inherit; /* 1 */
+	font-size: 100%; /* 1 */
+	line-height: 1.15; /* 1 */
+	margin: 0; /* 2 */
 }
 
 /**
@@ -195,7 +193,7 @@ Remove the inheritance of text transform in Edge and Firefox.
 
 button,
 select { /* 1 */
-  text-transform: none;
+	text-transform: none;
 }
 
 /**
@@ -206,7 +204,7 @@ button,
 [type='button'],
 [type='reset'],
 [type='submit'] {
-  -webkit-appearance: button;
+	-webkit-appearance: button;
 }
 
 /**
@@ -214,8 +212,8 @@ Remove the inner border and padding in Firefox.
 */
 
 ::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
+	border-style: none;
+	padding: 0;
 }
 
 /**
@@ -223,7 +221,7 @@ Restore the focus styles unset by the previous rule.
 */
 
 :-moz-focusring {
-  outline: 1px dotted ButtonText;
+	outline: 1px dotted ButtonText;
 }
 
 /**
@@ -232,7 +230,7 @@ See: https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d4
 */
 
 :-moz-ui-invalid {
-  box-shadow: none;
+	box-shadow: none;
 }
 
 /**
@@ -240,7 +238,7 @@ Remove the padding so developers are not caught out when they zero out 'fieldset
 */
 
 legend {
-  padding: 0;
+	padding: 0;
 }
 
 /**
@@ -248,7 +246,7 @@ Add the correct vertical alignment in Chrome and Firefox.
 */
 
 progress {
-  vertical-align: baseline;
+	vertical-align: baseline;
 }
 
 /**
@@ -257,7 +255,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
 
 ::-webkit-inner-spin-button,
 ::-webkit-outer-spin-button {
-  height: auto;
+	height: auto;
 }
 
 /**
@@ -266,8 +264,8 @@ Correct the cursor style of increment and decrement buttons in Safari.
 */
 
 [type='search'] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
+	-webkit-appearance: textfield; /* 1 */
+	outline-offset: -2px; /* 2 */
 }
 
 /**
@@ -275,7 +273,7 @@ Remove the inner padding in Chrome and Safari on macOS.
 */
 
 ::-webkit-search-decoration {
-  -webkit-appearance: none;
+	-webkit-appearance: none;
 }
 
 /**
@@ -284,8 +282,8 @@ Remove the inner padding in Chrome and Safari on macOS.
 */
 
 ::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
+	-webkit-appearance: button; /* 1 */
+	font: inherit; /* 2 */
 }
 
 /*
@@ -298,10 +296,8 @@ Add the correct display in Chrome and Safari.
 */
 
 summary {
-  display: list-item;
-}
-
-/**
+	display: list-item;
+}/**
  * Manually forked from SUIT CSS Base: https://github.com/suitcss/base
  * A thin layer on top of normalize.css that provides a starting point more
  * suitable for web applications.
@@ -356,9 +352,10 @@ ul {
  */
 
 html {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
+  font-family: "GSN", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
   line-height: 1.5; /* 2 */
 }
+
 
 /**
  * Inherit font-family and line-height from `html` so users can set them as
@@ -433,18 +430,18 @@ textarea {
 
 input::-moz-placeholder, textarea::-moz-placeholder {
   opacity: 1;
-  color: #9ca3af;
+  color: #a8a29e;
 }
 
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   opacity: 1;
-  color: #9ca3af;
+  color: #a8a29e;
 }
 
 input::placeholder,
 textarea::placeholder {
   opacity: 1;
-  color: #9ca3af;
+  color: #a8a29e;
 }
 
 button,
@@ -459,9 +456,9 @@ button,
  * as it triggers the better focus styles even for links, which still use a dotted
  * outline in Firefox by default.
  */
-
+ 
 :-moz-focusring {
-  outline: auto;
+	outline: auto;
 }
 
 table {
@@ -569,8 +566,146 @@ video {
 [hidden] {
   display: none;
 }
+@font-face {
+  font-family: "GSNLight";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/GSN/GillSansNovaLight.woff") format("woff");
+}
+@font-face {
+  font-family: "GSN";
+  font-style: italic;
+  font-weight: 300;
+  src: url("../fonts/GSN/GillSansNovaLightItalic.woff") format("woff");
+}
+@font-face {
+  font-family: "GSN";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/GSN/GillSansNovaBook.woff") format("woff");
+}
+@font-face {
+  font-family: "GSN";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/GSN/GillSansNovaBookItalic.woff") format("woff");
+}
+@font-face {
+  font-family: "GSN";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/GSN/GillSansNovaMedium.woff") format("woff");
+}
+@font-face {
+  font-family: "GSN";
+  font-style: italic;
+  font-weight: 500;
+  src: url("../fonts/GSN/GillSansNovaMediumItalic.woff") format("woff");
+}
+@font-face {
+  font-family: "GSN";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/GSN/GillSansNovaSemibold.woff") format("woff");
+}
+@font-face {
+  font-family: "GSN";
+  font-style: italic;
+  font-weight: 600;
+  src: url("../fonts/GSN/GillSansNovaSemiboldItalic.woff") format("woff");
+}
+@font-face {
+  font-family: "GSN";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/GSN/GillSansNovaBold.woff") format("woff");
+}
+@font-face {
+  font-family: "GSN";
+  font-style: italic;
+  font-weight: 700;
+  src: url("../fonts/GSN/GillSansNovaBoldItalic.woff") format("woff");
+}
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+.mr-3 {
+	margin-right: 0.75rem;
+}
+.flex {
+	display: flex;
+}
+.items-baseline {
+	align-items: baseline;
+}
+.pt-4 {
+	padding-top: 1rem;
+}
+.c-logo_pour {
+  fill: #e51a1a;
+}
 
-*, ::before, ::after {
-  --tw-border-opacity: 1;
-  border-color: rgba(229, 231, 235, var(--tw-border-opacity));
+.c-logo_magnelli {
+  fill: #fff;
+}
+
+.l-page_header {
+  border-top: 4px solid #e51a1a;
+  background-color: #1c1917;
+}
+
+.l-wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  max-width: 1280px;
+}
+@media (min-width: 64em) {
+  .l-wrapper {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  .l-wrapper-content {
+    margin-left: 4.5rem;
+    margin-right: 4.5rem;
+  }
+}
+
+.page_login button, .page_login input, .page_login optgroup, .page_login select, .page_login textarea {
+  color: initial;
+}
+
+.spip-admin-float {
+  display: flex;
+  top: auto !important;
+  right: auto !important;
+  bottom: 0 !important;
+  left: 0 !important;
+}
+
+.spip-admin-float .spip-admin-boutons {
+  margin: 0 0.25rem 0 0;
+  border-radius: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: .625rem;
+  --tw-bg-opacity: 1;
+  background-color: rgba(168, 162, 158, var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(0, 0, 0, var(--tw-text-opacity));
+  text-align: left;
+  opacity: 1;
+}
+
+.spip-admin-float .spip-admin-boutons:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(214, 211, 209, var(--tw-bg-opacity));
 }

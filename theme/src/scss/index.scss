@@ -1,13 +1,28 @@
 @charset "utf-8";
 
-// Base
-@tailwind base;
-// @import "base/font-face";
+/// Structure 7-1 architecture pattern :
+/// @link https://github.com/KittyGiraudel/sass-boilerplate
 
-// Components
-@tailwind components;
-// @import "components/icon";
-// @import "vendor/baguettebox";
+// 1- Abstracts
+@use "abstracts";
 
-// Utilities
-@tailwind utilities;
+// 2- Vendors
+
+// 3- Base
+@use "tailwindcss/base";
+@use "base" as b;
+@use "tailwindcss/utilities";
+
+
+// 4- Components
+// @use "tailwindcss/components";
+@use "components";
+
+// 5- Layout
+@use "layout";
+
+// 6- Pages
+@use "pages";
+
+// 7- Themes
+@use "themes";

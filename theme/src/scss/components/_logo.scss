@@ -1,0 +1,16 @@
+// ========================================
+// c-logo
+// ========================================
+
+@use "sass:map";
+@use "../abstracts" as colors;
+
+// .c-logo {}
+
+.c-logo_pour {
+  fill: map.get(colors.$red, "500");
+}
+
+.c-logo_magnelli {
+  fill: colors.$white;
+}

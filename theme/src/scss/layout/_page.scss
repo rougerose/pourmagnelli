@@ -1,0 +1,15 @@
+// ========================================
+// page
+// ========================================
+
+@use "sass:map";
+@use "../abstracts";
+
+
+// l-page_header
+// ========================================
+
+.l-page_header {
+  border-top: 4px solid map.get(abstracts.$red, "500");
+  background-color: map.get(abstracts.$gray, "900");
+}
