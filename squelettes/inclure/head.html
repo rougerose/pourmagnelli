@@ -1,0 +1,30 @@
+[(#REM)
+  <!--
+    Head standard de toutes les pages ; les elements specifiques
+    (title, description) figurent dans le squelette article.html
+  -->
+]
+[(#REM) <!-- Preciser le charset --> ]
+<meta http-equiv="Content-Type" content="text/html; charset=#CHARSET" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+[(#REM) <!-- Fierement fabrique avec SPIP  --> ]
+<meta name="generator" content="SPIP[ (#SPIP_VERSION)]" />
+
+[(#REM) <!-- Lien vers le flux RSS du site --> ]
+[<link rel="alternate" type="application/rss+xml" title="[(#NOM_SITE_SPIP) : ]<:syndiquer_site:>" href="(#URL_PAGE{backend})" />]
+
+[(#REM) <!-- Balise permettant aux plugins d'inserer des fichiers CSS  -->]
+#INSERT_HEAD_CSS
+
+[(#CHEMIN{inc-theme-head.html}|oui) #INCLURE{fond=inc-theme-head,env}]
+
+[(#REM)
+  <!--
+    Balise permettant aux plugins d'inserer des appels javascript ou css ;
+    C'est ici que SPIP va inserer l'appel de la librairie jQuery
+    Et appeler a la fin compacte_head pour agreger et compacter tout le head dans des fichiers statiques
+    si l'option est cochee dans Configuration
+  -->
+]
+#INSERT_HEAD
