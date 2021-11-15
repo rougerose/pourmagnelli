@@ -28,7 +28,7 @@ const css = function (done) {
   // Make sure this feature is activated before running
   if (!config.tasks.css) return done();
 
-  return src(config.scss.src + "**/*.scss")
+  return src(config.scss.src + "/index.scss")
     .pipe(
       sass
         .sync({ includePaths: config.scss.loadPath })
@@ -38,6 +38,7 @@ const css = function (done) {
     .pipe(postcss())
     .pipe(rename({ basename: "styles" }))
     .pipe(size({ title: "CSS", gzip: true, showFiles: true }))
+    .pipe(rename({basename: "pourmagnelli"}))
     .pipe(dest(config.css.dest))
     .pipe(browserSync.stream());
 };
@@ -49,12 +50,12 @@ const js = function (done) {
 
   return rollup
     .rollup({
-      input: config.js.src,
+      input: config.js.src + "/main.js",
       plugins: [nodeResolve(), terser()],
     })
     .then((bundle) => {
       return bundle.write({
-        file: config.js.dest + config.js.name,
+        file: config.js.dest + "/" + config.js.name,
         format: "iife",
       });
     });
@@ -87,9 +88,9 @@ const reloadBrowser = function (done) {
 
 // Watch for changes
 const watchSource = function (done) {
-  watch(config.scss.src + "**/*.scss", series(css));
+  watch(config.scss.src + "/**/*.scss", series(css));
   watch(config.tailwind, series(css));
-  watch(config.js.src, series(js, reloadBrowser));
+  watch(config.js.src + "/**/*.js", series(js, reloadBrowser));
   watch(config.html.src, series(css, reloadBrowser));
 
   // Signal completion
