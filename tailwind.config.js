@@ -13,6 +13,7 @@ module.exports = {
     "./squelettes/content/*.html",
     "./squelettes/header/*.html",
     "./squelettes/images/*.html",
+    "./squelettes/inclure/**/*.html",
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
