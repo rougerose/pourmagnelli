@@ -1,0 +1,9 @@
+[(#ENV{appel_formulaire}|oui)
+  <div class="titre">Moteur de recherche (nav. mobile)</div>
+  <div class="infos"></div>
+]
+
+[(#ENV{appel_menu}|oui)
+  <li class="menu-entree item menu-items__item menu-items__item_recherche[ (#ENV{css})]">
+    [(#FORMULAIRE_RECHERCHE{'', #ENV{css_recherche, ''}})]
+]

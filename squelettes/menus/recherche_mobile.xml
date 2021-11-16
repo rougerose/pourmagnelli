@@ -1,0 +1,8 @@
+<entree>
+	<nom>Moteur de recherche (nav. mobile)</nom>
+	<rang>30</rang>
+	<description>Ajoute le moteur de recherche de SPIP, dans la navigation version mobile</description>
+	<icone>images/menus_rechercher.png</icone>
+	<parametre nom="css" label="menus:entree_css" />
+	<parametre nom="css_recherche" label="pourmagnelli_squelettes:menu_recherche_mobile_entree_css_recherche" />
+</entree>

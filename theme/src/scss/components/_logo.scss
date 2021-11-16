@@ -3,14 +3,19 @@
 // ========================================
 
 @use "sass:map";
-@use "../abstracts" as colors;
+@use "../abstracts";
 
-// .c-logo {}
+.c-logo {
+  // position: relative;
+  // z-index: 10;
+  width: 250px;
+}
 
 .c-logo_pour {
-  fill: map.get(colors.$red, "500");
+  fill: map.get(abstracts.$red, "500");
+
 }
 
 .c-logo_magnelli {
-  fill: colors.$white;
+  fill: abstracts.$black;
 }

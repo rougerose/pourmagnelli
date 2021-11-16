@@ -6,13 +6,13 @@
 // 1- Abstracts
 @use "abstracts";
 
-// 2- Vendors
-
-// 3- Base
+// 2- Base
 @use "tailwindcss/base";
 @use "base" as b;
 @use "tailwindcss/utilities";
 
+// 3- Vendors
+@use "vendors";
 
 // 4- Components
 // @use "tailwindcss/components";

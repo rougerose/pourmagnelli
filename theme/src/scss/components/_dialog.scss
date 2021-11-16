@@ -1,0 +1,87 @@
+// ========================================
+// c-dialog (modal)
+// ========================================
+
+@use "sass:map";
+@use "../abstracts";
+
+
+.c-dialog,
+.c-dialog_overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+// c-dialog
+// ========================================
+
+.c-dialog {
+  z-index: abstracts.$zindex-dialog;
+  display: flex;
+
+  &[aria-hidden="true"] {
+    display: auto;
+  }
+
+  // &.-sitenav-mobile {}
+}
+
+
+// c-dialog_overlay
+// ========================================
+
+$bg-overlay: map.get(abstracts.$gray, "900");
+
+.c-dialog_overlay {
+  background-color: rgba($bg-overlay, 0.7);
+}
+
+
+// c-dialog_content
+// ========================================
+
+.c-dialog_content {
+  position: relative;
+  z-index: abstracts.$zindex-dialog;
+  margin: 0 auto;
+  background-color: abstracts.$white;
+
+  // variante mobile
+  &.-sitenav-mobile {
+    width: 100%;
+  }
+}
+
+
+//
+// c-dialog_header
+// ========================================
+
+.c-dialog_header {
+
+  // variante mobile
+  &.-sitenav-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+
+// c-dialog_body
+// ========================================
+
+.c-dialog_body {
+
+  // variante mobile
+  &.-sitenav-mobile {
+    padding-left: abstracts.$wrapper-padding-mobile;
+    padding-right: abstracts.$wrapper-padding-mobile;
+    margin-top: 6rem;
+  }
+}

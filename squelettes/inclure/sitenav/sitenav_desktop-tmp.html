@@ -1,0 +1,14 @@
+<nav id="sitenav">
+  <ul class="sitenav_list">
+    <BOUCLE_secteur(RUBRIQUES){racine}{par num titre}{tout}>
+      <li class="sitenav_item">
+        <a href="#URL_RUBRIQUE">#TITRE</a>
+        <div class="sitenav_subItem">
+          <BOUCLE_secteur_enfant(RUBRIQUES){id_parent}{par num titre}{tout}>
+            <a href="#URL_RUBRIQUE">#TITRE</a>
+          </BOUCLE_secteur_enfant>
+        </div>
+      </li>
+    </BOUCLE_secteur>
+  </ul>
+</nav>

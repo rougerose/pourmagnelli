@@ -10,14 +10,14 @@
 .l-wrapper {
   margin-right: auto;
   margin-left: auto;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding-right: abstracts.$wrapper-padding-mobile;
+  padding-left: abstracts.$wrapper-padding-mobile;
   // width: 100%;
   max-width: 1280px;
 
   @include abstracts.mq($from: desktop) {
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
+    padding-right: abstracts.$wrapper-padding-desktop;
+    padding-left: abstracts.$wrapper-padding-desktop;
   }
 }
 

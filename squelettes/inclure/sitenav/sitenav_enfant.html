@@ -1,0 +1,11 @@
+<BOUCLE_sitenav_desktop_enfant(MENUS){id_menu?}{identifiant?}>
+  <ul class="c-sitenav_list -subList[ (#ENV{variante})]">
+    <BOUCLE_entrees(MENUS_ENTREES){id_menu}{par rang}>
+      #SET{entree, ''}
+      [(#MENUS_AFFICHER_ENTREE)
+        #SET{entree, ' '}
+      ]
+      [(#GET{entree}|et{#TYPE_ENTREE|menus_type_refuser_sous_menu|non})</li>]
+    </BOUCLE_entrees>
+  </ul>
+</BOUCLE_sitenav_desktop_enfant>

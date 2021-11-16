@@ -1,8 +1,14 @@
 <div class="l-wrapper">
-  <div class="c-logo flex pt-4">
-    <a class="flex items-baseline" href="#URL_SITE_SPIP">
-      <div class="sr-only">#NOM_SITE_SPIP</div>
-      <INCLURE{fond=images/logo-pourmagnelli.svg} />
-    </a>
+  <div class="flex justify-between items-baseline pt-4">
+    <div class="c-logo">
+      <a class="flex items-baseline w-full" href="#URL_SITE_SPIP">
+        <div class="sr-only">#NOM_SITE_SPIP</div>
+        <INCLURE{fond=images/logo-pourmagnelli.svg} />
+      </a>
+    </div>
+    <INCLURE{fond=inclure/sitenav/sitenav_racine, identifiant='sitenav_desktop', variante='-sitenav-desktop'} />
+    <button class="hamburger hamburger--squeeze c-sitenav_trigger -header js-trigger-sitenav" type="button">
+      <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+    </button>
   </div>
 </div>
