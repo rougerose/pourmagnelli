@@ -1,13 +1,28 @@
 #SET{titre, #ENV*{titre}|typo}
 
+[(#REM) Par défaut on affiche toujours l'entrée ]
+  #SET{afficher_entree,oui}
+[(#REM) Si le champ est rempli on désactive l'entrée si ça ne correspond pas aux attentes ]
+[(#ENV{suivant_connexion}|oui)
+  [(#ENV{suivant_connexion}|=={connecte}|et{#SESSION{id_auteur}|non})
+    #SET{afficher_entree,''}
+  ]
+  [(#ENV{suivant_connexion}|=={deconnecte}|et{#SESSION{id_auteur}|oui})
+    #SET{afficher_entree,''}
+  ]
+  [(#ENV{suivant_connexion}|=={admin}|et{#SESSION{statut}|!={"0minirezo"}})
+    #SET{afficher_entree,''}
+  ]
+]
+
 [(#ENV{appel_formulaire}|oui)
   <div class="titre">#GET{titre}</div>
   <div class="infos"></div>
 ]
-[(#ENV{appel_menu}|et{#GET{afficher_entree}})
+[(#ENV{appel_menu}|oui)
   <li class="menu-entree item menu-items__item menu-items__item_page-speciale[ (#ENV{nom})][ (#ENV{css})][(#ENV{env/type-page}|=={#ENV{nom}}|ou{#ENV{env/type}|=={page}|et{#ENV{env/composition}|=={#ENV{nom}}}}) on active]">
-    <a href="[(#URL_PAGE{#ENV{nom}, #ENV{parametres}}|ancre_url{#ENV{ancre}})]" class="menu-items__lien[ (#ENV{css_lien})]">
-      <span class="sr-only">#GET{titre}</span>
-      [(#INCLURE{fond=images/icone-search-ltr-64.svg})]
-    </a>
+      <a href="[(#URL_PAGE{#ENV{nom}, #ENV{parametres}}|ancre_url{#ENV{ancre}})]" class="menu-items__lien[ (#ENV{css_lien})]">
+        <span class="sr-only">#GET{titre}</span>
+        <INCLURE{fond=images/icone-search-ltr-64.svg}/>
+      </a>
 ]
