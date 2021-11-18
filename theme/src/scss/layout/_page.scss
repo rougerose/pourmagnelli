@@ -5,11 +5,14 @@
 @use "sass:map";
 @use "../abstracts";
 
+// l-page
+.l-page {
+  color: map.get(abstracts.$site-colors, "text");
+  background-color: map.get(abstracts.$site-colors, "background");
+}
+
 
 // l-page_header
-// ========================================
-
 .l-page_header {
-  border-top: 4px solid map.get(abstracts.$red, "500");
-  // background-color: map.get(abstracts.$gray, "900");
+  border-top: map.get(abstracts.$border, "header");
 }

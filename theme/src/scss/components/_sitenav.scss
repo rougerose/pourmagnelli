@@ -27,7 +27,7 @@
       text-transform: uppercase;
       font-size: 1.125rem;
       line-height: 1.11;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     // variante mobile
@@ -35,6 +35,12 @@
       display: grid;
       gap: 2rem 1rem;
       grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      // Le conteneur c-sitenav_item pour la recherche
+      // est sur 2 colonnes.
+      & .c-sitenav_item.-recherche {
+        grid-column: 1 / 3;
+      }
 
       & svg {
         display: none;

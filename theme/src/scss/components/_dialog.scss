@@ -23,11 +23,28 @@
   z-index: abstracts.$zindex-dialog;
   display: flex;
 
+
   &[aria-hidden="true"] {
-    display: auto;
+    display: none;
   }
 
-  // &.-sitenav-mobile {}
+  &.-sitenav-mobile {
+
+    // Si js est disponible, les transitions sont disponibles avec visibilité et non display.
+    .js & {
+      transition: visibility 0.45s;
+    }
+
+    .js &[aria-hidden="true"] {
+      display: initial;
+      visibility: hidden;
+      transition: visibility 0.4s;
+    }
+
+    .js &[aria-hidden="false"] {
+      visibility: visible;
+    }
+  }
 }
 
 
@@ -48,7 +65,7 @@ $bg-overlay: map.get(abstracts.$gray, "900");
   position: relative;
   z-index: abstracts.$zindex-dialog;
   margin: 0 auto;
-  background-color: abstracts.$white;
+  background-color: map.get(abstracts.$gray, "900");
 
   // variante mobile
   &.-sitenav-mobile {
@@ -69,6 +86,10 @@ $bg-overlay: map.get(abstracts.$gray, "900");
     top: 0;
     left: 0;
     width: 100%;
+    z-index: abstracts.$zindex-dialog + 1;
+    border-top: map.get(abstracts.$border, "header");
+    // Arrière-plan opaque, dans l'hypothèse d'un contenu avec scroll
+    background-color: map.get(abstracts.$gray, "900");
   }
 }
 
@@ -79,9 +100,26 @@ $bg-overlay: map.get(abstracts.$gray, "900");
 .c-dialog_body {
 
   // variante mobile
+  // [1] Cet élément doit être défilable
   &.-sitenav-mobile {
-    padding-left: abstracts.$wrapper-padding-mobile;
-    padding-right: abstracts.$wrapper-padding-mobile;
-    margin-top: 6rem;
+    overflow-y: auto; // [1]
+    height: 100%; // [1]
+  }
+}
+
+// c-dialog_container
+// ========================================
+
+.c-dialog_container {
+
+  .-sitenav-mobile & {
+    margin-top: 5em;
+    padding: 1rem abstracts.$wrapper-padding-mobile 2rem;
+    transform: translateY(200%);
+    transition: transform 0.65s ease-in-out;
+
+    .c-dialog.is-visible & {
+      transform: translateY(0);
+    }
   }
 }

@@ -1,0 +1,10 @@
+// ========================================
+// border variables
+// ========================================
+
+@use "sass:map";
+@use "colors";
+
+$border: (
+  "header": 0.125rem solid colors.$primary-color, // 2px
+);

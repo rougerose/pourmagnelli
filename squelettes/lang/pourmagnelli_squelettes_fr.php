@@ -11,7 +11,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'menu_recherche_mobile_entree_css_recherche' => 'Classes CSS du formulaire de recherche',
 
 	// N
-	'navigation_fermer' => "Fermer la navigation",
-	'navigation_ouvrir' => "Ouvrir la navigation",
-	'navigation_titre' => "Navigation",
+	'navigation_fermer' => 'Fermer la navigation',
+	'navigation_ouvrir' => 'Ouvrir la navigation',
+	'navigation_titre' => 'Navigation',
+
+	// R
+	'recherche_placeholder' => 'Écrivez ici',
+	'recherche_submit' => "Rechercher →",
 );

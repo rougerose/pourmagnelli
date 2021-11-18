@@ -4,7 +4,6 @@
     Il n'affiche que 2 niveaux de liste (1 niveau racine > 1 niveau enfant).
   -->
 ]<BOUCLE_sitenav_racine(MENUS){id_menu?}{identifiant?}>
-  <!-- TODO: Ajouter via js une règle height pour rendre l'élément défilable. -->
   <nav class="c-sitenav[ (#ENV{variante})] js-sitenav">
     <ul class="c-sitenav_list -rootList[ (#ENV{variante})]">
       <BOUCLE_entrees(MENUS_ENTREES){id_menu}{par rang}>

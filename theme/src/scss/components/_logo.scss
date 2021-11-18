@@ -12,10 +12,10 @@
 }
 
 .c-logo_pour {
-  fill: map.get(abstracts.$red, "500");
+  fill: map.get(abstracts.$site-colors, "logo-pour");
 
 }
 
 .c-logo_magnelli {
-  fill: abstracts.$black;
+  fill: map.get(abstracts.$site-colors, "logo-magnelli");
 }
