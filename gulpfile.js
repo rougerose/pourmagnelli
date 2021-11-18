@@ -88,7 +88,7 @@ const reloadBrowser = function (done) {
 
 // Watch for changes
 const watchSource = function (done) {
-  watch(config.scss.src + "/**/*.scss", series(css));
+  watch(config.scss.src + "/**/*.scss", series(css, reloadBrowser));
   watch(config.tailwind, series(css));
   watch(config.js.src + "/**/*.js", series(js, reloadBrowser));
   watch(config.html.src, series(css, reloadBrowser));
