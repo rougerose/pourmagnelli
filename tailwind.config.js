@@ -4,8 +4,7 @@ const colors = require("tailwindcss/colors");
 module.exports = {
   corePlugins: {
     container: false,
-    placeholderColor: false,
-    // fontSmoothing: false,
+    fontSmoothing: false,
   },
   mode: "jit",
   purge: [
@@ -14,6 +13,7 @@ module.exports = {
     "./squelettes/header/*.html",
     "./squelettes/images/*.html",
     "./squelettes/inclure/**/*.html",
+    "./squelettes/formulaires/**/*.html",
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -29,7 +29,7 @@ module.exports = {
       gray: colors.warmGray,
       red: {
         500: "#e51a1a1",
-      }
+      },
     },
     extend: {
       fontSize: {
@@ -40,5 +40,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
