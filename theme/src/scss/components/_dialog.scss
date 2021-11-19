@@ -30,19 +30,21 @@
 
   &.-sitenav-mobile {
 
-    // Si js est disponible, les transitions sont disponibles avec visibilité et non display.
+    // Adaptations des règles d'affichage en fonction du script js et des animations :
+    // [1] Permettre au js de poser un écouteur d'événement sur l'élément enfant
+    // [2] Rétablir un display: none sur la modale.
     .js & {
-      transition: visibility 0.45s;
+      &[aria-hidden="true"] {
+        display: flex; // [1]
+
+        &.is-closed {
+          display: none; // [2]
+        }
+      }
     }
 
-    .js &[aria-hidden="true"] {
-      display: initial;
-      visibility: hidden;
-      transition: visibility 0.4s;
-    }
-
-    .js &[aria-hidden="false"] {
-      visibility: visible;
+    &.is-visible {
+      display: flex;
     }
   }
 }
@@ -104,6 +106,22 @@ $bg-overlay: map.get(abstracts.$gray, "900");
   &.-sitenav-mobile {
     overflow-y: auto; // [1]
     height: 100%; // [1]
+    transition: transform 0.6s ease-in-out;
+
+    .js & {
+      transform: translateY(100%);
+    }
+
+    // Animation début et fin de l'élément
+    // en fonction des classes ajoutées/supprimées
+    // sur l'élément parent.
+    .c-dialog.is-visible & {
+      transform: translateY(0);
+    }
+
+    .c-dialog.is-closing & {
+      transform: translateY(100%);
+    }
   }
 }
 
@@ -115,11 +133,5 @@ $bg-overlay: map.get(abstracts.$gray, "900");
   .-sitenav-mobile & {
     margin-top: 5em;
     padding: 1rem abstracts.$wrapper-padding-mobile 2rem;
-    transform: translateY(200%);
-    transition: transform 0.65s ease-in-out;
-
-    .c-dialog.is-visible & {
-      transform: translateY(0);
-    }
   }
 }
