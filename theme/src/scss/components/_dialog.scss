@@ -65,7 +65,7 @@ $bg-overlay: map.get(abstracts.$gray, "900");
   position: relative;
   z-index: abstracts.$zindex-dialog;
   margin: 0 auto;
-  background-color: map.get(abstracts.$gray, "900");
+  background-color: map.get(abstracts.$site-colors, "background");
 
   // variante mobile
   &.-sitenav-mobile {
@@ -89,7 +89,7 @@ $bg-overlay: map.get(abstracts.$gray, "900");
     z-index: abstracts.$zindex-dialog + 1;
     border-top: map.get(abstracts.$border, "header");
     // Arrière-plan opaque, dans l'hypothèse d'un contenu avec scroll
-    background-color: map.get(abstracts.$gray, "900");
+    background-color: map.get(abstracts.$site-colors, "background");
   }
 }
 

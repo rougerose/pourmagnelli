@@ -36,7 +36,7 @@ $site-colors: (
   "primary": $primary-color,
   "text": $white,
   "text-invert": map.get($gray, "900"),
-  "background": map.get($gray, "900"),
+  "background": map.get($gray, "800"),
   "background-invert": $white,
   "link-hover": $primary-color,
   "logo-pour": $primary-color,

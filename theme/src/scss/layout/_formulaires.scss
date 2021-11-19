@@ -25,18 +25,46 @@
     margin-bottom: 0.5rem;
   }
 
+  //
+  // Reset des styles
+  // https://codyhouse.co/blog/post/vertical-text-alignment-in-buttons-and-inputs
+  //
+  input,
+  textarea,
+  select,
+  button {
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    color: inherit;
+    appearance: none;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0.5rem;
+    border-width: 2px;
+    border-style: solid;
+  }
+
+  button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+  }
+
+  //
+  // Quelques styles communs de base
+  //
   input[type="text"],
   input[type="search"],
   input[type="email"],
   textarea,
   select {
-    border-radius: 0.375rem;
     border-color: transparent;
-    box-shadow: none;
     background-color: map.get(abstracts.$gray, "600");
     transition: background-color 0.3s ease;
-    font-weight: 500;
-    // line-height: 1.2;
     color: map.get(abstracts.$site-colors, "text-invert");
 
     &:focus {
@@ -46,12 +74,7 @@
 
   input[type="submit"],
   button[type="submit"] {
-    appearance: none;
-    font-weight: 500;
-    padding: 0.5rem 0.75rem;
-    border-width: 1px;
     border-color: transparent;
-    border-radius: 0.375rem;
     background-color: map.get(abstracts.$site-colors, "background-invert");
     color: map.get(abstracts.$site-colors, "text-invert");
     transition: background 0.3s ease;
@@ -99,7 +122,7 @@
 // reference https://css-tricks.com/show-search-button-when-search-field-is-non-empty
 
 // Largeur du bouton submit
-$searchbox-btn-width: 8.5rem;
+$searchbox-btn-width: 7.5rem;
 
 .l-recherche_form {
   position: relative;
@@ -107,7 +130,8 @@ $searchbox-btn-width: 8.5rem;
   overflow: hidden;
 }
 
-.l-recherche_input {
+input[type="search"].l-recherche_input {
+  border-radius: 0.25rem;
   padding-right: calc(#{$searchbox-btn-width} + 0.5rem);
   width: 100%;
 
@@ -116,16 +140,13 @@ $searchbox-btn-width: 8.5rem;
   }
 }
 
-.l-recherche_btn {
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 0.15rem;
-  left: 100%;
-  width: $searchbox-btn-width;
-}
-
 button[type="submit"].l-recherche_btn {
+  border-radius: 0.25rem;
   background-color: map.get(abstracts.$site-colors, "primary");
   color: map.get(abstracts.$site-colors, "text");
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  width: $searchbox-btn-width;
   transition: transform 0.4s ease;
 }
