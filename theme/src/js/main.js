@@ -1,5 +1,9 @@
 // import { ClickyMenus } from "./vendors/clicky-menus";
 import A11yDialog from "a11y-dialog";
+import {
+  disableBodyScroll,
+  enableBodyScroll
+} from "body-scroll-lock";
 
 /**
  * Sitenav-mobile : modale avec a11y-dialog
@@ -43,6 +47,13 @@ const dialogSitenav = new A11yDialog(sitenavMobileEl);
 dialogSitenav.on("show", (dialogEl, dialogEvent) => {
   dialogEl.classList.remove("is-closed");
   dialogEl.classList.add("is-visible");
+  // Bloquer le scroll sur l'élément body
+  disableBodyScroll(dialogContentBody);
+
+  // Vérifier le scroll et le remettre à zéro éventuellement.
+  if (dialogContentBody.scrollTop > 0) {
+    dialogContentBody.scrollTop = 0;
+  }
 
   // Animer les deux boutons en même temps, car ils sont affichés en superposition,
   // leur apparence doit être identique.
@@ -72,6 +83,8 @@ function sitenavMobileTransitions(event) {
   dialog.classList.add("is-closed");
   // Supprimer l'écouteur
   event.target.removeEventListener("transitionend", sitenavMobileTransitions);
+  // Rétablir le scroll sur l'élement body
+  enableBodyScroll(event.target);
 }
 
 /*
