@@ -53,10 +53,8 @@
 // c-dialog_overlay
 // ========================================
 
-$bg-overlay: map.get(abstracts.$gray, "900");
-
 .c-dialog_overlay {
-  background-color: rgba($bg-overlay, 0.7);
+  background-color: map.get(abstracts.$site-colors, "dialog-overlay");
 }
 
 

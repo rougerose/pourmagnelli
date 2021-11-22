@@ -3,42 +3,73 @@
 // ========================================
 
 @use "sass:map";
+@use "sass:color";
 
-// Liste des couleurs disponibles
-
-$black: #000 !default;
-$white: #fff !default;
+$black: #000;
+$white: #fff;
 
 $red: (
-  "500": #c33,
-  "600": #dc2626,
-) !default;
+  "50": hsl(0, 100%, 92%),
+  "100": hsl(0, 100%, 83%),
+  "200": hsl(0, 100%, 75%),
+  "300": hsl(0, 100%, 67%),
+  "400": hsl(0, 100%, 58%),
+  "500": hsl(0, 100%, 50%),
+  "600": hsl(0, 100%, 33%),
+  "700": hsl(0, 100%, 25%),
+  "800": hsl(0, 100%, 17%),
+  "900": hsl(0, 100%, 8%),
+);
+
+$pink: (
+  "500": hsl(336, 100%, 46%),
+  "600": hsl(336, 100%, 31%),
+  "700": hsl(336, 100%, 23%),
+  "800": hsl(336, 100%, 15%),
+  "900": hsl(336, 100%, 8%),
+);
 
 // tailwindcss warm gray
 $gray: (
-  "50": #fafaf9,
-  "100": #f5f5f4,
-  "200": #e7e5e4,
-  "300": #d6d3d1,
-  "400": #a8a29e,
-  "500": #78716c,
-  "600": #57534e,
-  "700": #44403c,
-  "800": #292524,
-  "900": #1c1917,
-) !default;
-
+  "blue": (
+    "100": hsl(240, 4%, 91%),
+    "200": hsl(240, 4%, 82%),
+    "300": hsl(240, 4%, 73%),
+    "400": hsl(240, 4%, 64%),
+    "500": hsl(240, 4%, 46%),
+    "600": hsl(240, 4%, 38%),
+    "700": hsl(240, 4%, 31%),
+    "800": hsl(240, 4%, 15%),
+    "900": hsl(240, 4%, 8%),
+  ),
+  "warm": (
+    "50": #fafaf9,
+    "100": #f5f5f4,
+    "200": #e7e5e4,
+    "300": #d6d3d1,
+    "400": #a8a29e,
+    "500": #78716c,
+    "600": #57534e,
+    "700": #44403c,
+    "800": #292524,
+    "900": #1c1917,
+  ),
+);
 
 // Couleurs du site
 $primary-color: map.get($red, "500");
+$background-color: map.get($gray, "blue", "800");
 
 $site-colors: (
-  "primary": $primary-color,
-  "text": $white,
-  "text-invert": map.get($gray, "900"),
-  "background": map.get($gray, "800"),
+  "background": $background-color,
   "background-invert": $white,
+  "dialog-background": $background-color,
+  "dialog-background-sitenav": $background-color,
+  "dialog-overlay": color.scale($background-color, $alpha: -40%),
   "link-hover": $primary-color,
   "logo-pour": $primary-color,
-  "logo-magnelli": $white
+  "logo-magnelli": $white,
+  "primary": $primary-color,
+  "text": $white,
+  "text-invert": $background-color,
 );

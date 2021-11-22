@@ -1,0 +1,166 @@
+// ========================================
+// t-spip-text
+// .
+// Styles des contenus issus des champs
+// textes de Spip
+// ========================================
+
+@use "sass:map";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+
+.t-spip-text {
+  font-size: rem.convert(18px);
+  line-height: 1.333;
+
+  & p,
+  & ul,
+  & ol,
+  & dl,
+  & blockquote {
+    margin-bottom: 1.5rem;
+  }
+
+
+  // paragraphes
+  // ========================================
+  & p {
+    font-size: rem.convert(18px);
+    line-height: 1.333;
+  }
+
+  // Intertitres
+  // ========================================
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05rem;
+    line-height: 1.2;
+    // color: map.get(abstracts.$red, "700");
+  }
+
+  & h2 {
+    font-size: rem.convert(24px);
+    line-height: 1;
+    font-weight: 400;
+  }
+
+  & h3 {
+    font-size: rem.convert(20px);
+  }
+
+  & h4 {
+    font-size: rem.convert(18px);
+    line-height: 1.333;
+  }
+
+  & h5 {
+    font-size: rem.convert(16px);
+    line-height: 1.5;
+  }
+
+  & h6 {
+    font-size: rem.convert(16px);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  // listes
+  // ========================================
+  & ul,
+  & ol {
+    margin-bottom: 1.5rem;
+    margin-left: 1rem;
+
+    & li {
+      &::marker {
+        color: hsl(0, 53%, 32%);
+      }
+    }
+  }
+
+  & ul {
+    list-style-type: square;
+
+    & ul {
+      margin-bottom: 0;
+    }
+  }
+
+  & ol {
+    list-style-type: decimal;
+  }
+
+  & p + ul,
+  & p + ol {
+    margin-top: -1.5rem;
+  }
+
+  // hr
+  // ========================================
+
+  $color-gradient-1: map.get(abstracts.$site-colors, "background");
+  $color-gradient-2: map.get(abstracts.$red, "600");
+
+  & hr {
+    margin: 3rem 0;
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, $color-gradient-1 0%, $color-gradient-2 50%, $color-gradient-1 100%);
+  }
+
+  // tableaux
+  // ========================================
+
+  $color-table-bg: map.get(abstracts.$gray, "blue", "600");
+  $color-table-border: map.get(abstracts.$gray, "blue", "700");
+
+  & table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+
+  & tr:nth-of-type(even) {
+    background: rgba($color-table-bg, 0.3);
+  }
+
+  & th {
+    background: rgba($color-table-bg, 0.3);
+    font-weight: 600;
+  }
+
+  & td,
+  & th {
+    padding: 6px;
+    border: 1px solid rgba($color-table-border, 0.5);
+    text-align: left;
+  }
+
+  & caption {
+    color: map.get(abstracts.$gray, "blue", "400");
+  }
+
+  // Liens
+  // ========================================
+  & a {
+    color: currentColor;
+    border-bottom: 1px solid map.get(abstracts.$red, "700");
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: map.get(abstracts.$red, "400");
+    }
+
+    // &:visited {
+    //   color:
+    // }
+  }
+
+}

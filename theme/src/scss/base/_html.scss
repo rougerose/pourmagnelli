@@ -1,0 +1,9 @@
+
+@use "sass:map";
+@use "../abstracts";
+
+html {
+  color: map.get(abstracts.$site-colors, "text");
+  background-color: map.get(abstracts.$site-colors, "background");
+  font-weight: 400;
+}

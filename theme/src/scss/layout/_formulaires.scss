@@ -63,7 +63,7 @@
   textarea,
   select {
     border-color: transparent;
-    background-color: map.get(abstracts.$gray, "600");
+    background-color: map.get(abstracts.$gray, "blue", "600");
     transition: background-color 0.3s ease;
     color: map.get(abstracts.$site-colors, "text-invert");
 
@@ -87,7 +87,7 @@
   input,
   textarea {
     &::placeholder {
-      color: map.get(abstracts.$gray, "300");
+      color: map.get(abstracts.$gray, "blue", "300");
       font-style: italic;
     }
   }
