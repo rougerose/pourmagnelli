@@ -1,0 +1,35 @@
+// ========================================
+// p-article
+// ========================================
+
+@use "sass:map";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+.p-article {
+  padding-top: 3rem;
+}
+
+.p-article_header {
+  margin-bottom: 3rem;
+}
+
+.p-article_titre {
+  margin-bottom: 1rem;
+  font-size: rem.convert(24px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.05rem;
+}
+
+.p-article_soustitre {
+  font-size: rem.convert(20px);
+  line-height: 1.2;
+  color: map.get(abstracts.$gray, "warm", "500");
+}
+
+.p-article_chapo {
+  margin-bottom: 2rem;
+  // font-size: rem.convert(20px);
+  // line-height: 1.2;
+}

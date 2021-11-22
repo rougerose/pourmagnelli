@@ -1,0 +1,34 @@
+// ========================================
+// c-breadcrumb
+// ========================================
+
+@use "sass:map";
+@use "../abstracts";
+
+// .c-breadcrumb {}
+
+// .c-breadcrumb_list {}
+
+.c-breadcrumb_item {
+  margin-right: 0.5rem;
+  color: #FEF2F2;
+  color: map.get(abstracts.$red, "200");
+
+  &::before {
+    color: map.get(abstracts.$red, "800");
+    content: "\203A";
+    margin-right: 0.5rem;
+  }
+
+  &:first-child {
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.c-breadcrumb_link {
+  color: map.get(abstracts.$red, "500");
+}
+
+// .c-breadcrumb_name {}

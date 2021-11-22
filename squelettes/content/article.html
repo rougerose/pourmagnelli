@@ -1,0 +1,15 @@
+<BOUCLE_article(ARTICLES){id_article}>
+  <article class="p-article" itemscope itemtype="http://schema.org/Article">
+    <div class="l-wrapper">
+      <header class="p-article_header">
+        <h1 class="p-article_titre" itemprop="headline name">#TITRE</h1>
+        [<p class="p-article_soustitre">(#SOUSTITRE)</p>]
+      </header>
+      <div class="p-article_body" itemprop="text">
+        [<div class="p-article_chapo t-spip-text">(#CHAPO)</div>]
+        [<div class="p-article_texte t-spip-text">(#TEXTE)</div>]
+      </div>
+    </div>
+  </article>
+  <INCLURE{fond=inclure/breadcrumb/article, id_article} />
+</BOUCLE_article>
