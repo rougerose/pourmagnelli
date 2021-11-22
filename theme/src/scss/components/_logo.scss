@@ -4,11 +4,12 @@
 
 @use "sass:map";
 @use "../abstracts";
+@use "sass-rem/rem";
 
 .c-logo {
   // position: relative;
   // z-index: 10;
-  width: 250px;
+  width: rem.convert(220px);
 }
 
 .c-logo_pour {

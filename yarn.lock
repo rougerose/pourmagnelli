@@ -3382,6 +3382,11 @@ safe-regex@^1.1.0:
   version "6.0.0-beta.1"
   resolved "https://github.com/sass-mq/sass-mq#8d73d21f2a58d5a6918dc7b9204a1be6d6ebcb65"
 
+sass-rem@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/sass-rem/-/sass-rem-3.0.0.tgz#82a700b69ca4ea725befdf8ed9844f5dfb71b55b"
+  integrity sha512-tgK/2ojS/z4OjlJT6J/Gc3TgN97W/4tTWuEdVXO1/P46L/Ud4iG3t+s007KTHP+BX9tqLgFPl3fgstUsva5rtg==
+
 sass@^1.43.4:
   version "1.43.4"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.43.4.tgz#68c7d6a1b004bef49af0d9caf750e9b252105d1f"

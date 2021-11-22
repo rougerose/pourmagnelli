@@ -4,7 +4,8 @@
 
 @use "sass:map";
 @use "colors";
+@use "sass-rem/rem";
 
 $border: (
-  "header": 0.125rem solid colors.$primary-color, // 2px
+  "header": rem.convert(2px) solid map.get(colors.$site-colors, "primary"),
 );

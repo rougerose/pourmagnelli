@@ -4,7 +4,7 @@ const colors = require("tailwindcss/colors");
 module.exports = {
   corePlugins: {
     container: false,
-    fontSmoothing: false,
+    // fontSmoothing: false,
   },
   mode: "jit",
   purge: [

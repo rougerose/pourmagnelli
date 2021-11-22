@@ -33,6 +33,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "sass": "^1.43.4",
     "sass-mq": "https://github.com/sass-mq/sass-mq#8d73d21f2a58d5a6918dc7b9204a1be6d6ebcb65",
+    "sass-rem": "^3.0.0",
     "tailwindcss": "^2.2.19"
   }
 }
