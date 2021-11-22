@@ -6,13 +6,14 @@
 // ========================================
 
 @use "sass:map";
+@use "sass:color";
 @use "../abstracts";
 @use "sass-rem/rem";
-
 
 .t-spip-text {
   font-size: rem.convert(18px);
   line-height: 1.333;
+  letter-spacing: 0.05rem;
 
   & p,
   & ul,
@@ -23,12 +24,39 @@
   }
 
 
-  // paragraphes
+  // Liens
   // ========================================
-  & p {
-    font-size: rem.convert(18px);
-    line-height: 1.333;
+  & a {
+    color: currentColor;
+    border-bottom: rem.convert(1px) solid map.get(abstracts.$red, "400");
+    transition: color 0.3s ease;
+
+    &:visited {
+      color: map.get(abstracts.$red, "100");
+    }
+
+    &:hover {
+      color: map.get(abstracts.$red, "300");
+    }
   }
+
+
+  // Paragraphes
+  // ========================================
+  // & p {}
+
+
+  // Appel de note
+  // ========================================
+  & .spip_note_ref {
+    color: map.get(abstracts.$red, "400");
+  }
+
+  & .spip_note {
+    color: map.get(abstracts.$site-colors, "text");
+    border-color: transparent;
+  }
+
 
   // Intertitres
   // ========================================
@@ -39,9 +67,7 @@
   & h6 {
     margin-top: 3rem;
     margin-bottom: 1.5rem;
-    letter-spacing: 0.05rem;
     line-height: 1.2;
-    // color: map.get(abstracts.$red, "700");
   }
 
   & h2 {
@@ -70,7 +96,7 @@
     line-height: 1.5;
   }
 
-  // listes
+  // Listes
   // ========================================
   & ul,
   & ol {
@@ -79,7 +105,7 @@
 
     & li {
       &::marker {
-        color: hsl(0, 53%, 32%);
+        color: map.get(abstracts.$red, "400");
       }
     }
   }
@@ -101,20 +127,27 @@
     margin-top: -1.5rem;
   }
 
-  // hr
+
+  // HR
   // ========================================
 
   $color-gradient-1: map.get(abstracts.$site-colors, "background");
-  $color-gradient-2: map.get(abstracts.$red, "600");
+  $color-gradient-2: map.get(abstracts.$red, "500");
 
   & hr {
     margin: 3rem 0;
     border: none;
     height: 2px;
-    background: linear-gradient(90deg, $color-gradient-1 0%, $color-gradient-2 50%, $color-gradient-1 100%);
+    background: linear-gradient(
+      90deg,
+      $color-gradient-1 0%,
+      $color-gradient-2 50%,
+      $color-gradient-1 100%
+    );
   }
 
-  // tableaux
+
+  // Tableaux
   // ========================================
 
   $color-table-bg: map.get(abstracts.$gray, "blue", "600");
@@ -125,6 +158,7 @@
     border-collapse: collapse;
     font-size: 1rem;
     line-height: 1.25rem;
+    border-bottom: rem.convert(1px) solid rgba($color-table-bg, 0.8);
   }
 
   & tr:nth-of-type(even) {
@@ -132,14 +166,14 @@
   }
 
   & th {
-    background: rgba($color-table-bg, 0.3);
+    background: rgba($color-table-bg, 0.8);
     font-weight: 600;
   }
 
   & td,
   & th {
-    padding: 6px;
-    border: 1px solid rgba($color-table-border, 0.5);
+    padding: rem.convert(6px);
+    border-width: 0;
     text-align: left;
   }
 
@@ -147,20 +181,99 @@
     color: map.get(abstracts.$gray, "blue", "400");
   }
 
-  // Liens
+  // Citations
   // ========================================
-  & a {
-    color: currentColor;
-    border-bottom: 1px solid map.get(abstracts.$red, "700");
-    transition: color 0.3s ease;
 
-    &:hover {
-      color: map.get(abstracts.$red, "400");
-    }
-
-    // &:visited {
-    //   color:
-    // }
+  & q {
+    font-style: italic;
   }
 
+  & blockquote {
+    border-left: rem.convert(2px) solid map.get(abstracts.$red, "700");
+    margin-left: 1rem;
+    padding-left: 1rem;
+    font-size: 1rem;
+  }
+
+  // Code
+  // ========================================
+
+  & code,
+  & .spip_code {
+    @apply font-mono;
+    font-size: rem.convert(14px);
+  }
+
+  // Images en illustrations
+  // ========================================
+
+  // TODO: A revoir en fonction des styles pour les écrans plus larges.
+
+  & .spip_document {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & .spip_document {
+    & img,
+    & svg {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  // Positionnements
+  & .spip_documents_center {
+    clear: both;
+    display: block;
+    width: 100%;
+    margin: 6rem auto;
+  }
+
+  & .spip_documents_left {
+    float: left;
+    margin-right: 1.5rem;
+    margin-bottom: 1.5rem;
+    max-width: 33%;
+  }
+
+  & .spip_documents_right {
+    float: right;
+    margin-left: 1.5rem;
+    max-width: 33%;
+  }
+
+  // Figure
+  & .spip_doc_inner {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  & .spip_doc_lien {
+    display: inline-block;
+    border-bottom: 0;
+  }
+
+  & .spip_doc_legende {
+    border-left: rem.convert(1px) solid color.scale(map.get(abstracts.$site-colors, "primary"), $alpha: -50%);
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+    width: 0;
+    min-width: 100%;
+    font-size: 1rem;
+  }
+
+  & .spip_doc_titre {
+    & strong {
+      font-weight: 400;
+    }
+  }
+
+  & .spip_doc_credits {
+    font-size: rem.convert(14px);
+    color: color.scale(#fff, $alpha: -20%);
+  }
 }

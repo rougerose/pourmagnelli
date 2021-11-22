@@ -1,22 +1,40 @@
+// ========================================
+// .spip-admin
+// ========================================
+//
+// Styles des boutons administrateur
+//
+
+@use "sass:map";
+@use "sass:color";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+$admin-btn-color-bg: map.get(abstracts.$gray, "blue", "300");
+
+// Conteneur
 .spip-admin-float {
 	display: flex;
 	top: auto !important;
 	right: auto !important;
-	bottom: 0 !important;
-	left: 0 !important;
+	bottom: rem.convert(8px) !important;
+	left: rem.convert(8px) !important;
 }
 
+// Boutons
 .spip-admin-float .spip-admin-boutons {
-  margin: 0 0.25rem 0 0;
-  border-radius: 0;
   @apply font-mono;
-  @apply text-2xs;
-  @apply bg-gray-400;
-  @apply text-black;
+  margin: 0 0.25rem 0 0;
+  border-radius: rem.convert(4px);
+  box-shadow: 0 rem.convert(3px) rem.convert(6px) hsla(0, 0%, 0%, 0.15), 0 rem.convert(2px) rem.convert(4px) hsla(0, 0%, 0%, 0.12);
+  font-size: rem.convert(10px);
+  background-color: color.scale($admin-btn-color-bg, $alpha: -12%);
+  color: map.get(abstracts.$site-colors, "text-invert");
   text-align: left;
   opacity: 1;
-}
+  transition: color 0.2s;
 
-.spip-admin-float .spip-admin-boutons:hover {
-  @apply bg-gray-300;
+  &:hover {
+    background-color: map.get(abstracts.$gray, "blue", "100");
+  }
 }

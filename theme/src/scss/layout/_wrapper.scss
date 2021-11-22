@@ -1,9 +1,6 @@
 // ========================================
-// container
+// l-wrapper
 // ========================================
-
-// Ne pas utiliser le composant .container de tailwindcss
-// car il est appliqué un max-width identique au mediaquery
 
 @use "../abstracts";
 
@@ -12,7 +9,7 @@
   margin-left: auto;
   padding-right: abstracts.$wrapper-padding-mobile;
   padding-left: abstracts.$wrapper-padding-mobile;
-  // width: 100%;
+  width: 100%;
   max-width: 1280px;
 
   @include abstracts.mq($from: desktop) {
