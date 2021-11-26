@@ -12,7 +12,7 @@
     display: none;
 
     @include abstracts.mq($from: desktop) {
-      display: flex;
+      display: none;
     }
   }
 }

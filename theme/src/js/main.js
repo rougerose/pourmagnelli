@@ -4,6 +4,8 @@ import {
   disableBodyScroll,
   enableBodyScroll
 } from "body-scroll-lock";
+import Swiper, { Navigation } from "swiper";
+
 
 /**
  * Sitenav-mobile : modale avec a11y-dialog
@@ -85,6 +87,14 @@ function sitenavMobileTransitions(event) {
   event.target.removeEventListener("transitionend", sitenavMobileTransitions);
   // Rétablir le scroll sur l'élement body
   enableBodyScroll(event.target);
+}
+
+// Swiper
+Swiper.use([Navigation]);
+const sliderPortfolioArticle = document.querySelector(".p-article_portfolio");
+
+if (sliderPortfolioArticle) {
+  // const swiperPortfolio = new Swiper(sliderPortfolioArticle);
 }
 
 /*

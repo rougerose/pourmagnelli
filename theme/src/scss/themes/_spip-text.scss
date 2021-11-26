@@ -10,10 +10,9 @@
 @use "../abstracts";
 @use "sass-rem/rem";
 
-.t-spip-text {
+.t-spip-texte {
   font-size: rem.convert(18px);
   line-height: 1.333;
-  letter-spacing: 0.05rem;
 
   & p,
   & ul,
@@ -46,16 +45,23 @@
   // & p {}
 
 
-  // Appel de note
+  // Notes : appel de note
   // ========================================
   & .spip_note_ref {
     color: map.get(abstracts.$red, "400");
+    font-size: rem.convert(14px);
+    vertical-align: super;
   }
 
   & .spip_note {
     color: map.get(abstracts.$site-colors, "text");
     border-color: transparent;
   }
+
+  // Notes : texte de note
+  // ========================================
+
+  // Règles définies dans pages/_articles > .p-article_notes
 
 
   // Intertitres
@@ -68,6 +74,12 @@
     margin-top: 3rem;
     margin-bottom: 1.5rem;
     line-height: 1.2;
+
+    &::before {
+      content: "—";
+      margin-right: 0.5rem;
+      color: map.get(abstracts.$site-colors, "primary");
+    }
   }
 
   & h2 {
@@ -208,14 +220,12 @@
   // ========================================
 
   // TODO: A revoir en fonction des styles pour les écrans plus larges.
-
+/*
   & .spip_document {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
 
-  & .spip_document {
     & img,
     & svg {
       max-width: 100%;
@@ -224,21 +234,21 @@
   }
 
   // Positionnements
-  & .spip_documents_center {
+  & .spip_document_center {
     clear: both;
     display: block;
     width: 100%;
     margin: 6rem auto;
   }
 
-  & .spip_documents_left {
+  & .spip_document_left {
     float: left;
     margin-right: 1.5rem;
     margin-bottom: 1.5rem;
     max-width: 33%;
   }
 
-  & .spip_documents_right {
+  & .spip_document_right {
     float: right;
     margin-left: 1.5rem;
     max-width: 33%;
@@ -272,8 +282,15 @@
     }
   }
 
+  & .spip_doc_descriptif,
+  & .spip_doc_credits {
+    font-weight: 300;
+    margin-top: 0.25rem;
+  }
+
   & .spip_doc_credits {
     font-size: rem.convert(14px);
-    color: color.scale(#fff, $alpha: -20%);
+    color: color.scale(#fff, $alpha: -30%);
   }
+*/
 }

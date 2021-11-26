@@ -1,0 +1,41 @@
+// ========================================
+// c-document
+// ========================================
+
+@use "sass:map";
+@use "sass:color";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+.c-document {
+  display: flex;
+  padding: 0.5rem 0.5rem 0.75rem 0.25rem;
+  border: rem.convert(1px) solid rgba(map.get(abstracts.$gray, "blue", "700"), 0.1);
+  border-radius: rem.convert(4px);
+  background-color: rgba(map.get(abstracts.$gray, "blue", "700"), 0.2);
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: rgba(map.get(abstracts.$gray, "blue", "700"), 0.4);
+  }
+}
+
+.c-document_lien {
+  display: flex;
+  padding: 0.25rem 0.75rem 0.25rem 0.25rem;
+}
+
+// .c-document_img {}
+
+.c-document_caption {
+  line-height: 1.333;
+}
+
+.c-document_titre {
+  font-size: rem.convert(18px);
+}
+
+.c-document_desc {
+  font-size: rem.convert(16px);
+  color: rgba(map.get(abstracts.$site-colors, "text"), 0.6);
+}

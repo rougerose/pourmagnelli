@@ -6,13 +6,110 @@
 @use "../abstracts";
 @use "sass-rem/rem";
 
+// 1. Règles relatives à la mise en forme de la structure (grilles)
+// 2. Règles relatives au contenu lui-même
+
+// 1. Règles relatives à la mise en forme de la structure (grilles)
+// ========================================
+
+.p-article_bodyGrid {
+  display: grid;
+
+  // Variante -texte
+  // ..
+  // Bloc contenant le texte de l'article et le logo et disposé en premier.
+  // ..
+  &.-texte {
+    & .p-article_section {
+      &.-textePrincipal {
+        grid-row: 1 / 2;
+      }
+
+      // La section logo est déplacée sous le texte de l'article
+      &.-logo {
+        grid-row: 2 / 3;
+      }
+
+      &.-texteSecondaire {
+        grid-row: 3 / 4;
+      }
+    }
+  }
+
+  // Variante -porfolio
+  // ..
+  // Bloc disposé en seconde position
+  // ..
+  // &.-portfolio {}
+
+  // Variante -footer
+  // ..
+  // Bloc disposé en troisième position
+  // ..
+  &.-footer {
+    & .p-article_section.-texteSecondaire {
+      grid-row: auto;
+    }
+  }
+}
+
+// Mise en page sur 2 colonnes à partir de desktop
+$color-body-bg: map.get(abstracts.$red, "800");
+
+@include abstracts.mq($from: desktop) {
+  .p-article_body {
+    background: linear-gradient($color-body-bg, $color-body-bg) 50%;
+    background-size: 1px 100%;
+    background-repeat: no-repeat;
+  }
+
+  .p-article_bodyGrid {
+    grid-template: auto / 1fr 1fr;
+    gap: 0 3rem;
+
+    // Variante -texte
+    &.-texte {
+      & .p-article_section {
+        &.-textePrincipal {
+          grid-column: 2 / 3;
+          grid-row: 1 / 2;
+        }
+
+        &.-logo {
+          grid-column: 1 / 2;
+          grid-row: 1 / span 3;
+        }
+
+        &.-texteSecondaire {
+          grid-column: 2 / 3;
+          grid-row: 2 / 3;
+        }
+      }
+    }
+
+    // Variante -portfolio
+    &.-portfolio {
+      grid-template: auto / auto;
+    }
+
+    // Variante -footer
+    &.-footer {
+      & .p-article_section.-texteSecondaire {
+        grid-column: 2 / 3;
+      }
+    }
+  }
+}
+
+// 2. Règles relatives au contenu lui-même
+// ========================================
+
 .p-article {
   padding-top: 3rem;
 }
 
-.p-article_header {
-  margin-bottom: 3rem;
-}
+// .p-article_header {}
+
 
 .p-article_titre {
   margin-bottom: 1rem;
@@ -28,8 +125,30 @@
   color: map.get(abstracts.$gray, "warm", "500");
 }
 
-.p-article_chapo {
-  margin-bottom: 2rem;
-  // font-size: rem.convert(20px);
-  // line-height: 1.2;
+// .p-article_chapo {}
+
+// .p-article_texte {}
+
+.p-article_notes {
+
+  // Redéfinir des règles de t-spip-text
+  &.t-spip-text {
+    & h2 {
+      margin: 0 0 1rem;
+      font-size: 20px;
+    }
+
+    & p {
+      margin-bottom: 1rem;
+      font-size: 16px;
+    }
+  }
+}
+
+// .p-article_documents {}
+
+.p-article_date {
+  font-weight: 300;
+  font-size: 16px;
+  color: rgba(map.get(abstracts.$site-colors, "text"), 0.5);
 }

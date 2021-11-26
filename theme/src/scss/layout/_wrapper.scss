@@ -3,6 +3,9 @@
 // ========================================
 
 @use "../abstracts";
+@use "sass-rem/rem";
+
+$logo-pour-width: rem.convert(46px) + 0.75rem; // largeur élément + marge droite
 
 .l-wrapper {
   margin-right: auto;
@@ -20,7 +23,7 @@
 
 .l-wrapper-content {
   @include abstracts.mq($from: desktop) {
-    margin-left: 4.5rem;
-    margin-right: 4.5rem;
+    margin-left: $logo-pour-width;
+    margin-right: $logo-pour-width;
   }
 }
