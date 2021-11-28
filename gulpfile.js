@@ -51,7 +51,10 @@ const js = function (done) {
   return rollup
     .rollup({
       input: config.js.src + "/main.js",
-      plugins: [nodeResolve(), terser()],
+      plugins: [
+        nodeResolve(),
+        process.env.NODE_ENV === "production" && terser(),
+      ],
     })
     .then((bundle) => {
       return bundle.write({
