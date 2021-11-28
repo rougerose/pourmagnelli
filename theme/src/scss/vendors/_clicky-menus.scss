@@ -1,5 +1,7 @@
 // https://github.com/mrwweb/clicky-menus
 
+@use "../abstracts";
+
 /**
  * Initial state, hidden off screen
  */
@@ -8,6 +10,7 @@
 	top: 100%;
 	left: 0;
 	visibility: hidden; /*[1]*/
+  z-index: abstracts.$zindex-sitenav-dropdown;
 }
 
 /**
