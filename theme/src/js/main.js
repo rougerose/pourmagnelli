@@ -1,11 +1,17 @@
-// import { ClickyMenus } from "./vendors/clicky-menus";
+import { ClickyMenus } from "./vendors/clicky-menus";
 import A11yDialog from "a11y-dialog";
-import {
-  disableBodyScroll,
-  enableBodyScroll
-} from "body-scroll-lock";
-import Swiper, { Navigation } from "swiper";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+// import Swiper, { Navigation } from "swiper";
 
+/**
+ * Sitenav et ClickyMenus
+ */
+
+const menus = document.querySelectorAll(".clicky-menu");
+menus.forEach(menu => {
+  let clickyMenu = new ClickyMenus(menu);
+  clickyMenu.init();
+});
 
 /**
  * Sitenav-mobile : modale avec a11y-dialog
@@ -14,7 +20,7 @@ import Swiper, { Navigation } from "swiper";
  * Le script original s'appuie une règle css "display: none"
  * lorsque la fenêtre est fermée, ce qui ne permet pas d'animer
  * la fermeture de la fenêtre.
- * Un contournement est suggéré par l'autrice du script
+ * Un contournement est suggéré par les auteurs du script
  * (voir https://github.com/KittyGiraudel/a11y-dialog/issues/244)
  * mais cela nécessite de remplacer "display: none" par "visibility: hidden",
  * avec des incompatibilités (pointer-events) avec des navigateurs pas si anciens.
@@ -66,7 +72,9 @@ dialogSitenav.on("show", (dialogEl, dialogEvent) => {
 
 // Lors de la fermeture
 dialogSitenav.on("hide", (dialogEl, dialogEvent) => {
-  dialogContentBody.addEventListener("transitionend", sitenavMobileTransitions);
+  // Ajouter l'id de la modale qui sera récupéré dans la fonction modaleTransitions
+  dialogContentBody.modalId = sitenavMobileId;
+  dialogContentBody.addEventListener("transitionend", modaleTransitions);
   dialogEl.classList.add("is-closing");
   dialogEl.classList.remove("is-visible");
 
@@ -75,33 +83,51 @@ dialogSitenav.on("hide", (dialogEl, dialogEvent) => {
   });
 });
 
+/**
+ * Recherche : modale avec a11y-dialog
+ */
+const dialogRechercheId = "dialog-recherche";
+const dialogRechercheEl = document.getElementById(dialogRechercheId);
+const dialogRecherche = new A11yDialog(dialogRechercheEl);
+dialogRechercheEl.classList.add("is-closed");
+// Elément qui sera animé
+const dialogRechercheBody = dialogRechercheEl.querySelector(".c-dialog_content");
 
-function sitenavMobileTransitions(event) {
+// Lors de l'ouverture
+dialogRecherche.on("show", (dialogEl, dialogEvent) => {
+  dialogEl.classList.remove("is-closed");
+  dialogEl.classList.add("is-visible");
+  disableBodyScroll(dialogRechercheBody);
+});
+
+// Lors de la fermeture
+dialogRecherche.on("hide", (dialogEl, dialogEvent) => {
+  // Ajouter l'id de la modale qui sera récupéré dans la fonction modaleTransitions
+  dialogRechercheBody.modalId = dialogRechercheId;
+  dialogRechercheBody.addEventListener("transitionend", modaleTransitions);
+  dialogRechercheBody.classList.add("is-closing");
+  dialogEl.classList.remove("is-visible");
+});
+
+
+function modaleTransitions(event) {
   // Identifier le parent principal (modale)
-  let dialog = event.target.closest("#" + sitenavMobileId);
+  let dialog = event.target.closest("#" + event.currentTarget.modalId);
+
   // Supprimer la classe qui permet l'animation
   dialog.classList.remove("is-closing");
   // Ajouter display: none
   dialog.classList.add("is-closed");
   // Supprimer l'écouteur
-  event.target.removeEventListener("transitionend", sitenavMobileTransitions);
+  event.target.removeEventListener("transitionend", modaleTransitions);
   // Rétablir le scroll sur l'élement body
   enableBodyScroll(event.target);
 }
 
 // Swiper
-Swiper.use([Navigation]);
-const sliderPortfolioArticle = document.querySelector(".p-article_portfolio");
+// Swiper.use([Navigation]);
+// const sliderPortfolioArticle = document.querySelector(".p-article_portfolio");
 
-if (sliderPortfolioArticle) {
-  // const swiperPortfolio = new Swiper(sliderPortfolioArticle);
-}
-
-/*
-const menus = document.querySelectorAll(".clicky-menu");
-
-menus.forEach((menu) => {
-  let clickyMenu = new ClickyMenus(menu);
-  clickyMenu.init();
-});
-*/
+// if (sliderPortfolioArticle) {
+//   // const swiperPortfolio = new Swiper(sliderPortfolioArticle);
+// }

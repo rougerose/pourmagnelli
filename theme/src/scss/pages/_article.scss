@@ -56,7 +56,7 @@
 // Mise en page sur 2 colonnes à partir de desktop
 $color-body-bg: map.get(abstracts.$red, "800");
 
-@include abstracts.mq($from: desktop) {
+@include abstracts.mq($from: lg) {
   .p-article_body {
     background: linear-gradient($color-body-bg, $color-body-bg) 50%;
     background-size: 1px 100%;

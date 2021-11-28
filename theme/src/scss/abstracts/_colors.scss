@@ -21,13 +21,39 @@ $red: (
   "900": hsl(0, 100%, 8%),
 );
 
-$pink: (
-  "500": hsl(336, 100%, 46%),
-  "600": hsl(336, 100%, 31%),
-  "700": hsl(336, 100%, 23%),
-  "800": hsl(336, 100%, 15%),
-  "900": hsl(336, 100%, 8%),
+$purple: (
+  "50": hsl(291, 46%, 90%),
+  "100": hsl(291, 46%, 81%),
+  "200": hsl(291, 46%, 71%),
+  "300": hsl(291, 46%, 61%),
+  "400": hsl(291, 46%, 52%),
+  "500": hsl(291, 64%, 42%),
+  "600": hsl(291, 64%, 28%),
+  "700": hsl(291, 64%, 21%),
+  "800": hsl(291, 64%, 14%),
+  "900": hsl(291, 64%, 7%),
 );
+
+$purple-deep: (
+  "50": hsl(262, 46%, 91%),
+  "100": hsl(262, 46%, 82%),
+  "200": hsl(262, 46%, 74%),
+  "300": hsl(262, 46%, 65%),
+  "400": hsl(262, 46%, 56%),
+  "500": hsl(262, 52%, 47%),
+  "600": hsl(262, 52%, 32%),
+  "700": hsl(262, 52%, 24%),
+  "800": hsl(262, 52%, 16%),
+  "900": hsl(262, 52%, 8%),
+);
+
+// $pink: (
+//   "500": hsl(336, 100%, 46%),
+//   "600": hsl(336, 100%, 31%),
+//   "700": hsl(336, 100%, 23%),
+//   "800": hsl(336, 100%, 15%),
+//   "900": hsl(336, 100%, 8%),
+// );
 
 // tailwindcss warm gray
 $gray: (
@@ -65,7 +91,7 @@ $site-colors: (
   "background-invert": $white,
   "dialog-background": $background-color,
   "dialog-background-sitenav": $background-color,
-  "dialog-overlay": color.scale($background-color, $alpha: -40%),
+  "dialog-overlay": color.scale(map.get($gray, "blue", "700"), $alpha: -30%),
   "link-hover": $primary-color,
   "logo-pour": $primary-color,
   "logo-magnelli": $white,

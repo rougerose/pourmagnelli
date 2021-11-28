@@ -1,28 +1,13 @@
-#SET{titre, #ENV*{titre}|typo}
-
-[(#REM) Par défaut on affiche toujours l'entrée ]
-  #SET{afficher_entree,oui}
-[(#REM) Si le champ est rempli on désactive l'entrée si ça ne correspond pas aux attentes ]
-[(#ENV{suivant_connexion}|oui)
-  [(#ENV{suivant_connexion}|=={connecte}|et{#SESSION{id_auteur}|non})
-    #SET{afficher_entree,''}
-  ]
-  [(#ENV{suivant_connexion}|=={deconnecte}|et{#SESSION{id_auteur}|oui})
-    #SET{afficher_entree,''}
-  ]
-  [(#ENV{suivant_connexion}|=={admin}|et{#SESSION{statut}|!={"0minirezo"}})
-    #SET{afficher_entree,''}
-  ]
-]
-
+[(#SET{titre, #ENV{titre}})]
 [(#ENV{appel_formulaire}|oui)
   <div class="titre">#GET{titre}</div>
-  <div class="infos"></div>
+  <div class="infos"> </div>
 ]
-[(#ENV{appel_menu}|oui)
-  <li class="menu-entree item menu-items__item menu-items__item_page-speciale[ (#ENV{nom})][ (#ENV{css})][(#ENV{env/type-page}|=={#ENV{nom}}|ou{#ENV{env/type}|=={page}|et{#ENV{env/composition}|=={#ENV{nom}}}}) on active]">
-      <a href="[(#URL_PAGE{#ENV{nom}, #ENV{parametres}}|ancre_url{#ENV{ancre}})]" class="menu-items__lien[ (#ENV{css_lien})]">
-        <span class="sr-only">#GET{titre}</span>
-        <INCLURE{fond=images/icone-search-ltr-64.svg}/>
-      </a>
-]
+
+<BOUCLE_appel(CONDITION){si #ENV{appel_menu}|oui}>
+  <li class="c-sitenav_item -root[ (#ENV{css})]">
+    <button class="c-sitenav_trigger -recherche" type="button" data-a11y-dialog-show="dialog-recherche">
+      <span class="sr-only">#GET{titre}</span> <INCLURE{fond=images/icone-search-ltr-100.svg, class=icone-search}/>
+    </button>
+  </li>
+</BOUCLE_appel>

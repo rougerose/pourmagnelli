@@ -4,9 +4,10 @@
 
 @use "sass:map";
 @use "../abstracts";
+@use "sass-rem/rem";
 
 // [1] Styles communs à tous les formulaires spip
-// [2] Formulaire recherche
+// [2] Formulaire recherche (modales)
 
 
 // [1] Styles communs
@@ -17,7 +18,7 @@
   //   margin-bottom: 1.5rem;
   //   font-size: 1.5rem;
   //   line-height: 1.5rem;
-  //   // color: $color-primary-500;
+  //   color: $color-primary-500;
   // }
 
   label {
@@ -43,7 +44,7 @@
     font-size: 1rem;
     line-height: 1.5;
     padding: 0.5rem;
-    border-width: 2px;
+    border-width: rem.convert(2px);
     border-style: solid;
   }
 
@@ -62,8 +63,8 @@
   input[type="email"],
   textarea,
   select {
-    border-color: transparent;
-    background-color: map.get(abstracts.$gray, "blue", "600");
+    border: rem.convert(1px) solid rgba(map.get(abstracts.$gray, "blue", "600"), 0.2);
+    background-color: rgba(map.get(abstracts.$gray, "blue", "700"), 0.5);
     transition: background-color 0.3s ease;
     color: map.get(abstracts.$site-colors, "text-invert");
 
@@ -117,7 +118,7 @@
 }
 
 
-// [2] Formulaire recherche
+// [2] Formulaire recherche (modales)
 // ========================================
 // reference https://css-tricks.com/show-search-button-when-search-field-is-non-empty
 
@@ -128,6 +129,11 @@ $searchbox-btn-width: 7.5rem;
   position: relative;
   z-index: inherit;
   overflow: hidden;
+}
+
+.l-recherche_label {
+  font-weight: 600;
+  font-size: rem.convert(20px);
 }
 
 input[type="search"].l-recherche_input {
@@ -142,7 +148,8 @@ input[type="search"].l-recherche_input {
 
 button[type="submit"].l-recherche_btn {
   border-radius: 0.25rem;
-  background-color: map.get(abstracts.$site-colors, "primary");
+  border-width: rem.convert(1px);
+  background-color: map.get(abstracts.$purple-deep, "700");
   color: map.get(abstracts.$site-colors, "text");
   position: absolute;
   bottom: 0;

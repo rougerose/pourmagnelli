@@ -7,9 +7,12 @@
 @use "sass-rem/rem";
 
 .c-logo {
-  // position: relative;
-  // z-index: 10;
   width: rem.convert(220px);
+  line-height: 1.11;
+
+  @include abstracts.mq($from: md) {
+    width: rem.convert(300px);
+  }
 }
 
 .c-logo_pour {

@@ -13,16 +13,16 @@ $logo-pour-width: rem.convert(46px) + 0.75rem; // largeur élément + marge droi
   padding-right: abstracts.$wrapper-padding-mobile;
   padding-left: abstracts.$wrapper-padding-mobile;
   width: 100%;
-  max-width: 1280px;
+  max-width: abstracts.$wrapper-max-width;
 
-  @include abstracts.mq($from: desktop) {
+  @include abstracts.mq($from: md) {
     padding-right: abstracts.$wrapper-padding-desktop;
     padding-left: abstracts.$wrapper-padding-desktop;
   }
 }
 
 .l-wrapper-content {
-  @include abstracts.mq($from: desktop) {
+  @include abstracts.mq($from: lg) {
     margin-left: $logo-pour-width;
     margin-right: $logo-pour-width;
   }

@@ -4,6 +4,7 @@
 
 @use "sass:map";
 @use "../abstracts";
+@use "sass-rem/rem";
 
 
 .c-dialog,
@@ -28,25 +29,24 @@
     display: none;
   }
 
-  &.-sitenav-mobile {
+  // Adaptations des règles d'affichage en fonction du script js et des animations :
+  // [1] Permettre au js de poser un écouteur d'événement sur l'élément enfant
+  // [2] Rétablir un display: none sur la modale.
+  .js & {
+    &[aria-hidden="true"] {
+      display: flex; // [1]
 
-    // Adaptations des règles d'affichage en fonction du script js et des animations :
-    // [1] Permettre au js de poser un écouteur d'événement sur l'élément enfant
-    // [2] Rétablir un display: none sur la modale.
-    .js & {
-      &[aria-hidden="true"] {
-        display: flex; // [1]
-
-        &.is-closed {
-          display: none; // [2]
-        }
+      &.is-closed {
+        display: none; // [2]
       }
     }
-
-    &.is-visible {
-      display: flex;
-    }
   }
+
+  &.is-visible {
+    display: flex;
+  }
+
+  // &.-sitenav-mobile {}
 }
 
 
@@ -67,9 +67,40 @@
   margin: 0 auto;
   background-color: map.get(abstracts.$site-colors, "background");
 
-  // variante mobile
+  // variante -sitenav-mobile
   &.-sitenav-mobile {
     width: 100%;
+  }
+
+  // variante -recherche
+
+  $max-width: rem.convert(abstracts.$wrapper-max-width) - (abstracts.$wrapper-padding-desktop * 2);
+
+  &.-recherche {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: auto;
+    padding: 1.5rem 3rem 4rem;
+    width: 100%;
+    max-width: $max-width;
+    border-radius: rem.convert(4px);
+    box-shadow: abstracts.$box-shadow;
+    transition-property: opacity, transform;
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(.25,.46,.45,.94);
+
+    .js &,
+    .is-closing & {
+      opacity: 0;
+      transform: translateY(35%);
+      transition-timing-function: cubic-bezier(.55,.085,.68,.53);
+    }
+
+    .is-visible & {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
@@ -106,7 +137,8 @@
     height: 100%; // [1]
     transition: transform 0.6s ease-in-out;
 
-    .js & {
+    .js &,
+    .c-dialog.is-closing & {
       transform: translateY(100%);
     }
 
@@ -116,12 +148,9 @@
     .c-dialog.is-visible & {
       transform: translateY(0);
     }
-
-    .c-dialog.is-closing & {
-      transform: translateY(100%);
-    }
   }
 }
+
 
 // c-dialog_container
 // ========================================
@@ -131,5 +160,32 @@
   .-sitenav-mobile & {
     margin-top: 5em;
     padding: 1rem abstracts.$wrapper-padding-mobile 2rem;
+
+    @include abstracts.mq($from: md) {
+      padding-left: abstracts.$wrapper-padding-desktop;
+      padding-right: abstracts.$wrapper-padding-desktop;
+    }
+  }
+}
+
+
+// c-dialog_recherche
+// ========================================
+.c-dialog_recherche {
+  width: 100%;
+}
+
+
+// c-dialog_close
+// ========================================
+.c-dialog_close {
+  & .hamburger-box {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    & .hamburger-box {
+      transform: rotate(180deg);
+    }
   }
 }

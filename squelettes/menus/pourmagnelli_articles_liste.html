@@ -1,0 +1,23 @@
+[(#SET{id_rubrique, #ENV{id_rubrique}|intval})]
+[(#SET{ajouter_racine, #ENV{ajouter_racine, oui}})]
+[(#GET{ajouter_racine}|!=={oui}|?{#SET{ajouter_racine, non}})]
+
+[(#ENV{appel_formulaire}|oui)
+  [(#SET{titre, #GET{id_rubrique}|?{#INFO_TITRE{rubrique, #GET{id_rubrique}}, <:info_racine_site:>}})]
+  <div class="titre">[(#GET{titre}) et ses articles]</div>
+  <div class="infos"> </div>
+]
+
+<BOUCLE_appel(CONDITION){si #ENV{appel_menu}|oui}>
+  <BOUCLE_rubrique_racine(RUBRIQUES){id_rubrique=#GET{id_rubrique}}>
+    [(#GET{ajouter_racine}|=={oui}|oui)
+    <li class="c-sitenav_item -sub[ (#ENV{css})][ (#ID_RUBRIQUE|menus_exposer{rubrique, #ENV*{env}, 'is-active'})]">
+      <a href="#URL_RUBRIQUE"><span class="c-sitenav_label">#TITRE</span></a>
+    </li>
+    ]<BOUCLE_articles(ARTICLES){id_rubrique}{par num titre}>
+      <li class="c-sitenav_item -sub[ (#ENV{css})][ (#ID_ARTICLE|menus_exposer{article, #ENV*{env}, 'is-active'})]">
+        <a href="#URL_ARTICLE"><span class="c-sitenav_label">#TITRE</span></a>
+      </li>
+    </BOUCLE_articles>
+  </BOUCLE_rubrique_racine>
+</BOUCLE_appel>
