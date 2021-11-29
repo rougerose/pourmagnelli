@@ -10,16 +10,25 @@
 @use "../abstracts";
 @use "sass-rem/rem";
 
+
 .t-spip-texte {
   font-size: rem.convert(18px);
-  line-height: 1.333;
+  // line-height: 1.333;
 
   & p,
   & ul,
   & ol,
   & dl,
-  & blockquote {
+  & blockquote,
+  & table {
     margin-bottom: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: abstracts.$text-max-width;
+
+    @include abstracts.mq($from: md) {
+      margin-left: 0;
+    }
   }
 
 
@@ -71,20 +80,25 @@
   & h4,
   & h5,
   & h6 {
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
+    margin: 3rem auto 1.5rem;
+    max-width: abstracts.$text-max-width;
     line-height: 1.2;
+
 
     &::before {
       content: "—";
       margin-right: 0.5rem;
       color: map.get(abstracts.$site-colors, "primary");
     }
+
+    @include abstracts.mq($from: md) {
+      margin-left: 0;
+    }
   }
 
   & h2 {
     font-size: rem.convert(24px);
-    line-height: 1;
+    // line-height: 1;
     font-weight: 400;
   }
 
@@ -94,18 +108,29 @@
 
   & h4 {
     font-size: rem.convert(18px);
-    line-height: 1.333;
+    // line-height: 1.333;
   }
 
   & h5 {
-    font-size: rem.convert(16px);
-    line-height: 1.5;
+    font-size: rem.convert(18px);
+    font-style: italic;
+    // line-height: 1.5;
   }
 
   & h6 {
     font-size: rem.convert(16px);
     font-style: italic;
-    line-height: 1.5;
+    // line-height: 1.5;
+  }
+
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    &:nth-child(1) {
+      margin-top: 0;
+    }
   }
 
   // Listes
@@ -113,17 +138,21 @@
   & ul,
   & ol {
     margin-bottom: 1.5rem;
-    margin-left: 1rem;
 
     & li {
+      margin-left: 1.5rem;
+      margin-bottom: 0.5rem;
+
       &::marker {
         color: map.get(abstracts.$red, "400");
+        font-size: 125%;
+        line-height: 1;
       }
     }
   }
 
   & ul {
-    list-style-type: square;
+    list-style-type: circle;
 
     & ul {
       margin-bottom: 0;
@@ -169,7 +198,6 @@
     width: 100%;
     border-collapse: collapse;
     font-size: 1rem;
-    line-height: 1.25rem;
     border-bottom: rem.convert(1px) solid rgba($color-table-bg, 0.8);
   }
 
@@ -202,7 +230,6 @@
 
   & blockquote {
     border-left: rem.convert(2px) solid map.get(abstracts.$red, "700");
-    margin-left: 1rem;
     padding-left: 1rem;
     font-size: 1rem;
   }
@@ -219,61 +246,68 @@
   // Images en illustrations
   // ========================================
 
-  // TODO: A revoir en fonction des styles pour les écrans plus larges.
-/*
-  & .spip_document {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  // * Remarque importante *
+  // Compte tenu de la contrainte de largeur sur max-width,
+  // les filtres d'alignement Spip (left, right) sur les images insérées
+  // dans un champ texte sont sans effet.
 
-    & img,
-    & svg {
-      max-width: 100%;
-      height: auto;
+  & .spip_document {
+    max-width: abstracts.$text-max-width;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include abstracts.mq($from: md) {
+      margin-left: 0;
     }
   }
 
-  // Positionnements
-  & .spip_document_center {
-    clear: both;
-    display: block;
-    width: 100%;
-    margin: 6rem auto;
+  & .spip_document_image {
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+
+    // [1] Si l'image est d'une taille inférieure à la largeur de la colonne,
+    // ajout d'un arrière-plan et centrer l'image dans le conteneur.
+    .spip_doc_lien {
+      background-color: rgba(map.get(abstracts.$gray, "blue", "900"), 0.5); // [1]
+    }
+
+    img {
+      margin: auto; // [1]
+    }
+
+    & .spip_doc_legende {
+      border-left: rem.convert(1px) solid map.get(abstracts.$site-colors, "primary");
+      margin-top: 0.75rem;
+      padding-left: 1rem;
+
+      & div:first-child {
+        margin-top: rem.convert(-3px);
+      }
+    }
+
+    @include abstracts.mq($from: md) {
+      margin-top: 5rem;
+      margin-bottom: 4rem;
+      // Supprimer la contrainte sur la largeur uniquement pour spip_document_image
+      margin-right: 0;
+      max-width: none;
+    }
   }
 
-  & .spip_document_left {
-    float: left;
-    margin-right: 1.5rem;
-    margin-bottom: 1.5rem;
-    max-width: 33%;
-  }
-
-  & .spip_document_right {
-    float: right;
-    margin-left: 1.5rem;
-    max-width: 33%;
-  }
-
-  // Figure
   & .spip_doc_inner {
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
-    max-width: 100%;
   }
 
   & .spip_doc_lien {
-    display: inline-block;
-    border-bottom: 0;
+    display: flex;
+    border: none;
   }
 
   & .spip_doc_legende {
-    border-left: rem.convert(1px) solid color.scale(map.get(abstracts.$site-colors, "primary"), $alpha: -50%);
-    margin-top: 0.5rem;
-    padding-left: 1rem;
-    width: 0;
-    min-width: 100%;
+    margin-right: auto; // contraindre à la largeur (maximum) du contenu.
     font-size: 1rem;
+    line-height: 1.2;
   }
 
   & .spip_doc_titre {
@@ -284,13 +318,13 @@
 
   & .spip_doc_descriptif,
   & .spip_doc_credits {
+    font-size: rem.convert(14px);
     font-weight: 300;
-    margin-top: 0.25rem;
+    margin-top: 0.75rem;
   }
 
   & .spip_doc_credits {
-    font-size: rem.convert(14px);
-    color: color.scale(#fff, $alpha: -30%);
+    margin-top: 0.5rem;
+    color: color.scale(#fff, $alpha: -40%);
   }
-*/
 }

@@ -5,7 +5,7 @@
 @use "../abstracts";
 @use "sass-rem/rem";
 
-$logo-pour-width: rem.convert(46px) + 0.75rem; // largeur élément + marge droite
+$logo-pour-width: rem.convert(60px) + 0.75rem; // largeur élément + marge droite
 
 .l-wrapper {
   margin-right: auto;
@@ -15,7 +15,7 @@ $logo-pour-width: rem.convert(46px) + 0.75rem; // largeur élément + marge droi
   width: 100%;
   max-width: abstracts.$wrapper-max-width;
 
-  @include abstracts.mq($from: md) {
+  @include abstracts.mq($from: sm) {
     padding-right: abstracts.$wrapper-padding-desktop;
     padding-left: abstracts.$wrapper-padding-desktop;
   }
@@ -23,7 +23,7 @@ $logo-pour-width: rem.convert(46px) + 0.75rem; // largeur élément + marge droi
 
 .l-wrapper-content {
   @include abstracts.mq($from: lg) {
+    // margin-right: $logo-pour-width;
     margin-left: $logo-pour-width;
-    margin-right: $logo-pour-width;
   }
 }

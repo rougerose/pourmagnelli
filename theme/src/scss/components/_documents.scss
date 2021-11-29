@@ -6,15 +6,23 @@
 
 @use "sass:map";
 @use "../abstracts";
-// @use "sass-rem/rem";
+@use "sass-rem/rem";
 
 
-// .c-documents {}
+.c-documents {
+  max-width: abstracts.$text-max-width;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include abstracts.mq($from: md) {
+    margin-left: 0;
+  }
+}
 
 
 .c-documents_titre {
   margin-bottom: 1rem;
-  font-size: 20px; // Corps identique à l'intertitre Notes
+  font-size: rem.convert(20px); // Corps identique à l'intertitre Notes
 
   // Règles identiques à tous les intertitres
   &::before {

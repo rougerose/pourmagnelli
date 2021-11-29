@@ -1,7 +1,7 @@
 import { ClickyMenus } from "./vendors/clicky-menus";
 import A11yDialog from "a11y-dialog";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-// import Swiper, { Navigation } from "swiper";
+import Swiper, { Navigation } from "swiper";
 
 /**
  * Sitenav et ClickyMenus
@@ -14,10 +14,11 @@ menus.forEach(menu => {
 });
 
 /**
- * Sitenav-mobile : modale avec a11y-dialog
+ * Gestion des modales avec a11y-dialog
  * ========================================
  *
- * Le script original s'appuie une règle css "display: none"
+ * Précisions sur l'animation ouverture/fermeture :
+ * Le script s'appuie une règle css "display: none"
  * lorsque la fenêtre est fermée, ce qui ne permet pas d'animer
  * la fermeture de la fenêtre.
  * Un contournement est suggéré par les auteurs du script
@@ -33,6 +34,10 @@ menus.forEach(menu => {
  *  - Un écouteur est ajouté pour surveiller la fin de l'animation sur
  *    l'élément "c-dialog_body" et modifier les classes pour permettre l'animation,
  *    puis rendre la modale invisible.
+ */
+
+/**
+ * Modale Sitenav
  */
 
 // Récupérer la modale contenant la navigation version mobile
@@ -84,7 +89,7 @@ dialogSitenav.on("hide", (dialogEl, dialogEvent) => {
 });
 
 /**
- * Recherche : modale avec a11y-dialog
+ * Modale Formulaire de recherche
  */
 const dialogRechercheId = "dialog-recherche";
 const dialogRechercheEl = document.getElementById(dialogRechercheId);
@@ -113,7 +118,6 @@ dialogRecherche.on("hide", (dialogEl, dialogEvent) => {
 function modaleTransitions(event) {
   // Identifier le parent principal (modale)
   let dialog = event.target.closest("#" + event.currentTarget.modalId);
-
   // Supprimer la classe qui permet l'animation
   dialog.classList.remove("is-closing");
   // Ajouter display: none
@@ -125,9 +129,9 @@ function modaleTransitions(event) {
 }
 
 // Swiper
-// Swiper.use([Navigation]);
-// const sliderPortfolioArticle = document.querySelector(".p-article_portfolio");
+Swiper.use([Navigation]);
+const sliderPortfolioArticle = document.querySelector(".p-article_portfolio");
 
-// if (sliderPortfolioArticle) {
-//   // const swiperPortfolio = new Swiper(sliderPortfolioArticle);
-// }
+if (sliderPortfolioArticle) {
+  const swiperPortfolio = new Swiper(sliderPortfolioArticle);
+}

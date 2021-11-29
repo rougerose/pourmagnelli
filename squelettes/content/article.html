@@ -6,25 +6,25 @@
           <h1 class="p-article_titre" itemprop="headline name">#TITRE</h1>
           [<p class="p-article_soustitre">(#SOUSTITRE)</p>]
         </header>
-        <div class="p-article_body">
-          <div class="p-article_bodyGrid -texte">
+        <div class="p-article_body -grid">
+          <div class="p-article_bodySection -grid -texte">
             <B_image_logo>
-              <div class="p-article_section -logo">
+              <div class="p-article_section -logo t-spip-texte">
                 [(#REM) <!-- La première image est utilisée comme bannière (logo) de l'article --> ]
                 <BOUCLE_image_logo(DOCUMENTS){id_article}{media=image}{vu=non}{par rang_lien, id_document, num titre}{0,1}>
-                  [(#FICHIER|balise_img|adaptive_images{540})]
+                  [(#INCLURE{fond=modeles/pourmagnelli_image, id_document=#ID_DOCUMENT, adaptive_param=300/600})]
                 </BOUCLE_image_logo>
               </div>
             </B_image_logo>
             <div class="p-article_section -textePrincipal" itemprop="articleBody">
-              [<div class="p-article_chapo t-spip-texte mb-8">(#CHAPO|adaptive_images{540})</div>]
-              [<div class="p-article_texte t-spip-texte mb-12">(#TEXTE|adaptive_images{540})</div>]
+              [<div class="p-article_chapo t-spip-texte">(#CHAPO|adaptive_images{300/600/768})</div>]
+              [<div class="p-article_texte t-spip-texte">(#TEXTE|adaptive_images{300/600/768})</div>]
             </div>
             <div class="p-article_section -texteSecondaire">
               [(#REM) <!-- Les documents (fichiers) liés à l'article --> ]
               <INCLURE{fond=inclure/article/documents, id_article} />
               [(#REM) <!-- Les notes --> ]
-              [<aside class="p-article_notes t-spip-texte mb-12">
+              [<aside class="p-article_notes t-spip-texte">
                 <h2><:info_notes:></h2>
                 (#NOTES)
               </aside>]
@@ -32,13 +32,13 @@
           </div>
           [(#REM) <!-- Le portfolio --> ]
           <B_portfolio>
-            <div class="p-article_bodyGrid -portfolio">
+            <div class="p-article_bodySection -portfolio">
               <BOUCLE_portfolio(DOCUMENTS){id_article}{media=image}{vu=non}{par rang_lien, id_document, num titre}{1, 1}>
                 <INCLURE{fond=inclure/article/portfolio, id_article}/>
               </BOUCLE_portfolio>
             </div>
           </B_portfolio>
-          <div class="p-article_bodyGrid -footer">
+          <div class="p-article_bodySection -grid -footer">
             <div class="p-article_section -texteSecondaire">
               <p class="p-article_date">Publié le <time itemprop="dateCreated" datetime="[(#DATE|date_iso)]">[(#DATE|affdate)]</time></p>
             </div>
