@@ -4,7 +4,7 @@
     <div class="swiper-wrapper">
       <BOUCLE_article_portfolio(DOCUMENTS){id_article}{media=image}{vu=non}{par rang_lien, id_document, num titre}{1,n}>
         <div class="swiper-slide">
-          [(#INCLURE{fond=modeles/img, id_document=#ID_DOCUMENT})]
+          [(#FICHIER|image_reduire{300}|balise_img)]
         </div>
       </BOUCLE_article_portfolio>
     </div>

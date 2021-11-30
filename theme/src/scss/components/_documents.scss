@@ -19,19 +19,6 @@
   }
 }
 
-
-.c-documents_titre {
-  margin-bottom: 1rem;
-  font-size: rem.convert(20px); // Corps identique à l'intertitre Notes
-
-  // Règles identiques à tous les intertitres
-  &::before {
-    content: "—";
-    margin-right: 0.5rem;
-    color: map.get(abstracts.$site-colors, "primary");
-  }
-}
-
 .c-documents_list {
   display: grid;
   grid-template-columns: 1fr;

@@ -1,24 +1,11 @@
 <B_documents>
-  <aside id="documents" class="p-article_documents c-documents mb-12">
+  <aside id="documents" class="p-article_documents c-documents t-spip-texte -documents">
     <h2 class="c-documents_titre">
       <:medias:titre_documents_joints:>
     </h2>
     <div class="c-documents_list">
       <BOUCLE_documents(DOCUMENTS){id_article}{mode=document}{vu=non}{par rang_lien, id_document, num titre}>
-        <figure class="c-documents_item c-document">
-          [(#LOGO_DOCUMENT{vignette}|?{
-            [(#SET{logo, #LOGO_DOCUMENT|image_reduire{128, 96}|extraire_attribut{src}})],
-            [(#SET{logo, #LOGO_DOCUMENT|extraire_attribut{src}})]
-          })]
-          [<a href="#URL_DOCUMENT" class="c-document_lien"><img src="(#GET{logo})" alt="" class="c-document_img"></a>]
-          <figcaption class="c-document_caption">
-            [<h3 class="c-document_titre"><a href="#URL_DOCUMENT">(#TITRE|sinon{<:medias:info_document:>})</a></h3>]
-            <div class="c-document_desc">
-              [<div>(#DESCRIPTIF)</div>]
-              <p>#TYPE_DOCUMENT[ &ndash; (#TAILLE|taille_en_octets)]</p>
-            </div>
-          </figcaption>
-        </figure>
+        [(#INCLURE{fond=modeles/image, id=#ID_DOCUMENT, env})]
       </BOUCLE_documents>
     </div>
   </aside>

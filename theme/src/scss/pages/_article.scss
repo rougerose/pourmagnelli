@@ -14,18 +14,23 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
 
 .p-article {
   padding-top: 4rem;
+
   @include abstracts.mq($from: lg) {
     padding-top: 8rem;
   }
 }
 
 .p-article_header {
-  padding-bottom: 6rem;
+  padding-bottom: 4rem;
+
+  @include abstracts.mq($from: lg) {
+    padding-bottom: 6rem;
+  }
 }
 
 .p-article_body {
 
-  // Variante sur 2 colonnes
+  // Variante -grid sur 2 colonnes
   // ========================================
   &.-grid {
     // Un filet entre les 2 colonnes est ajouté en arrière plan
@@ -36,6 +41,33 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
       background: linear-gradient($color-body-bg, $color-body-bg) unquote("calc((100% + 2rem) / 3)"); // [1]
       background-size: 1px 100%;
       background-repeat: no-repeat;
+    }
+  }
+
+  // Variante -timeline
+  // ========================================
+  $tl-container-margin: abstracts.$timeline-container-margin;
+
+  &.-timeline {
+    position: relative;
+    padding-left: $tl-container-margin;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      width: 1px;
+      background-color: map.get(abstracts.$site-colors, "primary");
+    }
+
+    @include abstracts.mq($from: md) {
+      padding-left: 0;
+
+      &::before {
+        left: calc(25% - $tl-container-margin);
+      }
     }
   }
 }
@@ -65,27 +97,18 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
       // Par défaut, grille sur 1 colonne.
 
       // Version par défaut
-      & .p-article_section {
+      // & .p-article_section {
 
         // Le texte de l'article en premier
         // &.-textePrincipal {
         //   grid-row: 1 / 2;
         // }
 
-        &.-logo {
-          &.t-spip-texte {
-            & .spip_document_image {
-              margin-top: 0;
-              margin-bottom: 4rem;
-            }
-          }
-        }
-
         // La section secondaire en dernier
         // &.-texteSecondaire {
         //   grid-row: 3 / 4;
         // }
-      }
+      // }
 
       // Version mq >= lg
       @include abstracts.mq($from: md) {
@@ -148,23 +171,52 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
       }
     }
   }
+
+  // Variante -timeline
+  // ========================================
+  &.-timeline {
+
+    // La colonne de texte est centrée dans la page,
+    // en fonction de la largeur max du conteneur
+    // .p-article_body et de la largeur max du contenu (600px)
+
+    @include abstracts.mq($from: md) {
+      position: relative;
+      left: 25%;
+      width: 75%;
+    }
+  }
 }
 
 
 // Règles relatives au contenu
 // ========================================
+
+// Règles par défaut
+
 .p-article_titre {
-  margin-bottom: 1rem;
+  // margin-bottom: 1rem;
   font-size: rem.convert(24px);
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.05rem;
+
+  @include abstracts.mq($from: md) {
+    font-size: rem.convert(32px);
+  }
 }
 
 .p-article_soustitre {
-  font-size: rem.convert(20px);
+  margin-top: 1rem;
+  font-size: rem.convert(24px);
+  font-weight: 300;
   line-height: 1.2;
-  color: map.get(abstracts.$gray, "warm", "500");
+  color: map.get(abstracts.$gray, "blue", "200");
+
+  @include abstracts.mq($from: md) {
+    margin-top: 0.5rem;
+    font-size: rem.convert(28px);
+  }
 }
 
 .p-article_chapo {
@@ -177,145 +229,29 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
 }
 
 .p-article_texte {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
+  @include abstracts.mq($from: md) {
+    margin-bottom: 6rem;
+  }
 }
 
 .p-article_notes {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
   margin-left: auto;
   margin-right: auto;
   max-width: abstracts.$text-max-width;
 
-
-  // Redéfinir des règles de t-spip-texte
-  &.t-spip-texte {
-    & h2 {
-      margin: 0 0 1rem;
-      font-size: rem.convert(20px);
-    }
-
-    & p {
-      margin-bottom: 1rem;
-      font-size: rem.convert(16px);
-    }
-  }
-
   @include abstracts.mq($from: md) {
     margin-left: 0;
+    margin-bottom: 6rem;
   }
 }
 
-// .p-article_documents {}
-
-.p-article_date {
-  font-weight: 300;
-  font-size: rem.convert(16px);
-  color: rgba(map.get(abstracts.$site-colors, "text"), 0.5);
-}
-
-/*
-
-// 1. Règles relatives à la mise en forme de la structure (grilles)
-// 2. Règles relatives au contenu lui-même
-
-// 1. Règles relatives à la mise en forme de la structure (grilles)
-// ========================================
-
-.p-article_bodyGrid {
-  display: grid;
-
-  // Variante -texte
-  // ..
-  // Bloc contenant le texte de l'article et le logo et disposé en premier.
-  // ..
-  &.-texte {
-    & .p-article_section {
-      &.-textePrincipal {
-        grid-row: 1 / 2;
-      }
-
-      // La section logo est déplacée sous le texte de l'article
-      &.-logo {
-        grid-row: 2 / 3;
-      }
-
-      &.-texteSecondaire {
-        grid-row: 3 / 4;
-      }
-    }
-  }
-
-  // Variante -porfolio
-  // ..
-  // Bloc disposé en seconde position
-  // ..
-  // &.-portfolio {}
-
-  // Variante -footer
-  // ..
-  // Bloc disposé en troisième position
-  // ..
-  &.-footer {
-    & .p-article_section.-texteSecondaire {
-      grid-row: auto;
-    }
+.p-article_documents {
+  margin-bottom: 4rem;
+  @include abstracts.mq($from: md) {
+    margin-bottom: 6rem;
   }
 }
 
-// Mise en page sur 2 colonnes à partir de desktop
-$color-body-bg: map.get(abstracts.$red, "800");
-
-@include abstracts.mq($from: lg) {
-  .p-article_body {
-    background: linear-gradient($color-body-bg, $color-body-bg) 50%;
-    background-size: 1px 100%;
-    background-repeat: no-repeat;
-  }
-
-  .p-article_bodyGrid {
-    grid-template: auto / 1fr 1fr;
-    gap: 0 3rem;
-
-    // Variante -texte
-    &.-texte {
-      & .p-article_section {
-        &.-textePrincipal {
-          grid-column: 2 / 3;
-          grid-row: 1 / 2;
-        }
-
-        &.-logo {
-          grid-column: 1 / 2;
-          grid-row: 1 / span 3;
-        }
-
-        &.-texteSecondaire {
-          grid-column: 2 / 3;
-          grid-row: 2 / 3;
-        }
-      }
-    }
-
-    // Variante -portfolio
-    &.-portfolio {
-      grid-template: auto / auto;
-    }
-
-    // Variante -footer
-    &.-footer {
-      & .p-article_section.-texteSecondaire {
-        grid-column: 2 / 3;
-      }
-    }
-  }
-}
-
-// 2. Règles relatives au contenu lui-même
-// ========================================
-
-// .p-article {
-//   padding-top: 3rem;
-// }
-
-// .p-article_header {}
-*/
+// .p-article_date {}

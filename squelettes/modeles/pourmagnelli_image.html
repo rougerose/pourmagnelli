@@ -10,7 +10,7 @@
     <figure class="spip_doc_inner">
       [<a href="(#ENV{lien})"[ class="(#ENV{lien_class}|concat{' spip_doc_lien'}|trim)"]>]
       [(#ENV{lien}|non|et{#GET{autolien}})<a href="#URL_DOCUMENT" class="spip_doc_lien mediabox" type="#MIME_TYPE">]
-        [(#FICHIER|balise_img|adaptive_images{#ENV{adaptive_param, 960}})]
+        [(#FICHIER|balise_img|image_reduire{#ENV{largeur, 600}, 0})]
       [(#ENV{lien}|ou{#GET{autolien}}|?{</a>})]
       #GET{legende}
     </figure>
