@@ -1,0 +1,14 @@
+// ========================================
+// .page_article
+// ========================================
+
+// classe ajoutée par Spip sur le <html>
+
+.page_article {
+
+  // Composition association
+  // ajouter un smooth scroll
+  &.article_association {
+    scroll-behavior: smooth;
+  }
+}

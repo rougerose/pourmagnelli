@@ -128,6 +128,11 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
           // Remarque : Ne rien définir et le placement est automatique.
           // &.-logo {}
 
+          // Le sommaire est à gauche
+          &.-sommaire {
+            position: relative;
+          }
+
           // Texte secondaire à droite.
           &.-texteSecondaire {
             grid-column: 2 / 3;

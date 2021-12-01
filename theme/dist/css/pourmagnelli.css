@@ -914,6 +914,32 @@ button {
   color: red;
 }
 
+.c-ca {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 2rem;
+}
+
+.c-ca_avatar {
+  background-color: red;
+  width: 4.625rem;
+  height: 4.625rem;
+  border-radius: 100%;
+}
+
+.c-ca_identite {
+  margin-top: 0.5rem;
+}
+.c-ca_identite p {
+  margin: 0 !important;
+  max-width: none !important;
+}
+
+.c-ca_fonction {
+  font-style: italic;
+  font-weight: 300;
+}
+
 .c-dialog,
 .c-dialog_overlay {
   position: fixed;
@@ -1252,6 +1278,29 @@ button {
   }
 }
 
+.c-sommaire {
+  display: none;
+}
+.t-spip-texte .c-sommaire ul li {
+  margin-left: 0;
+  list-style: circle inside;
+}
+.t-spip-texte .c-sommaire a {
+  border: none;
+}
+.t-spip-texte .c-sommaire a:visited {
+  color: currentColor;
+}
+.t-spip-texte .c-sommaire a:hover {
+  color: #ff5757;
+}
+@media (min-width: 48em) {
+  .c-sommaire {
+    display: block;
+    position: fixed;
+  }
+}
+
 .l-container.-sitenavDesktop {
   display: none;
 }
@@ -1487,9 +1536,8 @@ button[type=submit].l-recherche_btn {
     grid-column: 2/3;
     grid-row: 1/2;
   }
-  .p-article_bodySection.-grid.-texte .p-article_section.-logo {
-    grid-column: 1/2;
-    grid-row: 1/span 3;
+  .p-article_bodySection.-grid.-texte .p-article_section.-sommaire {
+    position: relative;
   }
   .p-article_bodySection.-grid.-texte .p-article_section.-texteSecondaire {
     grid-column: 2/3;
@@ -1578,6 +1626,10 @@ button[type=submit].l-recherche_btn {
   .p-article_documents {
     margin-bottom: 6rem;
   }
+}
+
+.page_article.article_association {
+  scroll-behavior: smooth;
 }
 
 .page_login button, .page_login input, .page_login optgroup, .page_login select, .page_login textarea {
@@ -1716,6 +1768,17 @@ button[type=submit].l-recherche_btn {
 }
 .t-spip-texte p + ul, .t-spip-texte p + ol {
   margin-top: -1.5rem;
+}
+.t-spip-texte dl {
+  display: grid;
+  grid-template-columns: 12.5rem 1fr;
+}
+.t-spip-texte dl dt {
+  grid-column: 1/2;
+  font-style: italic;
+}
+.t-spip-texte dl dd {
+  grid-column: 2/3;
 }
 .t-spip-texte hr {
   margin: 3rem 0;
@@ -1875,6 +1938,19 @@ button[type=submit].l-recherche_btn {
   font-weight: 300;
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.5);
+}
+.t-spip-texte.-association h2 {
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid maroon;
+}
+.t-spip-texte.-association h2:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+.t-spip-texte.-association h2::before {
+  display: none;
 }
 .t-spip-texte.-timeline > section > h2:first-child {
   position: relative;

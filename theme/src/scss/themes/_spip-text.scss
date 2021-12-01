@@ -176,6 +176,22 @@
     margin-top: -1.5rem;
   }
 
+  & dl {
+    display: grid;
+    grid-template-columns: rem.convert(200px) 1fr;
+
+    & dt {
+      grid-column: 1 / 2;
+      font-style: italic;
+    }
+
+    & dd {
+      grid-column: 2 / 3;
+    }
+  }
+
+
+
 
   // HR
   // ========================================
@@ -453,6 +469,26 @@
     font-weight: 300;
     font-size: rem.convert(16px);
     color: rgba(map.get(abstracts.$site-colors, "text"), 0.5);
+  }
+
+  // Variante -association
+  // ========================================
+  &.-association {
+    & h2 {
+      margin-top: 5rem;
+      margin-bottom: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid map.get(abstracts.$red, "700");
+
+      &:first-child {
+        padding-top: 0;
+        border-top: none;
+      }
+
+      &::before {
+        display: none;
+      }
+    }
   }
 
   // Variante -timeline : présentation chronologique.
