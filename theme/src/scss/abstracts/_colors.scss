@@ -92,7 +92,7 @@ $site-colors: (
   "dialog-background": $background-color,
   "dialog-background-sitenav": $background-color,
   "dialog-overlay": color.scale(map.get($gray, "blue", "700"), $alpha: -30%),
-  "link-hover": $primary-color,
+  "link-hover": map.get($red, "300"),
   "logo-pour": $primary-color,
   "logo-magnelli": $white,
   "primary": $primary-color,

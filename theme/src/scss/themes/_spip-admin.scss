@@ -38,3 +38,8 @@ $admin-btn-color-bg: map.get(abstracts.$gray, "blue", "300");
     background-color: map.get(abstracts.$gray, "blue", "100");
   }
 }
+
+// page debug
+#spip-debug {
+  color: black;
+}

@@ -195,11 +195,9 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
 // Règles par défaut
 
 .p-article_titre {
-  // margin-bottom: 1rem;
   font-size: rem.convert(24px);
   font-weight: 500;
   line-height: 1.2;
-  letter-spacing: 0.05rem;
 
   @include abstracts.mq($from: md) {
     font-size: rem.convert(32px);

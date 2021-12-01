@@ -1,0 +1,97 @@
+// ========================================
+// c-resume
+// ========================================
+
+@use "sass:map";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+
+.c-resume {
+
+  // resume/article-rubrique-magnelli
+  // ========================================
+  &.-rubrique-magnelli {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+
+    & a {
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: map.get(abstracts.$site-colors, "link-hover");
+      }
+    }
+
+    @include abstracts.mq($from: md) {
+      flex-direction: row;
+    }
+  }
+}
+
+
+// .c-resume_header {}
+
+$tiret-size: rem.convert(24px);
+$tiret-size-md: rem.convert(30px);
+
+.c-resume_title {
+
+  // resume/article-rubrique-magnelli
+  // ========================================
+  .-rubrique-magnelli & {
+    display: flex;
+    margin-left: $tiret-size;
+    font-size: $tiret-size;
+
+    &::before {
+      margin-left: -($tiret-size);
+      margin-right: 0.5rem;
+      content: "—";
+      font-size: $tiret-size;
+      color: map.get(abstracts.$site-colors, "primary");
+    }
+  }
+
+  @include abstracts.mq($from: md) {
+
+    .-rubrique-magnelli & {
+      margin-left: $tiret-size-md;
+      // margin-right: 1rem;
+      font-size: $tiret-size-md;
+
+      &::before {
+        margin-left: -($tiret-size-md);
+        font-size: $tiret-size-md;
+      }
+    }
+  }
+}
+
+
+// .c-resume_subtitle {}
+
+
+.c-resume_link {
+
+  // resume/article-rubrique-magnelli
+  // ========================================
+  .-rubrique-magnelli & {
+
+    &:hover {
+      color: map.get(abstracts.$site-colors, "link-hover");
+    }
+  }
+}
+
+
+.c-resume_link-more {
+
+  .-rubrique-magnelli & {
+    margin-left: 2rem;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+}

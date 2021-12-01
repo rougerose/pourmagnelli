@@ -8,6 +8,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// D
 	'dialog_fermer' => "Fermer",
 
+	// L
+	'lire_suite' => 'Lire la suite',
+
 	// M
 	'menu_lien_recherche_description' => 'Bouton vers le formulaire Recherche. Le libellé est remplacé par une icone "recherche"',
 	'menu_lien_recherche_nom' => 'Bouton formulaire recherche, avec icone (pM)',

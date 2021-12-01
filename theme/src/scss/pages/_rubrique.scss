@@ -1,0 +1,15 @@
+// ========================================
+// p-rubrique
+// ========================================
+
+// @use "sass:map";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+.p-rubrique_titre {
+  font-size: rem.convert(32px);
+
+  @include abstracts.mq($from: md) {
+    font-size: rem.convert(38px);
+  }
+}

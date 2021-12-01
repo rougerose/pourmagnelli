@@ -53,7 +53,7 @@
     }
 
     &:hover {
-      color: map.get(abstracts.$red, "300");
+      color: map.get(abstracts.$site-colors, "link-hover");
     }
   }
 

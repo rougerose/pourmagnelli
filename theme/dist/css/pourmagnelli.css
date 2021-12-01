@@ -1056,6 +1056,57 @@ button {
   fill: #fff;
 }
 
+.c-resume.-rubrique-magnelli {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  margin-bottom: 1.5rem;
+}
+.c-resume.-rubrique-magnelli a {
+  transition: color 0.3s ease;
+}
+.c-resume.-rubrique-magnelli a:hover {
+  color: #ff5757;
+}
+@media (min-width: 48em) {
+  .c-resume.-rubrique-magnelli {
+    flex-direction: row;
+  }
+}
+
+.-rubrique-magnelli .c-resume_title {
+  display: flex;
+  margin-left: 1.5rem;
+  font-size: 1.5rem;
+}
+.-rubrique-magnelli .c-resume_title::before {
+  margin-left: -1.5rem;
+  margin-right: 0.5rem;
+  content: "—";
+  font-size: 1.5rem;
+  color: red;
+}
+@media (min-width: 48em) {
+  .-rubrique-magnelli .c-resume_title {
+    margin-left: 1.875rem;
+    font-size: 1.875rem;
+  }
+  .-rubrique-magnelli .c-resume_title::before {
+    margin-left: -1.875rem;
+    font-size: 1.875rem;
+  }
+}
+
+.-rubrique-magnelli .c-resume_link:hover {
+  color: #ff5757;
+}
+
+.-rubrique-magnelli .c-resume_link-more {
+  margin-left: 2rem;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
 .c-sitenav {
   font-size: 1.125rem;
   line-height: 1.11;
@@ -1205,6 +1256,35 @@ button {
   display: none;
 }
 
+.l-contenu {
+  padding-top: 4rem;
+}
+@media (min-width: 64em) {
+  .l-contenu {
+    padding-top: 8rem;
+  }
+}
+
+.l-contenu_header {
+  padding-bottom: 4rem;
+}
+@media (min-width: 64em) {
+  .l-contenu_header {
+    padding-bottom: 6rem;
+  }
+}
+
+.l-contenu_titre {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+@media (min-width: 48em) {
+  .l-contenu_titre {
+    font-size: 2rem;
+  }
+}
+
 .formulaire_spip label {
   display: block;
   margin-bottom: 0.5rem;
@@ -1260,7 +1340,7 @@ button {
 }
 .formulaire_spip input[type=submit]:hover,
 .formulaire_spip button[type=submit]:hover {
-  background-color: red;
+  background-color: #ff5757;
 }
 .formulaire_spip input::-moz-placeholder, .formulaire_spip textarea::-moz-placeholder {
   color: #b7b7bd;
@@ -1440,7 +1520,6 @@ button[type=submit].l-recherche_btn {
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.2;
-  letter-spacing: 0.05rem;
 }
 @media (min-width: 48em) {
   .p-article_titre {
@@ -1505,6 +1584,15 @@ button[type=submit].l-recherche_btn {
   color: initial;
 }
 
+.p-rubrique_titre {
+  font-size: 2rem;
+}
+@media (min-width: 48em) {
+  .p-rubrique_titre {
+    font-size: 2.375rem;
+  }
+}
+
 .spip-admin-float {
   display: flex;
   top: auto !important;
@@ -1527,6 +1615,10 @@ button[type=submit].l-recherche_btn {
 }
 .spip-admin-float .spip-admin-boutons:hover {
   background-color: #e7e7e9;
+}
+
+#spip-debug {
+  color: black;
 }
 
 .t-spip-texte {

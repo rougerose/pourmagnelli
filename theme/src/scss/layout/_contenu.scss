@@ -1,0 +1,41 @@
+// ========================================
+// l-contenu
+// ========================================
+
+@use "sass:map";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+
+// Règles de mise en page communes à tous les contenus
+
+.l-contenu {
+  padding-top: 4rem;
+
+  @include abstracts.mq($from: lg) {
+    padding-top: 8rem;
+  }
+}
+
+
+.l-contenu_header {
+  padding-bottom: 4rem;
+
+  @include abstracts.mq($from: lg) {
+    padding-bottom: 6rem;
+  }
+}
+
+
+// .l-contenu_body {}
+
+
+.l-contenu_titre {
+  font-size: rem.convert(24px);
+  font-weight: 500;
+  line-height: 1.2;
+
+  @include abstracts.mq($from: md) {
+    font-size: rem.convert(32px);
+  }
+}
