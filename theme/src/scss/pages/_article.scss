@@ -125,14 +125,8 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
           }
 
           // Le logo à gauche
-          // Remarque : Le logo est étendu sur un nombre total de 4 lignes,
-          // alors que la grille n'en comporte que 3. Cela permet que la hauteur
-          // de la colonne de gauche qui contient le logo est d'une hauteur
-          // égale à la colonne de droite.
-          &.-logo {
-            grid-column: 1 / 2;
-            grid-row: 1 / span 3;
-          }
+          // Remarque : Ne rien définir et le placement est automatique.
+          // &.-logo {}
 
           // Texte secondaire à droite.
           &.-texteSecondaire {
