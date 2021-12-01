@@ -167,18 +167,21 @@
     }
   }
 
+
   & ol {
     list-style-type: decimal;
   }
+
 
   & p + ul,
   & p + ol {
     margin-top: -1.5rem;
   }
 
+
   & dl {
     display: grid;
-    grid-template-columns: rem.convert(200px) 1fr;
+    grid-template-columns: rem.convert(150px) 1fr;
 
     & dt {
       grid-column: 1 / 2;
@@ -189,8 +192,6 @@
       grid-column: 2 / 3;
     }
   }
-
-
 
 
   // HR

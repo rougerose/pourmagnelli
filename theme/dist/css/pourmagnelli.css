@@ -1771,7 +1771,7 @@ button[type=submit].l-recherche_btn {
 }
 .t-spip-texte dl {
   display: grid;
-  grid-template-columns: 12.5rem 1fr;
+  grid-template-columns: 9.375rem 1fr;
 }
 .t-spip-texte dl dt {
   grid-column: 1/2;
