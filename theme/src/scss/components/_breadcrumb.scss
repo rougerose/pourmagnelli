@@ -7,15 +7,17 @@
 
 // .c-breadcrumb {}
 
-// .c-breadcrumb_list {}
+.c-breadcrumb_list {
+  padding: 3rem 0 4rem;
+}
 
 .c-breadcrumb_item {
   margin-right: 0.5rem;
   color: #FEF2F2;
-  color: map.get(abstracts.$red, "200");
+  color: map.get(abstracts.$red, "100");
 
   &::before {
-    color: map.get(abstracts.$red, "800");
+    color: map.get(abstracts.$gray, "blue", "600");
     content: "\203A";
     margin-right: 0.5rem;
   }
@@ -28,7 +30,12 @@
 }
 
 .c-breadcrumb_link {
-  color: map.get(abstracts.$red, "500");
+  color: map.get(abstracts.$gray, "blue", "100");
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: map.get(abstracts.$site-colors, "primary");
+  }
 }
 
 // .c-breadcrumb_name {}

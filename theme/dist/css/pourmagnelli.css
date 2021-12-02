@@ -896,13 +896,17 @@ button {
   scroll-snap-align: center center;
 }
 
+.c-breadcrumb_list {
+  padding: 3rem 0 4rem;
+}
+
 .c-breadcrumb_item {
   margin-right: 0.5rem;
   color: #FEF2F2;
-  color: #ff8080;
+  color: #ffa8a8;
 }
 .c-breadcrumb_item::before {
-  color: #570000;
+  color: #5d5d65;
   content: "›";
   margin-right: 0.5rem;
 }
@@ -911,6 +915,10 @@ button {
 }
 
 .c-breadcrumb_link {
+  color: #e7e7e9;
+  transition: color 0.3s ease;
+}
+.c-breadcrumb_link:hover {
   color: red;
 }
 
