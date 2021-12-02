@@ -1,7 +1,7 @@
 <paquet
 	prefix="pourmagnelli_theme"
 	categorie="theme"
-	version="1.0.0"
+	version="1.0.0-alpha"
 	etat="dev"
 	compatibilite="[4.0.0;4.99.*]"
 	logo="prive/themes/spip/images/pourmagnelli_theme-128.png"
