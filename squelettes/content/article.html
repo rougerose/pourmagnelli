@@ -11,7 +11,7 @@
             <B_image_logo>
               <div class="p-article_section -logo t-spip-texte">
                 [(#REM) <!-- La première image est utilisée comme bannière (logo) de l'article --> ]
-                <BOUCLE_image_logo(DOCUMENTS){id_article}{media=image}{vu=non}{par rang_lien, id_document, num titre}{0,1}>
+                <BOUCLE_image_logo(DOCUMENTS){id_article}{media=image}{vu=non}{par rang_lien, num titre}{!par date}{0,1}>
                   [(#INCLURE{fond=modeles/image, id=#ID_DOCUMENT, largeur=600})]
                 </BOUCLE_image_logo>
               </div>
@@ -33,7 +33,7 @@
           [(#REM) <!-- Le portfolio --> ]
           <B_portfolio>
             <div class="p-article_bodySection -portfolio">
-              <BOUCLE_portfolio(DOCUMENTS){id_article}{media=image}{vu=non}{par rang_lien, id_document, num titre}{1, 1}>
+              <BOUCLE_portfolio(DOCUMENTS){id_article}{media=image}{vu=non}{par rang_lien, num titre}{!par date}{1, 1}>
                 <INCLURE{fond=inclure/article/portfolio, id_article}/>
               </BOUCLE_portfolio>
             </div>

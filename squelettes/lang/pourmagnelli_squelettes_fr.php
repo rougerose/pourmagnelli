@@ -41,4 +41,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// R
 	'recherche_placeholder' => 'Écrivez ici',
 	'recherche_submit' => "Rechercher →",
+
+	// V
+	'voir_toutes_publications' => 'Voir toutes les @titre@',
 );

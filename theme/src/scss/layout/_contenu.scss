@@ -39,3 +39,35 @@
     font-size: rem.convert(32px);
   }
 }
+
+
+.l-contenu_titre-enfant {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  font-size: rem.convert(28px);
+  line-height: 1.2;
+
+  &::before {
+    content: "—";
+    margin-right: 0.5rem;
+    color: map.get(abstracts.$site-colors, "primary");
+  }
+}
+
+
+.l-contenu_lien-tous {
+  display: block;
+  padding: 0.5rem;
+  margin: 2rem auto;
+  text-transform: uppercase;
+  font-size: rem.convert(14px);
+  line-height: 1;
+  border: 1px solid map.get(abstracts.$site-colors, "primary");
+  text-align: center;
+  border-radius: rem.convert(4px);
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: map.get(abstracts.$site-colors, "primary");
+  }
+}

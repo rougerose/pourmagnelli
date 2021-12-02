@@ -9,6 +9,17 @@
 
 .c-resume {
 
+  & a {
+    transition: color 0.3s ease;
+  }
+
+  // resume/article-rubrique-standard
+  // ========================================
+  &.-standard {
+    position: relative;
+    // padding-bottom: 3.5rem;
+  }
+
   // resume/article-rubrique-magnelli
   // ========================================
   &.-rubrique-magnelli {
@@ -18,8 +29,6 @@
     margin-bottom: 1.5rem;
 
     & a {
-      transition: color 0.3s ease;
-
       &:hover {
         color: map.get(abstracts.$site-colors, "link-hover");
       }
@@ -32,15 +41,35 @@
 }
 
 
-// .c-resume_header {}
+.c-resume_texte {
 
-$tiret-size: rem.convert(24px);
-$tiret-size-md: rem.convert(30px);
+  // Variante -standard
+  // ========================================
+  .-standard & {
+    position: relative;
+    margin-left: 30%;
+    padding: 1rem;
+    background: linear-gradient(0deg, rgba(map.get(abstracts.$red, "600"), 0.8), rgba(map.get(abstracts.$red, "600"), 0.8));
+    transform: translateY(-50%);
+    border-radius: rem.convert(2px);
+  }
+}
 
 .c-resume_title {
 
+  // resume/article-rubrique-standard
+  // ========================================
+  .-standard & {
+    font-size: rem.convert(18px);
+    line-height: 1.2;
+  }
+
   // resume/article-rubrique-magnelli
   // ========================================
+
+  $tiret-size: rem.convert(24px);
+  $tiret-size-md: rem.convert(30px);
+
   .-rubrique-magnelli & {
     display: flex;
     margin-left: $tiret-size;
@@ -59,7 +88,6 @@ $tiret-size-md: rem.convert(30px);
 
     .-rubrique-magnelli & {
       margin-left: $tiret-size-md;
-      // margin-right: 1rem;
       font-size: $tiret-size-md;
 
       &::before {
@@ -75,6 +103,11 @@ $tiret-size-md: rem.convert(30px);
 
 
 .c-resume_link {
+  // resume/article-rubrique-standard
+  // ========================================
+  &:hover {
+    color: map.get(abstracts.$red, "50");
+  }
 
   // resume/article-rubrique-magnelli
   // ========================================
@@ -87,11 +120,31 @@ $tiret-size-md: rem.convert(30px);
 }
 
 
-.c-resume_link-more {
+.c-resume_more {
+  // resume/article-rubrique-standard
+  // ========================================
+  .-standard & {
+    margin-top: 0.5rem;
+    text-align: right;
+  }
+}
 
+
+.c-resume_link-more {
+  text-transform: uppercase;
+  font-size: 12px;
+
+  // resume/article-rubrique-standard
+  // ========================================
+  .-standard & {
+    &:hover {
+      color: map.get(abstracts.$red, "50");
+    }
+  }
+
+  // resume/article-rubrique-magnelli
+  // ========================================
   .-rubrique-magnelli & {
     margin-left: 2rem;
-    text-transform: uppercase;
-    font-size: 12px;
   }
 }
