@@ -217,10 +217,10 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
 }
 
 .p-article_chapo {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 
   &.t-spip-texte {
-    font-size: 20px;
+    font-size: rem.convert(20px);
     line-height: 1.25;
   }
 }
