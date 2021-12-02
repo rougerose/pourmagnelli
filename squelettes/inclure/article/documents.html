@@ -1,0 +1,12 @@
+<B_documents>
+  <aside id="documents" class="p-article_documents c-documents t-spip-texte -documents">
+    <h2 class="c-documents_titre">
+      <:medias:titre_documents_joints:>
+    </h2>
+    <div class="c-documents_list">
+      <BOUCLE_documents(DOCUMENTS){id_article}{mode=document}{vu=non}{par rang_lien, id_document, num titre}>
+        [(#INCLURE{fond=modeles/image, id=#ID_DOCUMENT, env})]
+      </BOUCLE_documents>
+    </div>
+  </aside>
+</B_documents>

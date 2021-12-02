@@ -1,0 +1,16 @@
+// ========================================
+// page
+// ========================================
+
+@use "sass:map";
+@use "../abstracts";
+
+// .l-page {}
+
+
+.l-page_header {
+  border-top: map.get(abstracts.$border, "header");
+}
+
+
+// .l-page_footer {}

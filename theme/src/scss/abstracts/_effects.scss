@@ -1,0 +1,4 @@
+
+@use "sass-rem/rem";
+
+$box-shadow: 0 rem.convert(3px) rem.convert(6px) hsla(0, 0%, 0%, 0.15), 0 rem.convert(2px) rem.convert(4px) hsla(0, 0%, 0%, 0.12);

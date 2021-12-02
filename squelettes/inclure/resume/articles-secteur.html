@@ -1,0 +1,21 @@
+<BOUCLE_contexte_secteur(RUBRIQUES){id_rubrique}>
+  #SET{articles, #ARRAY}
+  <h2 class="p-rubrique_titre-sousrubrique l-contenu_titre-enfant"><a href="#URL_RUBRIQUE">#TITRE</a></h2>
+  <div class="p-rubrique_sousrubrique">
+    [(#REM)
+      <!--
+        Constituer la liste des articles.
+      -->
+    ]<B_resume_articles>
+      <BOUCLE_resume_articles(ARTICLES){branche}{par id_rubrique}>
+        [(#ID_RUBRIQUE|unique|oui)
+          [(#SET{articles, #GET{articles}|push{#ID_ARTICLE}})]
+        ]
+      </BOUCLE_resume_articles>
+    </B_resume_articles>
+    <BOUCLE_trois_articles(ARTICLES){id_article IN #GET{articles}}{0,3}>
+      <INCLURE{fond=inclure/resume/article-rubrique, id_article, class=-standard} />
+    </BOUCLE_trois_articles>
+    <a href="#URL_RUBRIQUE" class="l-contenu_lien-tous"><:pourmagnelli_squelettes:voir_toutes_publications{titre=#TITRE}:></a>
+  </div>
+</BOUCLE_contexte_secteur>

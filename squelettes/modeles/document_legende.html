@@ -1,0 +1,27 @@
+[(#REM)
+  <!--
+    Légende pour les documents
+    ..
+    Version modifiée du modèle fourni par le plugin Medias :
+      - Le titre devient un h3
+      - Pour les documents fichiers, ajout du type
+      et de la taille du document.
+  -->
+]<BOUCLE_legendaire(DOCUMENTS){id_document=#ENV{id,#ENV{id_document}}}{tout}>
+  [(#ENV*{titre, #TITRE}|trim|sinon{#ENV*{descriptif, #DESCRIPTIF}|trim}|sinon{#ENV*{credits, #CREDITS}|trim}|oui)
+    <figcaption class="spip_doc_legende">
+      <h3 class="spip_doc_titre [(#ENV{titre}|non)#EDIT{titre}]">
+        [(#MODE|=={document}|oui)
+          <a href="#URL_DOCUMENT">]
+        [(#TITRE|sinon{<:medias:info_document:>})]
+        [(#MODE|=={document}|oui)
+          </a>]
+      </h3>
+      <div class="spip_doc_descriptif [(#ENV{descriptif}|non)#EDIT{descriptif}]">
+        [<div>(#ENV*{descriptif, #DESCRIPTIF|propre})</div>]
+        [(#MODE|=={document}|oui)
+          <p>#TYPE_DOCUMENT[ &ndash; (#TAILLE|taille_en_octets)]</p>
+        ][<div class="spip_doc_credits [(#ENV{credits}|non)#EDIT{credits}]">(#ENV*{credits,#CREDITS}|propre)</div>]
+    </figcaption>
+  ]
+</BOUCLE_legendaire>

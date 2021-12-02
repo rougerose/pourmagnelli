@@ -1,0 +1,34 @@
+<BOUCLE_contexte_rubrique(RUBRIQUES){id_rubrique}>
+  #SET{articles, #ARRAY}
+  <h2 class="p-rubrique_titre-sousrubrique l-contenu_titre-enfant"><a href="#URL_RUBRIQUE">#TITRE</a></h2>
+  <div class="p-rubrique_sousrubrique">
+    [(#REM)
+      <!--
+        Constituer la liste des articles et le nombre total.
+      -->
+    ]<B_resume_articles>
+      #SET{total, #TOTAL_BOUCLE}
+      <BOUCLE_resume_articles(ARTICLES){id_rubrique}{!par date}{0,4}>
+        [(#SET{articles, #GET{articles}|push{#ID_ARTICLE}})]
+      </BOUCLE_resume_articles>
+    </B_resume_articles>
+    [(#REM)
+      <!--
+        Si le total est supérieur à 3 articles :
+        on affiche les 3 premiers + un lien vers la rubrique.
+        Sinon la totalité des articles est affichée sans plus.
+      -->
+    ]<B_condition_total>
+      <BOUCLE_condition_total(CONDITION){si #GET{total}|>{3}}>
+        <BOUCLE_trois_articles(ARTICLES){id_article IN #GET{articles}}{0,3}>
+          <INCLURE{fond=inclure/resume/article-rubrique, id_article, class=-standard} />
+        </BOUCLE_trois_articles>
+        <a href="#URL_RUBRIQUE" class="l-contenu_lien-tous"><:pourmagnelli_squelettes:voir_toutes_publications{titre=#TITRE}:></a>
+      </BOUCLE_condition_total>
+    </B_condition_total>
+      <BOUCLE_total_articles(ARTICLES){id_article IN #GET{articles}}>
+        <INCLURE{fond=inclure/resume/article-rubrique, id_article, class=-standard} />
+      </BOUCLE_total_articles>
+    <//B_condition_total>
+  </div>
+</BOUCLE_contexte_rubrique>

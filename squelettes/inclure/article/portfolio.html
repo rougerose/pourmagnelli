@@ -1,0 +1,14 @@
+<B_article_portfolio>
+  #SET{total, #TOTAL_BOUCLE}
+  <div class="swiper p-article_portfolio">
+    <div class="swiper-wrapper">
+      <BOUCLE_article_portfolio(DOCUMENTS){id_article}{media=image}{vu=non}{par rang_lien, num titre}{!par date}{1,n}>
+        <div class="swiper-slide">
+          [(#FICHIER|image_reduire{300}|balise_img)]
+        </div>
+      </BOUCLE_article_portfolio>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</B_article_portfolio>

@@ -1,0 +1,13 @@
+[(#SET{titre, #ENV{titre}})]
+[(#ENV{appel_formulaire}|oui)
+  <div class="titre">#GET{titre}</div>
+  <div class="infos"> </div>
+]
+
+<BOUCLE_appel(CONDITION){si #ENV{appel_menu}|oui}>
+  <li class="c-sitenav_item -root[ (#ENV{css})]">
+    <button class="c-sitenav_trigger -recherche" type="button" data-a11y-dialog-show="dialog-recherche">
+      <span class="sr-only">#GET{titre}</span> <INCLURE{fond=images/icone-search-ltr-100.svg, class=icone-search}/>
+    </button>
+  </li>
+</BOUCLE_appel>

@@ -1,0 +1,44 @@
+// ========================================
+// c-ca
+// ========================================
+
+@use "sass:map";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+// Liste du conseil d'administration
+
+.c-ca {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 2rem;
+}
+
+// .c-ca_membre {}
+
+
+.c-ca_avatar {
+  background-color: map.get(abstracts.$site-colors, "primary");
+  width: rem.convert(74px);
+  height: rem.convert(74px);
+  border-radius: 100%;
+}
+
+
+.c-ca_identite {
+  margin-top: 0.5rem;
+
+  & p {
+    margin: 0 !important;
+    max-width: none !important;
+  }
+}
+
+
+// .c-ca_nom {}
+
+
+.c-ca_fonction {
+  font-style: italic;
+  font-weight: 300;
+}

@@ -1,0 +1,8 @@
+<entree>
+	<nom>Formulaire de recherche (nav. mobile)</nom>
+	<rang>30</rang>
+	<description>Ajoute le formulaire de recherche dans la navigation version mobile</description>
+	<icone>images/menus_rechercher.png</icone>
+	<parametre nom="css" label="menus:entree_css" />
+  <refuser_sous_menu/>
+</entree>

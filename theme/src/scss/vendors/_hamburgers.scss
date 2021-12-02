@@ -1,0 +1,14 @@
+@use "sass:map";
+@use "../abstracts/" as abstracts;
+
+@use "hamburgers/_sass/hamburgers/hamburgers" with (
+  $hamburger-padding-x: 12px,
+  $hamburger-padding-y: 12px,
+  $hamburger-layer-width: 24px,
+  $hamburger-layer-height: 3px,
+  $hamburger-layer-spacing: 3px,
+  $hamburger-layer-color: map.get(abstracts.$site-colors, "text"),
+  // $hamburger-active-layer-color: abstracts.$primary-color,
+  $hamburger-hover-opacity: 1,
+  $hamburger-types: (squeeze),
+);

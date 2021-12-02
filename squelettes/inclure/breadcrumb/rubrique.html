@@ -1,0 +1,24 @@
+<BOUCLE_breadcrumb_rubrique(RUBRIQUES){id_rubrique}>
+
+    <nav class="c-breadcrumb l-wrapper" aria-label="Breadcrumbs">
+      #SET{compteur, 1}
+      <ul class="c-breadcrumb_list flex flex-wrap" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li class="c-breadcrumb_item flex" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a class="c-breadcrumb_link" itemprop="item" href="#URL_SITE_SPIP"><span itemprop="name" class="c-breadcrumb_name"><:accueil_site:></span></a>
+          <meta itemprop="position" content="#GET{compteur}" />
+        </li>
+        <BOUCLE_hierarchie_rubrique(HIERARCHIE){id_rubrique}>
+          [(#SET{compteur, #COMPTEUR_BOUCLE|plus{1}})]
+          <li class="c-breadcrumb_item flex" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a class="c-breadcrumb_link" itemprop="item" href="#URL_RUBRIQUE"><span itemprop="name" class="c-breadcrumb_name">#TITRE</span></a>
+            <meta itemprop="position" content="#GET{compteur}" />
+          </li>
+          </BOUCLE_hierarchie_rubrique>
+          <li class="c-breadcrumb_item flex" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name" aria-current="page" class="c-breadcrumb_name">#TITRE</span>
+            <meta itemprop="position" content="[(#GET{compteur}|plus{1})]" />
+          </li>
+      </ul>
+    </nav>
+
+</BOUCLE_breadcrumb_rubrique>

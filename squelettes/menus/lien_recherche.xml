@@ -1,0 +1,10 @@
+<entree>
+  <nom><:pourmagnelli_squelettes:menu_lien_recherche_nom:></nom>
+	<rang>10</rang>
+	<description><:pourmagnelli_squelettes:menu_lien_recherche_description:></description>
+	<icone>images/menus_rechercher.png</icone>
+  <parametre nom="titre" class="multilang" label="menus:entree_titre" obligatoire="oui" />
+  <parametre nom="nom" label="menus:entree_page" obligatoire="oui" />
+  <parametre nom="css" label="menus:entree_css" />
+	<refuser_sous_menu/>
+</entree>

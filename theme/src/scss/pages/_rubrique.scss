@@ -1,0 +1,109 @@
+// ========================================
+// p-rubrique
+// ========================================
+
+// @use "sass:map";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+.p-rubrique_titre {
+  font-size: rem.convert(32px);
+
+  @include abstracts.mq($from: md) {
+    font-size: rem.convert(38px);
+  }
+}
+
+
+// .p-rubrique_body {}
+
+
+.p-rubrique_bodySection {
+
+  // Variante -intro
+  //
+  // Conteneur du texte d'introduction et
+  // du premier article d'actualité.
+  // ========================================
+  &.-intro {
+    display: grid;
+    gap: 3rem 0;
+
+    @include abstracts.mq($from: md) {
+      grid-template-columns: 1fr 1fr;
+      gap: 0 4rem;
+      align-items: center;
+    }
+  }
+
+
+  // Variante -sousrubrique
+  //
+  // Conteneur d'une sous-rubrique (titre + contenu)
+  // ========================================
+  &.-sousrubrique {
+    margin-top: 3rem;
+
+    @include abstracts.mq($from: lg) {
+      margin-top: 5rem;
+    }
+  }
+
+  // Variante -articles
+  //
+  // Conteneur des articles d'une rubrique
+  // ========================================
+  &.-articles {
+    display: grid;
+    gap: 3rem 0;
+
+    @include abstracts.mq($from: md) {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      gap: 0 3rem
+    }
+
+    @include abstracts.mq($from: lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+// .p-rubrique_sousrubrique
+//
+// Conteneur des articles d'une sous-rubrique
+// mis en actualités.
+// ========================================
+.p-rubrique_sousrubrique {
+  display: grid;
+  gap: 3rem 0;
+
+  @include abstracts.mq($from: md) {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 0 3rem
+  }
+
+  @include abstracts.mq($from: lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+// .p-rubrique_intro
+// ========================================
+// .p-rubrique_intro {}
+
+
+// .p-rubrique_actu
+// ========================================
+.p-rubrique_actu {
+  .-intro & {
+    @include abstracts.mq($from: lg) {
+      padding: 0 6rem;
+    }
+  }
+}
+
+
+// .p-rubrique_titre-enfant {}

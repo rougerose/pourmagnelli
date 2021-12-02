@@ -1,0 +1,15 @@
+<div id="formulaire_recherche" class="formulaire_spip formulaire_recherche l-recherche[ (#ENV{class})]">
+  <form action="[(#ENV{action})]" class="l-recherche_form" method="get">
+    <div class="editer-groupe">
+      [(#ENV{action}|form_hidden)]
+      [<input type="hidden" name="lang" value="(#ENV{lang})" />]
+      <label id="search_label" class="l-recherche_label" for="#ENV{_id_champ}">
+        <:info_rechercher:>
+      </label>
+      <input type="[(#HTML5|?{search,text})]" class="search text l-recherche_input" name="recherche" id="#ENV{_id_champ}" placeholder="<:pourmagnelli_squelettes:recherche_placeholder:>" accesskey="4" autocapitalize="off" autocorrect="off" />
+      <button type="submit" class="l-recherche_btn">
+        <:pourmagnelli_squelettes:recherche_submit:>
+      </button>
+    </div>
+  </form>
+</div>

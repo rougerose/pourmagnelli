@@ -1,0 +1,22 @@
+// ========================================
+// layout variables
+// ========================================
+
+@use "sass-rem/rem";
+
+// text
+$text-max-width: rem.convert(600px);
+
+// -timeline
+$timeline-container-margin: 1.5rem;
+$timeline-dot-size: rem.convert(28px);
+
+// wrapper
+$wrapper-padding-mobile: 1rem;
+$wrapper-padding-desktop: 1.5rem;
+$wrapper-max-width: rem.convert(1280px);
+
+// z-index
+$zindex-default: 1;
+$zindex-sitenav-dropdown: 2;
+$zindex-dialog: 5;

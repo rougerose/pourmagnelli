@@ -1,0 +1,17 @@
+#SET{contacts, #ARRAY}
+<BOUCLE_data(DATA){liste #ENV{liste}}>
+  [(#SET{contacts, #GET{contacts}|push{#VALEUR|intval}})]
+</BOUCLE_data>
+<B_ca_membres>
+  <div class="c-ca">
+    <BOUCLE_ca_membres(CONTACTS){id_auteur IN #GET{contacts}}{tout}>
+      <div class="c-ca_membre">
+        <div class="c-ca_avatar"></div>
+        <div class="c-ca_identite">
+          <p class="c-ca_nom">[(#CIVILITE) ][(#PRENOM) ][(#NOM)]</p>
+          [<p class="c-ca_fonction">(#FONCTION)</p>]
+        </div>
+      </div>
+    </BOUCLE_ca_membres>
+  </div>
+</B_ca_membres>

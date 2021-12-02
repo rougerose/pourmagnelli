@@ -1,0 +1,25 @@
+// ========================================
+// c-logo
+// ========================================
+
+@use "sass:map";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+.c-logo {
+  width: rem.convert(220px);
+  line-height: 1.11;
+
+  @include abstracts.mq($from: md) {
+    width: rem.convert(300px);
+  }
+}
+
+.c-logo_pour {
+  fill: map.get(abstracts.$site-colors, "logo-pour");
+
+}
+
+.c-logo_magnelli {
+  fill: map.get(abstracts.$site-colors, "logo-magnelli");
+}

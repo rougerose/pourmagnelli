@@ -1,0 +1,11 @@
+// ========================================
+// border variables
+// ========================================
+
+@use "sass:map";
+@use "colors";
+@use "sass-rem/rem";
+
+$border: (
+  "header": rem.convert(2px) solid map.get(colors.$site-colors, "primary"),
+);

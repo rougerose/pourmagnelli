@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+/// Structure 7-1 architecture pattern :
+/// @link https://github.com/KittyGiraudel/sass-boilerplate
+
+// 1- Abstracts
+@use "abstracts";
+
+// 2- Base
+@use "tailwindcss/base";
+@use "base" as b;
+@use "tailwindcss/utilities";
+
+// 3- Vendors
+@use "vendors";
+
+// 4- Components
+// @use "tailwindcss/components";
+@use "components";
+
+// 5- Layout
+@use "layout";
+
+// 6- Pages
+@use "pages";
+
+// 7- Themes
+@use "themes";

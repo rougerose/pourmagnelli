@@ -1,0 +1,554 @@
+// ========================================
+// t-spip-text
+// .
+// Styles des contenus issus des champs
+// textes de Spip
+// ========================================
+
+@use "sass:map";
+@use "sass:math";
+@use "sass:color";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+
+// Règles communes
+// ========================================
+
+.t-spip-texte {
+  font-size: rem.convert(18px);
+  line-height: 1.333;
+
+  & p,
+  & ul,
+  & ol,
+  & dl,
+  & blockquote,
+  & table {
+    margin-bottom: 1.5rem;
+    // margin-left: auto;
+    // margin-right: auto;
+    max-width: abstracts.$text-max-width;
+
+    @include abstracts.mq($from: md) {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+
+  // Liens
+  // ========================================
+  & a {
+    color: currentColor;
+    border-bottom: rem.convert(1px) solid map.get(abstracts.$red, "400");
+    transition: color 0.3s ease;
+
+    &:visited {
+      color: map.get(abstracts.$red, "100");
+    }
+
+    &:hover {
+      color: map.get(abstracts.$site-colors, "link-hover");
+    }
+  }
+
+
+  // Paragraphes
+  // ========================================
+  // & p {}
+
+
+  // Notes : appel de note
+  // ========================================
+  & .spip_note_ref {
+    color: map.get(abstracts.$red, "400");
+    font-size: rem.convert(14px);
+    vertical-align: super;
+  }
+
+  & .spip_note {
+    color: map.get(abstracts.$site-colors, "text");
+    border-color: transparent;
+  }
+
+  // Intertitres
+  // ========================================
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    margin: 3rem 0 1.5rem;
+    max-width: abstracts.$text-max-width;
+    line-height: 1.2;
+
+
+    &::before {
+      content: "—";
+      margin-right: 0.5rem;
+      color: map.get(abstracts.$site-colors, "primary");
+    }
+
+    @include abstracts.mq($from: md) {
+      margin-left: 0;
+    }
+  }
+
+  & h2 {
+    font-size: rem.convert(24px);
+    // line-height: 1;
+    font-weight: 400;
+  }
+
+  & h3 {
+    font-size: rem.convert(20px);
+  }
+
+  & h4 {
+    font-size: rem.convert(18px);
+    // line-height: 1.333;
+  }
+
+  & h5 {
+    font-size: rem.convert(18px);
+    font-style: italic;
+    // line-height: 1.5;
+  }
+
+  & h6 {
+    font-size: rem.convert(16px);
+    font-style: italic;
+    // line-height: 1.5;
+  }
+
+  // & h2,
+  // & h3,
+  // & h4,
+  // & h5,
+  // & h6 {
+  //   &:nth-child(1) {
+  //     margin-top: 0;
+  //   }
+  // }
+
+  // Listes
+  // ========================================
+  & ul,
+  & ol {
+    margin-bottom: 1.5rem;
+
+    & li {
+      margin-left: 1.75rem;
+      margin-bottom: rem.convert(6px);
+
+      &::marker {
+        color: map.get(abstracts.$red, "400");
+        // font-size: 125%;
+        // line-height: 1;
+      }
+    }
+  }
+
+  & ul {
+    list-style-type: disc;
+
+    & ul {
+      margin-bottom: 0;
+      list-style-type: circle;
+
+      & ul {
+        list-style-type: square;
+      }
+    }
+  }
+
+
+  & ol {
+    list-style-type: decimal;
+  }
+
+
+  & p + ul,
+  & p + ol {
+    margin-top: -1.5rem;
+  }
+
+
+  & dl {
+    display: grid;
+    grid-template-columns: rem.convert(150px) 1fr;
+
+    & dt {
+      grid-column: 1 / 2;
+      font-style: italic;
+    }
+
+    & dd {
+      grid-column: 2 / 3;
+    }
+  }
+
+
+  // HR
+  // ========================================
+
+  $color-gradient-1: map.get(abstracts.$site-colors, "background");
+  $color-gradient-2: map.get(abstracts.$red, "500");
+
+  & hr {
+    margin: 3rem 0;
+    border: none;
+    height: 2px;
+    max-width: abstracts.$text-max-width;
+    background: linear-gradient(
+      90deg,
+      $color-gradient-1 0%,
+      $color-gradient-2 50%,
+      $color-gradient-1 100%
+    );
+  }
+
+
+  // Tableaux
+  // ========================================
+
+  $color-table-bg: map.get(abstracts.$gray, "blue", "600");
+  $color-table-border: map.get(abstracts.$gray, "blue", "700");
+
+  & table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    border-bottom: rem.convert(1px) solid rgba($color-table-bg, 0.8);
+  }
+
+  & tr:nth-of-type(even) {
+    background: rgba($color-table-bg, 0.3);
+  }
+
+  & th {
+    background: rgba($color-table-bg, 0.8);
+    font-weight: 600;
+  }
+
+  & td,
+  & th {
+    padding: rem.convert(6px);
+    border-width: 0;
+    text-align: left;
+  }
+
+  & caption {
+    color: map.get(abstracts.$gray, "blue", "400");
+  }
+
+  // Citations
+  // ========================================
+
+  & q {
+    font-style: italic;
+  }
+
+  & blockquote {
+    border-left: rem.convert(2px) solid map.get(abstracts.$red, "700");
+    padding-left: 1rem;
+    font-size: 1rem;
+  }
+
+  // Code
+  // ========================================
+
+  & code,
+  & .spip_code {
+    @apply font-mono;
+    font-size: rem.convert(14px);
+  }
+
+  // Images et documents
+  // ========================================
+
+  // * Remarque importante *
+  // Compte tenu de la contrainte de largeur sur max-width,
+  // les filtres d'alignement Spip (left, right) sur les images insérées
+  // dans un champ texte sont sans effet.
+
+  & .spip_document {
+    max-width: abstracts.$text-max-width;
+    margin-left: 0;
+    margin-right: auto;
+
+    @include abstracts.mq($from: md) {
+      margin-left: 0;
+    }
+  }
+
+  // .spip_document_image : document image
+  // ========================================
+  & .spip_document_image {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+
+    & .spip_doc_inner {
+      flex-direction: column;
+    }
+
+    // [1] Si l'image est d'une taille inférieure à la largeur de la colonne,
+    // ajout d'un arrière-plan et centrer l'image dans le conteneur.
+    & .spip_doc_lien {
+      background-color: rgba(map.get(abstracts.$gray, "blue", "900"), 0.5); // [1]
+    }
+
+    & img {
+      margin: auto; // [1]
+    }
+
+    & .spip_doc_titre {
+      font-size: rem.convert(16px);
+    }
+
+    & .spip_doc_legende {
+      border-left: rem.convert(1px) solid map.get(abstracts.$site-colors, "primary");
+      margin-top: 0.75rem;
+      padding-left: 1rem;
+
+      & div:first-child,
+      & .spip_doc_titre {
+        margin-top: rem.convert(-3px);
+      }
+    }
+
+    // @include abstracts.mq($from: md) {
+    //   margin-top: 4rem;
+    //   margin-bottom: 4rem;
+    // }
+  }
+
+  // Lorsque l'image est utilisée comme logo d'article,
+  // supprimer la marge haute.
+  &.-logo {
+    .spip_document_image {
+      margin-top: 0;
+    }
+  }
+
+  // .spip_document_file : document fichier
+  // ========================================
+  & .spip_document_file {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+    & .spip_doc_inner {
+      align-items: center;
+      padding: 0.5rem 0.5rem 0.75rem 0.25rem;
+      border: rem.convert(1px) solid rgba(map.get(abstracts.$gray, "blue", "700"), 0.1);
+      border-radius: rem.convert(4px);
+      background-color: rgba(map.get(abstracts.$gray, "blue", "700"), 0.2);
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: rgba(map.get(abstracts.$gray, "blue", "700"), 0.4);
+      }
+    }
+
+    & .spip_doc_lien {
+      padding: 0.25rem 0.75rem 0.25rem 0.25rem;
+    }
+
+    & .spip_doc_titre {
+      font-size: rem.convert(18px);
+
+      & a {
+        border-bottom: none;
+      }
+    }
+
+    & .spip_doc_descriptif {
+      margin-top: 0.25rem;
+      font-size: rem.convert(16px);
+      color: color.scale(#fff, $alpha: -40%);
+    }
+  }
+
+  & .spip_doc_inner {
+    display: flex;
+  }
+
+  & .spip_doc_lien {
+    display: flex;
+    border: none;
+  }
+
+  & .spip_doc_legende {
+    //margin-right: auto; // contraindre à la largeur (maximum) du contenu.
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  & .spip_doc_titre {
+    margin: 0;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  & .spip_doc_descriptif,
+  & .spip_doc_credits {
+    font-size: rem.convert(14px);
+    font-weight: 300;
+    margin-top: 0.75rem;
+
+    & p {
+      margin-bottom: 0;
+    }
+  }
+
+  & .spip_doc_credits {
+    margin-top: 0.5rem;
+    color: color.scale(#fff, $alpha: -40%);
+  }
+}
+
+// Variantes
+// ========================================
+.t-spip-texte {
+
+  // Si un intertitre est en première position
+  // dans un champ CHAPO ou TEXTE, supprimer
+  // la marge haute.
+  &.p-article_chapo,
+  &.p-article_texte {
+    & > h2,
+    & > h3,
+    & > h4,
+    & > h5,
+    & > h6 {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  // Variante -documents :
+  // utilisée pour les documents associés
+  // à un article et disposés en pied de page
+  // ========================================
+
+  &.-documents {
+    .c-documents_titre {
+      margin: 0 0 1rem;
+      font-size: rem.convert(20px);
+    }
+
+    .spip_document_file {
+      margin: 0;
+    }
+  }
+
+  // Variante -notes : notes de bas de page
+  // ========================================
+  &.-notes {
+    & h2 {
+      margin: 0 0 1rem;
+      font-size: rem.convert(20px);
+    }
+
+    & p {
+      margin-bottom: 1rem;
+      font-size: rem.convert(16px);
+    }
+  }
+
+  // Variante -date : date de l'article
+  // ========================================
+  &.-date {
+    font-weight: 300;
+    font-size: rem.convert(16px);
+    color: rgba(map.get(abstracts.$site-colors, "text"), 0.5);
+  }
+
+  // Variante -association
+  // ========================================
+  &.-association {
+    & h2 {
+      margin-top: 5rem;
+      margin-bottom: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid map.get(abstracts.$red, "700");
+
+      &:first-child {
+        padding-top: 0;
+        border-top: none;
+      }
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  // Variante -timeline : présentation chronologique.
+  // ========================================
+
+  // Le balisage du contenu doit répondre à des critères précis
+  // et doit être inséré par le rédacteur :
+  // <section>
+  //    <h2>[date]</h2>
+  //    [Contexte textuel ou graphique]
+  // </section>
+
+  $color-primary: map.get(abstracts.$site-colors, "primary");
+  $tl-dot-size: abstracts.$timeline-dot-size;
+  $tl-container-margin: abstracts.$timeline-container-margin;
+
+  &.-timeline {
+
+    & > section {
+
+      & > h2:first-child {
+        position: relative;
+        color: $color-primary;
+        line-height: 1;
+
+        &::before {
+          position: absolute;
+          left: -($tl-container-margin + math.div($tl-dot-size, 2));
+          display: inline-block;
+          content: "";
+          margin: 0;
+          width: $tl-dot-size;
+          height: $tl-dot-size;
+          background-color: $color-primary;
+          border-radius: 100%;
+          border: 6px solid map.get(abstracts.$site-colors, "background");
+        }
+      }
+
+      // Supprimer la marge haute du premier intertitre/date
+      &:first-child {
+        & > h2:first-child {
+          margin-top: 0;
+        }
+      }
+
+      @include abstracts.mq($from: md) {
+        margin-bottom: 3rem;
+
+        & > h2:first-child {
+          position: absolute;
+          right: 100%;
+          margin: 0 3rem 0 0;
+
+          &::before {
+            left: calc(100% + ($tl-container-margin - math.div($tl-dot-size, 2)));
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+[(#REM)
+
+	Modele pour les images
+
+]
+<BOUCLE_image(DOCUMENTS){media=image}{id_document=#ENV{id,#ENV{id_document}}}{inclus=image}{mode?}{tout}>
+  [(#SET{autolien, #LARGEUR|>={800}|ou{#HAUTEUR|>={800}}|oui})]
+  [(#SET{legende, #INCLURE{fond=modeles/document_legende, env}|trim})]
+  <div class="[(#ID_DOCUMENT|medias_modele_document_standard_classes{image}) ]spip_lien_ok"[ (#ID_DOCUMENT|medias_modele_document_standard_attributs{image})]>
+    <figure class="spip_doc_inner">
+      [<a href="(#ENV{lien})"[ class="(#ENV{lien_class}|concat{' spip_doc_lien'}|trim)"]>]
+      [(#ENV{lien}|non|et{#GET{autolien}})<a href="#URL_DOCUMENT" class="spip_doc_lien mediabox" type="#MIME_TYPE">]
+        [(#FICHIER|balise_img|image_reduire{#ENV{largeur, 600}, 0})]
+      [(#ENV{lien}|ou{#GET{autolien}}|?{</a>})]
+      #GET{legende}
+    </figure>
+  </div>
+</BOUCLE_image>
+  <INCLURE{fond=modeles/file,env} />
+<//B_image>

@@ -1,0 +1,10 @@
+<entree>
+  <nom><:pourmagnelli_squelettes:menu_nom_articles_liste:></nom>
+	<rang>04</rang>
+	<description><:pourmagnelli_squelettes:menu_description_articles_liste:></description>
+	<icone>images/menus_articles_rubrique.png</icone>
+	<parametre nom="id_rubrique" label="menus:entree_id_rubrique" obligatoire="oui" />
+  <parametre nom="ajouter_racine" label="pourmagnelli_squelettes:menu_ajouter_racine" />
+  <parametre nom="css" label="menus:entree_css" />
+	<refuser_sous_menu/>
+</entree>

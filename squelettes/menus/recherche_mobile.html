@@ -1,0 +1,10 @@
+[(#ENV{appel_formulaire}|oui)
+  <div class="titre">Formulaire de recherche (nav. mobile)</div>
+  <div class="infos"></div>
+]
+
+[(#ENV{appel_menu}|oui)
+  <li class="c-sitenav_item -sitenav-sm -recherche[ (#ENV{css})]">
+    [(#FORMULAIRE_RECHERCHE{'', 'l-recherche search-mobile'})]
+  </li>
+]

@@ -1,0 +1,26 @@
+// ========================================
+// c-documents
+// ..
+// Liste des documents (fichiers)
+// ========================================
+
+@use "sass:map";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+
+.c-documents {
+  max-width: abstracts.$text-max-width;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include abstracts.mq($from: md) {
+    margin-left: 0;
+  }
+}
+
+.c-documents_list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem 0;
+}

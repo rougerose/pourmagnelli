@@ -1,0 +1,191 @@
+// ========================================
+// c-dialog (modal)
+// ========================================
+
+@use "sass:map";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+
+.c-dialog,
+.c-dialog_overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+// c-dialog
+// ========================================
+
+.c-dialog {
+  z-index: abstracts.$zindex-dialog;
+  display: flex;
+
+
+  &[aria-hidden="true"] {
+    display: none;
+  }
+
+  // Adaptations des règles d'affichage en fonction du script js et des animations :
+  // [1] Permettre au js de poser un écouteur d'événement sur l'élément enfant
+  // [2] Rétablir un display: none sur la modale.
+  .js & {
+    &[aria-hidden="true"] {
+      display: flex; // [1]
+
+      &.is-closed {
+        display: none; // [2]
+      }
+    }
+  }
+
+  &.is-visible {
+    display: flex;
+  }
+
+  // &.-sitenav-mobile {}
+}
+
+
+// c-dialog_overlay
+// ========================================
+
+.c-dialog_overlay {
+  background-color: map.get(abstracts.$site-colors, "dialog-overlay");
+}
+
+
+// c-dialog_content
+// ========================================
+
+.c-dialog_content {
+  position: relative;
+  z-index: abstracts.$zindex-dialog;
+  margin: 0 auto;
+  background-color: map.get(abstracts.$site-colors, "background");
+
+  // variante -sitenav-mobile
+  &.-sitenav-mobile {
+    width: 100%;
+  }
+
+  // variante -recherche
+
+  $max-width: rem.convert(abstracts.$wrapper-max-width) - (abstracts.$wrapper-padding-desktop * 2);
+
+  &.-recherche {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: auto;
+    padding: 1.5rem 3rem 4rem;
+    width: 100%;
+    max-width: $max-width;
+    border-radius: rem.convert(4px);
+    box-shadow: abstracts.$box-shadow;
+    transition-property: opacity, transform;
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(.25,.46,.45,.94);
+
+    .js &,
+    .is-closing & {
+      opacity: 0;
+      transform: translateY(35%);
+      transition-timing-function: cubic-bezier(.55,.085,.68,.53);
+    }
+
+    .is-visible & {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+
+//
+// c-dialog_header
+// ========================================
+
+.c-dialog_header {
+
+  // variante mobile
+  &.-sitenav-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: abstracts.$zindex-dialog + 1;
+    border-top: map.get(abstracts.$border, "header");
+    // Arrière-plan opaque, dans l'hypothèse d'un contenu avec scroll
+    background-color: map.get(abstracts.$site-colors, "background");
+  }
+}
+
+
+// c-dialog_body
+// ========================================
+
+.c-dialog_body {
+
+  // variante mobile
+  // [1] Cet élément doit être défilable
+  &.-sitenav-mobile {
+    overflow-y: auto; // [1]
+    height: 100%; // [1]
+    transition: transform 0.6s ease-in-out;
+
+    .js &,
+    .c-dialog.is-closing & {
+      transform: translateY(100%);
+    }
+
+    // Animation début et fin de l'élément
+    // en fonction des classes ajoutées/supprimées
+    // sur l'élément parent.
+    .c-dialog.is-visible & {
+      transform: translateY(0);
+    }
+  }
+}
+
+
+// c-dialog_container
+// ========================================
+
+.c-dialog_container {
+
+  .-sitenav-mobile & {
+    margin-top: 5em;
+    padding: 1rem abstracts.$wrapper-padding-mobile 2rem;
+
+    @include abstracts.mq($from: md) {
+      padding-left: abstracts.$wrapper-padding-desktop;
+      padding-right: abstracts.$wrapper-padding-desktop;
+    }
+  }
+}
+
+
+// c-dialog_recherche
+// ========================================
+.c-dialog_recherche {
+  width: 100%;
+}
+
+
+// c-dialog_close
+// ========================================
+.c-dialog_close {
+  & .hamburger-box {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    & .hamburger-box {
+      transform: rotate(180deg);
+    }
+  }
+}

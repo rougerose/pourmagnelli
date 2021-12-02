@@ -1,0 +1,14 @@
+// ========================================
+// .page_login
+// ========================================
+
+// Annuler la règle "color: inherit" appliqué par tailwindcss sur des éléments de formulaires
+.page_login {
+  & button,
+  & input,
+  & optgroup,
+  & select,
+  & textarea {
+    color: initial;
+  }
+}

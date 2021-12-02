@@ -1,0 +1,16 @@
+<BOUCLE_rubrique_magnelli(RUBRIQUES){id_rubrique}>
+  <article class="p-rubrique l-contenu">
+    <div class="l-wrapper">
+      <div class="l-wrapper-content">
+        <header class="p-rubrique_header l-contenu_header">
+          <h1 class="p-rubrique_titre l-contenu_titre">#TITRE</h1>
+        </header>
+        <div class="p-rubrique_body l-contenu_body">
+          <BOUCLE_articles(ARTICLES){id_rubrique}{par num titre}{!par date}>
+            <INCLURE{fond=inclure/resume/article-rubrique-magnelli, id_article, class="-rubrique-magnelli"}/>
+          </BOUCLE_articles>
+        </div>
+      </div>
+    </div>
+  </article>
+</BOUCLE_rubrique_magnelli>

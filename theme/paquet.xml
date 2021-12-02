@@ -1,0 +1,19 @@
+<paquet
+	prefix="pourmagnelli_theme"
+	categorie="theme"
+	version="1.0.0-alpha"
+	etat="dev"
+	compatibilite="[4.0.0;4.99.*]"
+	logo="prive/themes/spip/images/pourmagnelli_theme-128.png"
+>
+	<nom>Pour Magnelli : thème graphique</nom>
+
+	<auteur lien="http://rouge-rose.net">christophe le drean</auteur>
+	<licence>GPL v3</licence>
+	<necessite nom="pourmagnelli_squelettes" />
+  <pipeline nom="insert_head" inclure="pourmagnelli_theme_pipelines.php" />
+	<chemin path="" />
+  <spip compatibilite="[4.0.0;4.99.*]">
+		<style type="public" source="dist/css/pourmagnelli.css" />
+	</spip>
+</paquet>

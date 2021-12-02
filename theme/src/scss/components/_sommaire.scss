@@ -1,0 +1,37 @@
+// ========================================
+// c-sommaire
+// ========================================
+
+@use "sass:map";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+.c-sommaire {
+  display: none;
+
+  .t-spip-texte & {
+    & ul {
+      & li {
+        margin-left: 0;
+        list-style: circle inside;
+      }
+    }
+
+    & a {
+      border: none;
+
+      &:visited {
+        color: currentColor;
+      }
+
+      &:hover {
+        color: map.get(abstracts.$site-colors, "link-hover");
+      }
+    }
+  }
+
+  @include abstracts.mq($from: md) {
+    display: block;
+    position: fixed;
+  }
+}
