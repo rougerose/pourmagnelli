@@ -293,10 +293,6 @@
     margin-top: 4rem;
     margin-bottom: 4rem;
 
-    & img {
-      margin: auto; // [1]
-    }
-
     & .spip_doc_inner {
       flex-direction: column;
     }
@@ -307,6 +303,11 @@
     // [2] Mais à condition que le lien a.spip_doc_lien soit disponible,
     // ce cas, on annule la marge auto à gauche. Mais l'image est présenté
     // sont arrière-plan.
+
+    & img {
+      margin: auto; // [1]
+    }
+
     & .spip_doc_lien {
       background-color: rgba(map.get(abstracts.$gray, "blue", "900"), 0.5); // [1]
     }
@@ -390,6 +391,7 @@
 
   & .spip_doc_lien {
     display: flex;
+    flex-direction: column; // empêcher un étirement de l'image avec Safari
     border: none;
   }
 
@@ -553,6 +555,7 @@
           position: absolute;
           right: 100%;
           margin: 0 3rem 0 0;
+          white-space: nowrap; // éviter un retour à la ligne avec Safari.
 
           &::before {
             left: calc(100% + ($tl-container-margin - math.div($tl-dot-size, 2)));
