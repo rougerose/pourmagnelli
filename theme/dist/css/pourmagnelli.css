@@ -555,10 +555,6 @@ button {
 	border-width: 0;
 }
 
-.mr-3{
-	margin-right: 0.75rem;
-}
-
 .flex{
 	display: flex;
 }
@@ -585,10 +581,6 @@ button {
 
 .p-4{
 	padding: 1rem;
-}
-
-.pt-4{
-	padding-top: 1rem;
 }
 
 .pb-7{
@@ -1072,6 +1064,18 @@ button {
   gap: 1.5rem 0;
 }
 
+.c-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 1rem;
+}
+@media (min-width: 48em) {
+  .c-header {
+    padding-top: 1.5rem;
+  }
+}
+
 .c-logo {
   width: 13.75rem;
   line-height: 1.11;
@@ -1082,7 +1086,14 @@ button {
   }
 }
 
+.c-logo_link {
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+}
+
 .c-logo_pour {
+  margin-right: 0.75rem;
   fill: red;
 }
 

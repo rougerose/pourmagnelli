@@ -15,9 +15,15 @@
   }
 }
 
-.c-logo_pour {
-  fill: map.get(abstracts.$site-colors, "logo-pour");
+.c-logo_link {
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+}
 
+.c-logo_pour {
+  margin-right: 0.75rem;
+  fill: map.get(abstracts.$site-colors, "logo-pour");
 }
 
 .c-logo_magnelli {
