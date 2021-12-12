@@ -67,7 +67,7 @@ $color-bg-dropdown: map.get(abstracts.$gray, "blue", "700");
       width: rem.convert(250px);
       background-color: #2f2f32;// équivalent opaque de rgba($color-bg-dropdown, 0.25);
       border-radius: rem.convert(4px);
-      box-shadow: 0 rem.convert(3px) rem.convert(6px) hsla(0, 0%, 0%, 0.15), 0 rem.convert(2px) rem.convert(4px) hsla(0, 0%, 0%, 0.12);
+      box-shadow: map.get(abstracts.$box-shadow, "l1");
       transform: translate(-50%, 0);
       transition: transform 0.3s ease-in-out 0s, opacity 0.3s ease 0s, visibility 0.1s ease 0s;
 

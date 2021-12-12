@@ -85,7 +85,7 @@
     width: 100%;
     max-width: $max-width;
     border-radius: rem.convert(4px);
-    box-shadow: abstracts.$box-shadow;
+    box-shadow: map.get(abstracts.$box-shadow, "l1");
     transition-property: opacity, transform;
     transition-duration: 0.3s;
     transition-timing-function: cubic-bezier(.25,.46,.45,.94);
