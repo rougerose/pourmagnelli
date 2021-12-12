@@ -3,7 +3,7 @@
 	#SET{liste, '#'}
 ]
 <B_somm>
-<div id="#ENV{id_sommaire}" class="c-sommaire">
+<div id="#ENV{id_sommaire}" class="c-sommaire-article">
 <BOUCLE_somm(POUR){tableau #ENV{sommaire}}>
 -[(#GET{liste}|str_pad{#VALEUR{niveau},#GET{liste}})] [#VALEUR{id}<-][#VALEUR{titre}->#VALEUR{href}]</BOUCLE_somm>
 </div>
