@@ -7,19 +7,21 @@
 @use "sass-rem/rem";
 
 .c-logo {
-  width: rem.convert(220px);
+  width: map.get(abstracts.$logo-width, "sm");
   line-height: 1.11;
 
   @include abstracts.mq($from: md) {
-    width: rem.convert(300px);
+    width: map.get(abstracts.$logo-width, "lg");
   }
 
   // Variante -footer
   // ========================================
   &.-footer {
+    width: map.get(abstracts.$logo-width, "sm");
+    margin-right: 2rem;
+
     @include abstracts.mq($from: lg) {
-      width: rem.convert(220px);
-      margin-right: 3rem;
+      margin-left: map.get(abstracts.$logo-pour-width, "lg") - map.get(abstracts.$logo-pour-width, "sm");
     }
   }
 }

@@ -14,7 +14,11 @@
 
 
 .l-page_content {
-  padding-bottom: 5rem;
+  padding-top: 5rem;
+
+  @include abstracts.mq($from: md) {
+    padding-top: 8rem;
+  }
 }
 
 
