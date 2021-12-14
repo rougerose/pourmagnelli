@@ -5,27 +5,27 @@
 @use "sass:map";
 @use "../abstracts";
 
-// .c-breadcrumb {}
+.c-breadcrumb {
+  padding-bottom: 2rem;
+}
 
 .c-breadcrumb_list {
-  padding: 3rem 0 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  @include abstracts.mq($from: lg) {
+    margin-left: abstracts.$wrapper-content-margin-left;
+  }
 }
 
 .c-breadcrumb_item {
+  display: flex;
   margin-right: 0.5rem;
-  color: #FEF2F2;
-  color: map.get(abstracts.$red, "100");
+  color: map.get(abstracts.$site-colors, "primary");
 
   &::before {
-    color: map.get(abstracts.$gray, "blue", "600");
+    color: map.get(abstracts.$red, "700");
     content: "\203A";
     margin-right: 0.5rem;
-  }
-
-  &:first-child {
-    &::before {
-      display: none;
-    }
   }
 }
 
