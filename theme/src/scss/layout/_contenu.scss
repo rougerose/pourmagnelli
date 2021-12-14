@@ -10,12 +10,11 @@
 // Règles de mise en page communes à tous les contenus
 
 .l-contenu {
-  padding-bottom: 4rem;
+  padding-bottom: 6rem;
 
-  // @include abstracts.mq($from: lg) {
-  //   padding-top: 8rem;
-  //   padding-bottom: 8rem;
-  // }
+  @include abstracts.mq($from: lg) {
+    padding-bottom: 8rem;
+  }
 }
 
 
