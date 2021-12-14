@@ -13,6 +13,15 @@
   @include abstracts.mq($from: md) {
     width: rem.convert(300px);
   }
+
+  // Variante -footer
+  // ========================================
+  &.-footer {
+    @include abstracts.mq($from: lg) {
+      width: rem.convert(220px);
+      margin-right: 3rem;
+    }
+  }
 }
 
 .c-logo_link {

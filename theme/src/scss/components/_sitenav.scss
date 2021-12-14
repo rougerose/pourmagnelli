@@ -6,7 +6,7 @@
 @use "../abstracts";
 @use "sass-rem/rem";
 
-$color-icone-stroke: map.get(abstracts.$site-colors, "text");
+$color-icon-stroke: map.get(abstracts.$site-colors, "text");
 $color-bg-dropdown: map.get(abstracts.$gray, "blue", "700");
 
 
@@ -16,19 +16,42 @@ $color-bg-dropdown: map.get(abstracts.$gray, "blue", "700");
   font-size: rem.convert(18px);
   line-height: 1.11;
 
+  & a,
+  & button {
+    text-decoration: underline rgba(map.get(abstracts.$site-colors, "primary"), 0);
+    text-underline-offset: rem.convert(8px);
+    transition: text-decoration-color 0.3s ease, text-underline-offset 0.3s ease;
+
+    &:hover {
+      text-decoration-color: rgba(map.get(abstracts.$site-colors, "primary"), 1);
+      text-underline-offset: rem.convert(4px);
+    }
+  }
+
   // Variante écrans larges
   // ========================================
   &.-sitenav-lg {
     display: none;
-
-    @include abstracts.mq($from: lg) {
-      display: flex;
-    }
   }
 
   // Variante mobile
   // ========================================
   // &.-sitenav-sm {}
+
+
+  // Variante footer
+  // ========================================
+  &.-sitenav-footer {
+    display: none;
+    font-size: rem.convert(15px);
+  }
+
+  &.-sitenav-lg,
+  &.-sitenav-footer {
+    @include abstracts.mq($from: lg) {
+      display: flex;
+    }
+  }
 }
 
 
@@ -97,6 +120,23 @@ $color-bg-dropdown: map.get(abstracts.$gray, "blue", "700");
       }
     }
   }
+
+  // Variante footer
+  // ========================================
+  &.-sitenav-footer {
+
+    &.-root {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      grid-gap: 2rem;
+      gap: 2rem;
+
+      @include abstracts.mq($from: xl) {
+        grid-gap: 4rem;
+        gap: 4rem;
+      }
+    }
+  }
 }
 
 
@@ -104,6 +144,17 @@ $color-bg-dropdown: map.get(abstracts.$gray, "blue", "700");
 // ========================================
 
 .c-sitenav_item {
+
+  &.-sub {
+    padding-top: 0.5rem;
+    display: flex;
+
+    &::before {
+      margin-right: 0.5rem;
+      content: "—";
+      color: map.get(abstracts.$site-colors, "primary");
+    }
+  }
 
   // Variante mobile
   // ========================================
@@ -114,21 +165,6 @@ $color-bg-dropdown: map.get(abstracts.$gray, "blue", "700");
       & > a {
         font-weight: 600;
         font-size: rem.convert(20px);
-      }
-    }
-
-    // -sub : second niveau
-    &.-sub {
-      padding-top: 0.5rem;
-
-      & > a {
-        display: flex;
-
-        &::before {
-          content: "—";
-          margin-right: 0.5rem;
-          color: map.get(abstracts.$site-colors, "primary");
-        }
       }
     }
   }
@@ -154,22 +190,27 @@ $color-bg-dropdown: map.get(abstracts.$gray, "blue", "700");
         padding: 0.25rem 0.75rem;
         align-items: baseline;
         font-size: rem.convert(20px);
+
+        &.is-active {
+          text-decoration-color: rgba(map.get(abstracts.$site-colors, "primary"), 1);
+          text-underline-offset: rem.convert(4px);
+        }
       }
 
-      & .icone-dropdown {
+      & .icon-dropdown {
         width: 12px;
         height: 12px;
         margin-left: 0.5rem;
-        stroke: $color-icone-stroke;
+        stroke: $color-icon-stroke;
         transition: transform 0.3s ease;
       }
 
-      & .icone-search {
-        stroke: $color-icone-stroke;
+      & .icon-search {
+        stroke: $color-icon-stroke;
       }
 
       & button[aria-expanded="true"] {
-        & .icone-dropdown {
+        & .icon-dropdown {
           transform: rotate(-180deg);
           transform-origin: 50% 50%;
         }
@@ -180,73 +221,32 @@ $color-bg-dropdown: map.get(abstracts.$gray, "blue", "700");
     &.-sub {
       padding: 0.25rem 0.75rem;
 
-      & > a {
-        display: flex;
+      &:first-child {
+        & a {
+          font-weight: 600;
+        }
 
         &::before {
-          content: "—";
-          margin-right: 0.5rem;
-          color: map.get(abstracts.$site-colors, "primary");
-        }
-      }
-
-      &:first-child {
-        & > a {
-          font-weight: 600;
-
-          &::before {
-            display: none;
-          }
+          display: none;
         }
       }
     }
+  }
 
-    // c-sitenav_label
-    // .
-    // Ajouter un filet sous chaque item lors du hover.
-    // Styles uniquement pour la variante large
-    // .
-    & .c-sitenav_label {
-      position: relative;
+  // Variante -sitenav-footer
+  // ========================================
+  &.-sitenav-footer {
 
-      &::after {
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        right: 0;
-        content: "";
-        height: 1px;
-        background-color: map.get(abstracts.$site-colors, "primary");
-        opacity: 0;
-        transform: translateY(4px);
-        transition: transform 0.2s ease-in-out, opacity 0.2s;
+    // -root : premier niveau
+    &.-root {
+      & > a {
+        font-weight: 500;
+        font-size: rem.convert(17px);
       }
     }
 
-    & > a,
-    & > button {
-      &:hover {
-        & .c-sitenav_label {
-          &::after {
-            transform: translateY(0);
-            opacity: 1;
-          }
-        }
-      }
-    }
-
-    // Élément en consultation.
-    // Seule l'élément racine est concerné.
-    &.-root.is-active {
-      & > a,
-      & > button {
-        & .c-sitenav_label {
-          &::after {
-            transform: translateY(0);
-            opacity: 1;
-          }
-        }
-      }
+    &.-recherche {
+      display: none;
     }
   }
 }

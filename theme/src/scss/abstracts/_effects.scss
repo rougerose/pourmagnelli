@@ -5,3 +5,8 @@ $box-shadow: (
   "l1": (rem.convert(0 3px 6px hsla(0, 0%, 0%, 0.15), 0 2px 4px hsla(0, 0%, 0%, 0.12))),
   "l2": (rem.convert(0 10px 20px hsla(0, 0%, 0%, 0.15), 0 3px 6px hsla(0, 0%, 0%, 0.10))),
 );
+
+$drop-shadow: (
+  "l1": rem.convert(0 2px 4px hsla(0, 0%, 0%, 0.3)),
+  "l2": rem.convert(0 3px 6px hsla(0, 0%, 0%, 0.3)),
+);

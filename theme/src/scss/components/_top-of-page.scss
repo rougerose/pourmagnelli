@@ -1,0 +1,46 @@
+// ========================================
+// c-top-of-page
+// ========================================
+
+@use "sass:map";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+
+#top-of-page-observer-target {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  left: 0;
+  top: rem.convert(500px);
+
+  @include abstracts.mq($until: md) {
+    top: rem.convert(250px);
+  }
+}
+
+.c-top-of-page {
+  position: fixed;
+  right: abstracts.$wrapper-padding-mobile;
+  bottom: abstracts.$wrapper-padding-desktop;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease-in;
+
+  &[data-visible="true"] {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  @include abstracts.mq($from: sm) {
+    right: abstracts.$wrapper-padding-desktop;
+  }
+}
+
+.c-top-of-page_icon {
+  filter: drop-shadow(map.get(abstracts.$drop-shadow, "l2"));
+
+  & path {
+    fill: abstracts.$white;
+  }
+}

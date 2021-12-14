@@ -1,0 +1,13 @@
+// l-footer
+// ========================================
+
+@use "sass:map";
+@use "../abstracts";
+
+.l-footer {
+  @include abstracts.mq($from: lg) {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+}

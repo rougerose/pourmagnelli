@@ -8,4 +8,5 @@
 
 $border: (
   "header": rem.convert(2px) solid map.get(colors.$site-colors, "primary"),
+  "footer": rem.convert(2px) solid map.get(colors.$site-colors, "primary"),
 );

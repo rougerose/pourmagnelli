@@ -81,7 +81,7 @@
     transition: background 0.3s ease;
 
     &:hover {
-      background-color: map.get(abstracts.$site-colors, "link-hover");
+      background-color: map.get(abstracts.$purple-deep, "500");
     }
   }
 
@@ -123,7 +123,7 @@
 // reference https://css-tricks.com/show-search-button-when-search-field-is-non-empty
 
 // Largeur du bouton submit
-$searchbox-btn-width: 7.5rem;
+$searchbox-btn-width: 8rem;
 
 .l-recherche_form {
   position: relative;
@@ -149,7 +149,7 @@ input[type="search"].l-recherche_input {
 button[type="submit"].l-recherche_btn {
   border-radius: 0.25rem;
   border-width: rem.convert(1px);
-  background-color: map.get(abstracts.$purple-deep, "700");
+  background-color: map.get(abstracts.$purple-deep, "600");
   color: map.get(abstracts.$site-colors, "text");
   position: absolute;
   bottom: 0;

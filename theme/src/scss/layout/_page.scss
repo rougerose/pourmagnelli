@@ -13,4 +13,16 @@
 }
 
 
-// .l-page_footer {}
+.l-page_content {
+  padding-bottom: 5rem;
+}
+
+
+.l-page_footer {
+  padding-bottom: 1.8rem;
+
+  @include abstracts.mq($from: lg) {
+    padding: 3rem 0 3.6rem;
+    background-color: rgba(map.get(abstracts.$gray, "blue", "900"), 0.25);
+  }
+}
