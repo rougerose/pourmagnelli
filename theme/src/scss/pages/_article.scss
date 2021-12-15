@@ -71,10 +71,7 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
     // [1]  Variante -texte :
     //      1 colonne par défaut ; 2 colonnes écran >= lg.
     //      Elle est appliquée au contenu principal de l'article.
-    // [2]  Variante -portfolio :
-    //      1 colonne.
-    //      Elle est appliquée aux images en version slider.
-    // [3]  Variante -footer :
+    // [2]  Variante -footer :
     //      1 colonne par défaut ; 2 colonnes sur écran >= lg
     //      Les blocs enfants sont disposés différemment selon les mq.
 
@@ -130,7 +127,7 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
       }
     }
 
-    // [3] Variante -footer
+    // [2] Variante -footer
     // ========================================
     &.-footer {
       // 1 colonne par défaut.
@@ -157,6 +154,13 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
         }
       }
     }
+  }
+
+  // Variante -portfolio
+  // ========================================
+  &.-portfolio {
+    margin-bottom: 6rem;
+    background-color: rgba(map.get(abstracts.$gray, "blue", "900"), 0.5);
   }
 
   // Variante -timeline
@@ -188,7 +192,7 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
   font-size: rem.convert(24px);
   font-weight: 300;
   line-height: 1.2;
-  color: map.get(abstracts.$gray, "blue", "200");
+  color: map.get(abstracts.$red, "600");
 
   @include abstracts.mq($from: md) {
     margin-top: 0.5rem;
@@ -230,5 +234,7 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
     margin-bottom: 6rem;
   }
 }
+
+// .p-article_portfolio {}
 
 // .p-article_date {}

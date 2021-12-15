@@ -10,15 +10,16 @@
           <div class="p-article_bodySection -grid -texte">
             <B_image_logo>
               <div class="p-article_section -logo t-spip-texte">
-                [(#REM) <!-- La première image est utilisée comme bannière (logo) de l'article --> ]
+                [(#REM)
+                  <!-- La première image est utilisée comme bannière (logo) de l'article --> ]
                 <BOUCLE_image_logo(DOCUMENTS){id_article}{media=image}{vu=non}{par rang_lien, num titre}{!par date}{0,1}>
-                  [(#INCLURE{fond=modeles/image, id=#ID_DOCUMENT, largeur=600})]
+                  [(#INCLURE{fond=modeles/image, id=#ID_DOCUMENT})]
                 </BOUCLE_image_logo>
               </div>
             </B_image_logo>
             <div class="p-article_section -textePrincipal">
-              [<div class="p-article_chapo t-spip-texte">(#CHAPO|image_reduire{600, 0})</div>]
-              [<div class="p-article_texte t-spip-texte">(#TEXTE|image_reduire{600, 0})</div>]
+              [<div class="p-article_chapo t-spip-texte">(#CHAPO|adaptive_images{768})</div>]
+              [<div class="p-article_texte t-spip-texte">(#TEXTE|adaptive_images{768})</div>]
             </div>
             <div class="p-article_section -texteSecondaire">
               [(#REM) <!-- Les documents (fichiers) liés à l'article --> ]
@@ -34,7 +35,7 @@
           <B_portfolio>
             <div class="p-article_bodySection -portfolio">
               <BOUCLE_portfolio(DOCUMENTS){id_article}{media=image}{vu=non}{par rang_lien, num titre}{!par date}{1, 1}>
-
+                <INCLURE{fond=inclure/article/portfolio, id_article}/>
               </BOUCLE_portfolio>
             </div>
           </B_portfolio>

@@ -7,7 +7,7 @@
             <div class="p-rubrique_intro t-spip-texte">#DESCRIPTIF_SITE_SPIP</div>
             <div class="p-rubrique_actu">
               <BOUCLE_portrait(DOCUMENTS){descriptif=introduction site}{statut IN prepa, prop, publie}>
-                [(#FICHIER|image_reduire{600,0}|balise_img)]
+                [(#FICHIER|image_reduire{600,0}|balise_img{[(#TITRE|textebrut|sinon{#NOM_SITE_SPIP}|trim)], 'no-adapt-img'})]
               </BOUCLE_portrait>
             </div>
           </div>

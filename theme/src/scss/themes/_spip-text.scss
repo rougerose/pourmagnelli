@@ -255,7 +255,7 @@
   }
 
   & blockquote {
-    border-left: rem.convert(2px) solid map.get(abstracts.$red, "700");
+    border-left: rem.convert(4px) solid rgba(map.get(abstracts.$red, "700"), 0.5);
     padding-left: 1rem;
     font-size: 1rem;
   }
@@ -298,11 +298,11 @@
     }
 
     // [1] Si l'image est d'une taille inférieure à la largeur de la colonne,
-    // ajout d'un arrière-plan et centrer l'image dans le conteneur.
+    // ajout d'un arrière-plan et centrer l'image dans le conteneur,
+    // à condition que le lien a.spip_doc_lien englobe l'image.
     //
-    // [2] Mais à condition que le lien a.spip_doc_lien soit disponible,
-    // ce cas, on annule la marge auto à gauche. Mais l'image est présenté
-    // sont arrière-plan.
+    // [2] Si ce n'est pas le cas, on annule la marge auto à gauche
+    // et l'image est présentée sans arrière-plan.
 
     & img {
       margin: auto; // [1]
@@ -319,24 +319,22 @@
     }
 
     & .spip_doc_titre {
-      font-size: rem.convert(16px);
+      font-size: 1rem;
+      line-height: 1.1;
     }
 
     & .spip_doc_legende {
-      border-left: rem.convert(1px) solid map.get(abstracts.$site-colors, "primary");
+      border-left: rem.convert(1px) solid map.get(abstracts.$red, "700");
       margin-top: 0.75rem;
       padding-left: 1rem;
+      color: map.get(abstracts.$gray, "blue", "100");
+      line-height: 1.2;
 
       & div:first-child,
       & .spip_doc_titre {
         margin-top: rem.convert(-3px);
       }
     }
-
-    // @include abstracts.mq($from: md) {
-    //   margin-top: 4rem;
-    //   margin-bottom: 4rem;
-    // }
   }
 
   // Lorsque l'image est utilisée comme logo d'article,
@@ -344,6 +342,17 @@
   &.-logo {
     .spip_document_image {
       margin-top: 0;
+      margin-bottom: 4rem;
+      @include abstracts.mq($from: md) {
+        margin-bottom: 6rem;
+      }
+    }
+  }
+
+  // Contexte -portfolio, aucune marge sur le conteneur.
+  &.-portfolio {
+    .spip_document_image {
+      margin: 0;
     }
   }
 
@@ -395,11 +404,7 @@
     border: none;
   }
 
-  & .spip_doc_legende {
-    //margin-right: auto; // contraindre à la largeur (maximum) du contenu.
-    font-size: 1rem;
-    line-height: 1.2;
-  }
+  // & .spip_doc_legende {}
 
   & .spip_doc_titre {
     margin: 0;
@@ -413,7 +418,7 @@
   & .spip_doc_credits {
     font-size: rem.convert(14px);
     font-weight: 300;
-    margin-top: 0.75rem;
+    margin-top: 0.5rem;
 
     & p {
       margin-bottom: 0;

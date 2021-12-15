@@ -1,1 +1,62 @@
+@use "sass:map";
+@use "sass:meta";
+@use "../abstracts";
+@use "sass-rem/rem";
+
 @use "swiper/swiper";
+@use "swiper/modules/navigation/navigation";
+
+// Adaptation des styles de Swiper
+// ========================================
+
+:root {
+  --swiper-navigation-size: #{meta.inspect(rem.convert(18px))};
+  --swiper-navigation-color: #{meta.inspect(rgba(map.get(abstracts.$site-colors, "background"), 0.8))};
+}
+
+.swiper {
+  padding: 2rem;
+}
+
+.swiper-wrapper {
+  align-items: center;
+}
+
+.swiper-slide {
+  max-width: rem.convert(500px); // 2 images max
+}
+
+.swiper-image {
+  padding: 0 2rem;
+
+  & img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  background-color: rgba(map.get(abstracts.$site-colors, "text"), 0.8);
+  transition: background-color 0.3s ease-in;
+
+  &::after {
+    margin-top: 2px;
+    margin-left: 2px;
+    font-weight: bold;
+  }
+
+  &:hover {
+    background-color: map.get(abstracts.$red, "500");
+  }
+}
+
+.swiper-button-prev {
+  &::after {
+    margin-left: -2px;
+  }
+}

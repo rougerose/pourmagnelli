@@ -9,15 +9,18 @@ const pourmagnelli = {
     pourmagnelli.makeDialogSiteNavMobile();
     pourmagnelli.makeDialogRechercheDesktop();
     pourmagnelli.backToTopObserver();
+    pourmagnelli.makeSwiperPortfolio();
   },
 
   /**
-   * Retour en haut de page
+   * Lien retour en haut de page
    */
   backToTopObserver: () => {
     const topOfPageLink = document.querySelector(".c-top-of-page");
-    const topOfPageTarget = document.querySelector("#top-of-page-observer-target");
-    const topOfPageObserver = new IntersectionObserver(observer => {
+    const topOfPageTarget = document.querySelector(
+      "#top-of-page-observer-target"
+    );
+    const topOfPageObserver = new IntersectionObserver((observer) => {
       if (observer[0].boundingClientRect.y < 0) {
         topOfPageLink.dataset.visible = true;
       } else {
@@ -142,14 +145,45 @@ const pourmagnelli = {
     dialogRecherche.on("hide", (dialogEl, dialogEvent) => {
       // Ajouter l'id de la modale qui sera récupéré dans la fonction modaleTransitions
       dialogRechercheBody.modalId = dialogRechercheId;
-      dialogRechercheBody.addEventListener("transitionend", modaleTransitionEnd);
+      dialogRechercheBody.addEventListener(
+        "transitionend",
+        modaleTransitionEnd
+      );
       dialogRechercheBody.classList.add("is-closing");
       dialogEl.classList.remove("is-visible");
     });
   },
+
+  makeSwiperPortfolio: () => {
+    const sliderPortfolioArticle = document.querySelector(
+      ".p-article_portfolio"
+    );
+
+    if (sliderPortfolioArticle) {
+      const swiperPortfolio = new Swiper(sliderPortfolioArticle, {
+        modules: [Navigation],
+        slidesPerView: 1,
+        loop: setSwiperLoop(sliderPortfolioArticle, 1),
+        watchOverflow: true,
+        breakpoints: {
+          640: {
+            slidesPerView: "auto",
+            loop: setSwiperLoop(sliderPortfolioArticle, 2),
+          },
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    }
+  },
 };
 
-
+function setSwiperLoop(wrapper, seuil) {
+  let slides = wrapper.querySelectorAll(".swiper-slide");
+  return slides.length > seuil ? true : false;
+}
 
 function modaleTransitionEnd(event) {
   // Identifier le parent principal (modale)
@@ -163,13 +197,5 @@ function modaleTransitionEnd(event) {
   // Rétablir le scroll sur l'élement body
   enableBodyScroll(event.target);
 }
-
-// Swiper
-// Swiper.use([Navigation]);
-// const sliderPortfolioArticle = document.querySelector(".p-article_portfolio");
-
-// if (sliderPortfolioArticle) {
-//   const swiperPortfolio = new Swiper(sliderPortfolioArticle);
-// }
 
 pourmagnelli.init();

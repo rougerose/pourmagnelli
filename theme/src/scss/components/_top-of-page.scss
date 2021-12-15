@@ -23,6 +23,7 @@
   position: fixed;
   right: abstracts.$wrapper-padding-mobile;
   bottom: abstracts.$wrapper-padding-desktop;
+  z-index: abstracts.$zindex-top-of-page;
   visibility: hidden;
   opacity: 0;
   transition: 0.3s ease-in;
