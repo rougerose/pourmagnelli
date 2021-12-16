@@ -198,4 +198,6 @@ function modaleTransitionEnd(event) {
   enableBodyScroll(event.target);
 }
 
-pourmagnelli.init();
+document.addEventListener("DOMContentLoaded", function () {
+  pourmagnelli.init();
+});

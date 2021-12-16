@@ -7,7 +7,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 function pourmagnelli_theme_insert_head($flux) {
 	if ($js = find_in_path('dist/js/pourmagnelli.js')) {
 		$flux .= "\n";
-		$flux .= '<script defer="true" src="' . $js . '" type="text/javascript"></script>';
+		$flux .= '<script src="' . $js . '" type="text/javascript"></script>';
 	}
 	return $flux;
 }
