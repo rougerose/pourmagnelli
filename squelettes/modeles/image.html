@@ -1,0 +1,42 @@
+[(#REM)
+
+	Modele pour les images
+
+]
+<BOUCLE_image (DOCUMENTS) {media=image} {id_document=#ENV{id,#ENV{id_document}}} {inclus=image} {mode?} {tout}>
+  [(#SET{autolien,#LARGEUR|>={800}|ou{#HAUTEUR|>={800}}|oui})]
+  [(#GET{autolien}|oui)
+    [(#LARGEUR|>{600}|?{
+      [(#SET{image_s, #FICHIER|image_reduire{600,0}|extraire_attribut{src}})],
+      [(#SET{image_s, #FICHIER})]
+    })]
+    [(#LARGEUR|>{900}|?{
+      [(#SET{image_m, #FICHIER|image_reduire{900,0}|extraire_attribut{src}})],
+      [(#SET{image_m, #FICHIER})]
+    })]
+    [(#LARGEUR|>{1024}|?{
+      [(#SET{image_l, #FICHIER|image_reduire{1024,0}|extraire_attribut{src}})],
+      [(#SET{image_l, #FICHIER})]
+    })]
+    [(#LARGEUR|>{1600}|?{
+      [(#SET{image_xl, #FICHIER|image_reduire{1600,0}|extraire_attribut{src}})],
+      [(#SET{image_xl, #FICHIER})]
+    })]
+  ][(#SET{image,[(#ENV{largeur}|ou{#ENV{hauteur}}|?{
+		[(#FICHIER|image_reduire{#ENV{largeur,10000},#ENV{hauteur,10000}})],
+		[<img src='(#URL_DOCUMENT)'[ width="(#LARGEUR)"][ height="(#HAUTEUR)"]/>]})]})]
+  [(#SET{image,#GET{image}|inserer_attribut{alt,#ENV{alt,#ALT}|sinon{''}}})]
+  [(#SET{legende,#INCLURE{fond=modeles/document_legende, env}|trim})]
+  #SET{largeur,#GET{image}|largeur}
+  <div class="[(#ID_DOCUMENT|medias_modele_document_standard_classes{image}) ]spip_lien_ok"[ (#ID_DOCUMENT|medias_modele_document_standard_attributs{image})]>
+    <figure class="spip_doc_inner">
+      [<a href="(#ENV{lien})"[ class="(#ENV{lien_class}|concat{' spip_doc_lien'}|trim)"]>]
+      [(#ENV{lien}|non|et{#GET{autolien}})<a href="#GET{image_xl}" class="spip_doc_lien" type="#MIME_TYPE" data-size="[(#GET{image_xl}|largeur)][x(#GET{image_xl}|hauteur)]" data-s="[(#GET{image_s})]" data-s-size="[(#GET{image_s}|largeur)][x(#GET{image_s}|hauteur)]" data-m="[(#GET{image_m})]" data-m-size="[(#GET{image_m}|largeur)][x(#GET{image_m}|hauteur)]" data-l="[(#GET{image_l})]" data-l-size="[(#GET{image_l}|largeur)][x(#GET{image_l}|hauteur)]"[ data-title="(#TITRE|textebrut)"][ data-desc="(#DESCRIPTIF|textebrut)"][ data-author="(#CREDITS|textebrut)"] data-pswp-index="">]
+          #GET{image}
+      [(#ENV{lien}|ou{#GET{autolien}}|?{</a>})]
+      #GET{legende}
+    </figure>
+  </div>
+</BOUCLE_image>
+  <INCLURE{fond=modeles/file,env} />
+<//B_image>

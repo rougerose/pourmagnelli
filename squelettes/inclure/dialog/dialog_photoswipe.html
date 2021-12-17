@@ -1,0 +1,11 @@
+<BOUCLE_condition_article(CONDITION){si #ENV{id_article}}>
+  [(#REM)
+    <!--
+      Si l'article contient au moins une image (illustration ou portfolio),
+      ajouter le gabarit utilisé par Photoswipe pour afficher
+      cette image plein ecran.
+    -->
+  ]<BOUCLE_documents(DOCUMENTS){id_article}{media=image}{0,1}>
+    #INCLURE{fond=modeles/photoswipe}
+  </BOUCLE_documents>
+</BOUCLE_condition_article>

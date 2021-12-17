@@ -98,4 +98,5 @@ $site-colors: (
   "primary": $primary-color,
   "text": $white,
   "text-invert": $background-color,
+  "legende": map.get($gray, "blue", "100"),
 );

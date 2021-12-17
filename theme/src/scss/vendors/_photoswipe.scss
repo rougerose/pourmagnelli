@@ -1,0 +1,16 @@
+
+
+@use "sass:map";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+.pswp {
+  & .pswp__caption__center {
+    font-size: rem.convert(15px);
+    line-height: 1.2;
+
+    & h4 {
+      font-size: 1rem;
+    }
+  }
+}
