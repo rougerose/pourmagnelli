@@ -1,0 +1,19 @@
+<BOUCLE_article_prev_next(ARTICLES){id_article}>
+  <BOUCLE_article_prev(ARTICLES){id_rubrique?}{precedent}{par date}{inverse  #ENV{senstri, 0}}>
+    [(#SET{id_prev, #ID_ARTICLE})]
+  </BOUCLE_article_prev>
+  <nav class="c-pagination -prev-next[(#GET{id_prev}|non) -end]">
+    <BOUCLE_article_precedent(ARTICLES){id_article=#GET{id_prev}}>
+      <div class="c-pagination_item -prev-next -prev">
+        <span class="c-pagination_label -prev-next -prev">Article précédent :</span>
+        <a href="#URL_ARTICLE" class="c-pagination_link -prev-next -prev[ (#ENV{class})]">[(#TITRE)]</a>
+      </div>
+    </BOUCLE_article_precedent>
+    <BOUCLE_article_suivant(ARTICLES){id_rubrique?}{suivant}{par date}{inverse #ENV{senstri, 0}}>
+      <div class="c-pagination_item -prev-next -next">
+        <span class="c-pagination_label -prev-next -next">Article suivant :</span>
+        <a href="#URL_ARTICLE" class="c-pagination_link -prev-next -next[ (#ENV{class})]">[(#TITRE)]</a>
+      </div>
+    </BOUCLE_article_suivant>
+  </nav>
+</BOUCLE_article_prev_next>

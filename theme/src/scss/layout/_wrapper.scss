@@ -22,5 +22,6 @@
 .l-wrapper-content {
   @include abstracts.mq($from: lg) {
     margin-left: abstracts.$wrapper-content-margin-left;
+    margin-right: abstracts.$wrapper-padding-desktop;
   }
 }

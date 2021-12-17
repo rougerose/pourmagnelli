@@ -1,0 +1,108 @@
+// ========================================
+// c-pagination
+// ========================================
+
+@use "sass:map";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+.c-pagination {
+
+  // Variante -prev-next
+  // ========================================
+  &.-prev-next {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+  }
+
+  // Variante -end
+  //
+  // Le lien précédent est absent.
+  // Forcer un calage à droite.
+  // ========================================
+  &.-end {
+    justify-content: flex-end;
+  }
+}
+
+.c-pagination_item {
+
+  // Variante -prev-next
+  // ========================================
+  &.-prev-next {
+    max-width: 50%;
+    position: relative;
+
+    &::before {
+      font-weight: 600;
+    }
+
+    @include abstracts.mq($from: lg) {
+      &::before {
+        position: absolute;
+        top: 0;
+      }
+    }
+  }
+
+  &.-prev {
+
+    @include abstracts.mq($from: lg) {
+      &::before {
+        content: "←";
+        right: 100%;
+        margin-right: 1ch;
+      }
+    }
+  }
+
+  &.-next {
+    text-align: right;
+
+    @include abstracts.mq($from: lg) {
+      &::before {
+        content: "→";
+        margin-left: 1ch;
+        left: 100%;
+      }
+    }
+  }
+}
+
+.c-pagination_label {
+
+  // Variante -prev-next
+  // ========================================
+  &.-prev-next {
+    text-transform: uppercase;
+    font-size: rem.convert(13px);
+
+    @include abstracts.mq($from: sm) {
+      font-size: rem.convert(14px);
+    }
+  }
+}
+
+
+.c-pagination_link {
+  font-style: italic;
+  font-size: rem.convert(15px);
+  text-decoration: underline rgba(map.get(abstracts.$site-colors, "primary"), 1);
+  text-underline-offset: rem.convert(4px);
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: map.get(abstracts.$site-colors, "link-hover");
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+  }
+
+  @include abstracts.mq($from: sm) {
+    font-size: 1rem;
+  }
+}

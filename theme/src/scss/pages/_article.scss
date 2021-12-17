@@ -133,6 +133,8 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
       // 1 colonne par défaut.
 
       & .p-article_section {
+        padding-bottom: 3rem;
+
         &.-texteSecondaire {
           // Surcharger la disposition de ce type de bloc déjà défini plus haut.
           grid-row: auto;

@@ -45,11 +45,12 @@
   // ========================================
   & a {
     color: currentColor;
-    border-bottom: rem.convert(1px) solid map.get(abstracts.$red, "400");
+    text-decoration: underline rgba(map.get(abstracts.$site-colors, "primary"), 1);
+    text-underline-offset: rem.convert(4px);
     transition: color 0.3s ease;
 
     &:visited {
-      color: map.get(abstracts.$red, "100");
+      color: map.get(abstracts.$red, "50");
     }
 
     &:hover {
@@ -485,7 +486,7 @@
   // ========================================
   &.-date {
     font-weight: 300;
-    font-size: rem.convert(16px);
+    font-size: rem.convert(15px);
     color: rgba(map.get(abstracts.$site-colors, "text"), 0.5);
   }
 
