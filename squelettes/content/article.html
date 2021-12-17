@@ -9,7 +9,7 @@
         <div class="p-article_body -grid" itemprop="articleBody">
           <div class="p-article_bodySection -grid -texte">
             <B_image_logo>
-              <div class="p-article_section -logo t-spip-texte js-photoswipe">
+              <div class="p-article_section -logo t-spip-texte">
                 [(#REM)
                   <!-- La première image est utilisée comme bannière (logo) de l'article --> ]
                 <BOUCLE_image_logo(DOCUMENTS){id_article}{media=image}{vu=non}{par rang_lien, num titre}{!par date}{0,1}>
@@ -18,8 +18,8 @@
               </div>
             </B_image_logo>
             <div class="p-article_section -textePrincipal">
-              [<div class="p-article_chapo t-spip-texte">(#CHAPO|adaptive_images{768})</div>]
-              [<div class="p-article_texte t-spip-texte">(#TEXTE|adaptive_images{768})</div>]
+              [<div class="p-article_chapo t-spip-texte">(#CHAPO|image_reduire{768,0})</div>]
+              [<div class="p-article_texte t-spip-texte">(#TEXTE|image_reduire{768,0})</div>]
             </div>
             <div class="p-article_section -texteSecondaire">
               [(#REM) <!-- Les documents (fichiers) liés à l'article --> ]
