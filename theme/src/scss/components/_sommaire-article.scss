@@ -32,6 +32,7 @@
 
   @include abstracts.mq($from: md) {
     display: block;
-    position: fixed;
+    position: sticky;
+    top: 1rem;
   }
 }
