@@ -17,16 +17,24 @@
       }
     }
 
-    & a {
-      border: none;
+    & .spip_ancre {
+      text-decoration: underline map.get(abstracts.$site-colors, "text");
+      text-underline-offset: rem.convert(8px);
+      transition: text-decoration-color 0.3s ease, text-underline-offset 0.3s ease;
 
       &:visited {
         color: currentColor;
       }
 
       &:hover {
-        color: map.get(abstracts.$site-colors, "link-hover");
+        text-decoration-color: map.get(abstracts.$site-colors, "primary");
+        text-underline-offset: rem.convert(4px);
       }
+
+
+      // &:hover {
+      //   color: map.get(abstracts.$site-colors, "link-hover");
+      // }
     }
   }
 
