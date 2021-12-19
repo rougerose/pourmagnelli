@@ -2,6 +2,9 @@
 // c-pagination
 // ========================================
 
+// Les règles s'appliquent pour le composant propre au site
+// et et pour le modèle de pagination standard de Spip.
+
 @use "sass:map";
 @use "../abstracts";
 @use "sass-rem/rem";
@@ -24,9 +27,38 @@
   &.-end {
     justify-content: flex-end;
   }
+
+  // Variante -recherche
+  // ========================================
+  &.-recherche {
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    // background-color: rgba(map.get(abstracts.$red, "900"), 0.1);
+  }
 }
 
-.c-pagination_item {
+.c-pagination_list,
+.pagination-items {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+
+  .-recherche & {
+    // background-color: rgba(map.get(abstracts.$gray, "blue", "900"), 0.3);
+    border-bottom: 1px solid rgba(map.get(abstracts.$red, "700"), 0.7);
+  }
+}
+
+.c-pagination_item,
+.pagination-item {
+
+  // Variante -recherche
+  // ========================================
+  .-recherche & {
+    display: flex;
+    margin: 0 0.25rem;
+    // font-size: rem.convert(18px);
+  }
 
   // Variante -prev-next
   // ========================================
@@ -70,7 +102,34 @@
   }
 }
 
-.c-pagination_label {
+.c-pagination_label,
+.pagination-item-label {
+
+  // Variante -recherche
+  // ========================================
+  .-recherche & {
+    padding: 0 0.75rem;
+    border-bottom: 4px solid transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &.on {
+      font-weight: 600;
+    }
+
+    &.on,
+    &:hover {
+      // color: map.get(abstracts.$red, "200");
+      border-bottom-color: rgba(map.get(abstracts.$red, "600"), 0.7);
+      // background-color: map.get(abstracts.$red, "500");
+      // color: map.get(abstracts.$gray, "blue", "900");
+    }
+
+    // & a {
+    //   &:hover {
+    //     background-color: red;
+    //   }
+    // }
+  }
 
   // Variante -prev-next
   // ========================================

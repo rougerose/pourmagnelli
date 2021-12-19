@@ -338,13 +338,12 @@
     }
   }
 
-  // Lorsque l'image est utilisée comme logo d'article,
-  // supprimer la marge haute.
   &.-logo {
     .spip_document_image {
       margin-top: 0;
       margin-bottom: 4rem;
       @include abstracts.mq($from: md) {
+        margin-top: 0;
         margin-bottom: 6rem;
       }
     }

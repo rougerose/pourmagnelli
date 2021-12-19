@@ -35,6 +35,21 @@
       flex-direction: row;
     }
   }
+
+  // resume/[article-rubrique]-recherche
+  // ========================================
+  &.-recherche {
+    margin-top: 3rem;
+    margin-left: 1.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(map.get(abstracts.$red, "700"), 0.7);
+    line-height: 1.333;
+
+    &:first-of-type {
+      padding-top: 0;
+      border-top: none;
+    }
+  }
 }
 
 .c-resume_logo {
@@ -90,6 +105,22 @@
     position: relative;
   }
 
+  // -recherche
+  // ========================================
+  .-recherche & {
+    font-size: rem.convert(20px);
+    margin-bottom: 0.75rem;
+    position: relative;
+
+    & span {
+      position: absolute;
+      right: 100%;
+      margin-right: 0.5rem;
+      color: map.get(abstracts.$site-colors, "primary");
+      font-size: 80%;
+    }
+  }
+
   // resume/article-rubrique-magnelli
   // ========================================
 
@@ -127,6 +158,17 @@
 
 // .c-resume_subtitle {}
 
+.c-resume_desc {
+  p {
+    margin-bottom: 1.5rem;
+    font-size: rem.convert(18px);
+  }
+
+  & p + p.c-resume_more {
+    margin-top: -0.75rem;
+  }
+}
+
 
 .c-resume_link {
   text-decoration: underline rgba(map.get(abstracts.$site-colors, "text"), 0);
@@ -141,8 +183,19 @@
   // Variante -rubrique-magnelli
   // ========================================
   .-rubrique-magnelli & {
+
     &:hover {
       text-decoration-color: rgba(map.get(abstracts.$site-colors, "primary"), 1);
+    }
+  }
+
+  // Variante -recherche
+  // ========================================
+  .-recherche & {
+    text-decoration: underline map.get(abstracts.$site-colors, "text");
+
+    &:hover {
+      text-decoration-color: map.get(abstracts.$site-colors, "primary");
     }
   }
 }

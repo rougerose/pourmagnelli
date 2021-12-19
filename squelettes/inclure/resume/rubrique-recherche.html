@@ -1,0 +1,13 @@
+<BOUCLE_resume_rubrique_recherche(RUBRIQUES){id_rubrique}>
+  <article class="c-resume -recherche">
+    <div class="c-resume_texte">
+      <h3 class="c-resume_title">[<span>(#ENV{position})</span>] <a href="#URL_RUBRIQUE" class="c-resume_link">#TITRE</a></h3>
+      <div class="c-resume_desc">
+        [(#INTRODUCTION{200})]
+        <p class="c-resume_more">
+          <a href="#URL_RUBRIQUE" class="c-resume_link"><:pourmagnelli_squelettes:lire_suite:></a>
+        </p>
+      </div>
+    </div>
+  </article>
+</BOUCLE_resume_rubrique_recherche>

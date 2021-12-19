@@ -98,7 +98,7 @@
   input,
   textarea {
     &::placeholder {
-      color: map.get(abstracts.$gray, "blue", "300");
+      color: map.get(abstracts.$gray, "blue", "500");
       font-style: italic;
     }
   }

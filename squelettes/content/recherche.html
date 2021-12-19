@@ -1,0 +1,51 @@
+[(#REM) <!-- Variables --> ]
+#SET{total, 0}
+#SET{articles, #ARRAY}
+#SET{rubriques, #ARRAY}
+
+[(#REM) <!-- Récupérer les résultats --> ]
+<BOUCLE_articles(ARTICLES){recherche}{!par points}{lang}>
+  [(#SET{articles, #GET{articles}|push{#ID_ARTICLE}})]
+</BOUCLE_articles>
+<BOUCLE_rubriques(RUBRIQUES){recherche}{lang}{!par points}>
+  [(#SET{rubriques, #GET{rubriques}|push{#ID_RUBRIQUE}})]
+</BOUCLE_rubriques>
+
+[(#REM) <!-- Calculer la somme des résultats --> ]
+[(#SET{total, #GET{articles}|count|plus{#GET{rubriques}|count}})]
+<article class="p-article l-contenu">
+  <div class="l-wrapper">
+    <div class="l-wrapper-content">
+      <header class="p-article_header l-contenu_header">
+        <h1 class="p-article_titre l-contenu_titre">
+          [(#GET{total}|>{0}|?{
+            [(#GET{total}|singulier_ou_pluriel{pourmagnelli_squelettes:recherche_label_resultat, pourmagnelli_squelettes:recherche_label_resultats, nb})],
+            <:pourmagnelli_squelettes:recherche_label_aucun_resultat:>
+          })] [<span class="p-article_titre -recherche-terme">(#RECHERCHE)</span>]
+        </h1>
+      </header>
+      <div class="p-article_body -grid">
+        <div class="p-article_bodySection -grid -texte">
+
+          <div class="p-article_section -logo"></div>
+
+          <div class="p-article_section -textePrincipal">
+            <div class="p-article_texte c-recherche-resultats">
+              <BOUCLE_total(CONDITION){si #GET{total}|>{0}}>
+                <BOUCLE_resultats_articles(CONDITION){si #GET{articles}|count|>{0}}>
+                  <INCLURE{fond=inclure/recherche/articles, articles=#GET{articles}, pagination=5, ajax, env} />
+                </BOUCLE_resultats_articles>
+
+                <BOUCLE_resultats_rubriques(CONDITION){si #GET{rubriques}|count|>{0}}>
+                  <INCLURE{fond=inclure/recherche/rubriques, rubriques=#GET{rubriques}, pagination=5, ajax, env} />
+                </BOUCLE_resultats_rubriques>
+
+              </BOUCLE_total>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+<INCLURE{fond=inclure/breadcrumb/recherche} />

@@ -87,6 +87,7 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
     // [1] Variante -texte
     // ========================================
     &.-texte {
+      margin-top: 4rem;
       // Par défaut, grille sur 1 colonne.
 
       // Version par défaut
