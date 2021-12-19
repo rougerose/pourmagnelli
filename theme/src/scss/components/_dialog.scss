@@ -121,7 +121,7 @@
     left: 0;
     width: 100%;
     z-index: abstracts.$zindex-dialog + 1;
-    padding: abstracts.$wrapper-padding-mobile abstracts.$wrapper-padding-desktop 1.75rem;
+    padding: abstracts.$wrapper-padding-mobile abstracts.$wrapper-padding-mobile 1.75rem;
     border-top: map.get(abstracts.$border, "header");
     // Arrière-plan opaque, dans l'hypothèse d'un contenu avec scroll
     background-color: map.get(abstracts.$site-colors, "background");
@@ -170,7 +170,7 @@
     margin-top: 5em;
     padding: 1rem abstracts.$wrapper-padding-mobile 2rem;
 
-    @include abstracts.mq($from: md) {
+    @include abstracts.mq($from: sm) {
       padding-left: abstracts.$wrapper-padding-desktop;
       padding-right: abstracts.$wrapper-padding-desktop;
     }

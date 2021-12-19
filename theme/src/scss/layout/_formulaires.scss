@@ -14,12 +14,12 @@
 // ========================================
 
 .formulaire_spip {
-  // legend {
-  //   margin-bottom: 1.5rem;
-  //   font-size: 1.5rem;
-  //   line-height: 1.5rem;
-  //   color: $color-primary-500;
-  // }
+  legend {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    // color: $color-primary-500;
+  }
 
   label {
     display: block;
@@ -46,6 +46,12 @@
     padding: 0.5rem;
     border-width: rem.convert(2px);
     border-style: solid;
+
+    &:focus,
+    &:focus-visible {
+      outline-offset: rem.convert(2px);
+      outline: map.get(abstracts.$purple-deep, "400") solid;
+    }
   }
 
   button {
@@ -63,22 +69,26 @@
   input[type="email"],
   textarea,
   select {
-    border: rem.convert(1px) solid rgba(map.get(abstracts.$gray, "blue", "600"), 0.2);
-    background-color: rgba(map.get(abstracts.$gray, "blue", "700"), 0.5);
+    border-radius: 0.25rem;
+    border: rem.convert(1px) solid rgba(map.get(abstracts.$gray, "blue", "900"), 0.2);
+    background-color: rgba(map.get(abstracts.$gray, "blue", "100"), 0.8);
     transition: background-color 0.3s ease;
     color: map.get(abstracts.$site-colors, "text-invert");
 
     &:focus {
-      background-color: abstracts.$white;
+      background-color: rgba(map.get(abstracts.$gray, "blue", "100"), 0.99);
     }
   }
 
   input[type="submit"],
   button[type="submit"] {
+    border-radius: 0.25rem;
     border-color: transparent;
-    background-color: map.get(abstracts.$site-colors, "background-invert");
-    color: map.get(abstracts.$site-colors, "text-invert");
-    transition: background 0.3s ease;
+    background-color: map.get(abstracts.$purple-deep, "600");
+    color: map.get(abstracts.$site-colors, "text");
+    // background-color: map.get(abstracts.$site-colors, "background-invert");
+    // color: map.get(abstracts.$site-colors, "text-invert");
+    transition: background-color 0.3s ease;
 
     &:hover {
       background-color: map.get(abstracts.$purple-deep, "500");
@@ -98,62 +108,85 @@
   }
 
   .erreur_message {
-    // color: $color-secondary-600;
     font-style: italic;
+    font-size: rem.convert(15px);
+    color: map.get(abstracts.$red, "100");
+  }
+
+  .previsu {
+    padding: 0 2rem 0.5rem;
+    margin-bottom: 3rem;
+    background-color: rgba(map.get(abstracts.$gray, "blue", "500"), 0.2);
+    border-radius: rem.convert(4px);
+
+    div {
+      margin-bottom: 1.5rem;
+    }
   }
 
   .reponse_formulaire {
     padding: 0.25rem 0.5rem;
-    // border-radius: 5px;
+    border-radius: rem.convert(4px);
+    text-align: center;
 
-    // &.reponse_formulaire_erreur {
-    //   color: $color-secondary-500;
-    //   border: 2px solid $color-secondary-500;
-    // }
+    &.reponse_formulaire_erreur {
+      background-color: rgba(map.get(abstracts.$red, "600"), 0.5);
+      color: map.get(abstracts.$red, "500");
+      color: map.get(abstracts.$red, "50");
 
-    // &.reponse_formulaire_ok {
-    //   border: 2px solid $color-primary-500;
-    // }
+    }
+
+    &.reponse_formulaire_ok {
+      background-color: #7cb342;
+      color: map.get(abstracts.$gray, "blue", "900");
+    }
   }
 }
 
 
 // [2] Formulaire recherche (modales)
 // ========================================
-// reference https://css-tricks.com/show-search-button-when-search-field-is-non-empty
 
 // Largeur du bouton submit
 $searchbox-btn-width: 8rem;
 
 .l-recherche_form {
-  position: relative;
-  z-index: inherit;
-  overflow: hidden;
+  & .editer-groupe {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 .l-recherche_label {
+  flex: 0 0 100%;
   font-weight: 600;
   font-size: rem.convert(20px);
 }
 
 input[type="search"].l-recherche_input {
-  border-radius: 0.25rem;
-  padding-right: calc(#{$searchbox-btn-width} + 0.5rem);
-  width: 100%;
-
-  &:not(:placeholder-shown) ~ .l-recherche_btn {
-    transform: translateX(-100%);
-  }
+  flex: 2 0 auto;
+  margin-bottom: 0.5rem;
 }
 
 button[type="submit"].l-recherche_btn {
-  border-radius: 0.25rem;
-  border-width: rem.convert(1px);
-  background-color: map.get(abstracts.$purple-deep, "600");
-  color: map.get(abstracts.$site-colors, "text");
-  position: absolute;
-  bottom: 0;
-  left: 100%;
-  width: $searchbox-btn-width;
-  transition: transform 0.4s ease;
+  flex: 1 0 $searchbox-btn-width;
+  margin-bottom: 0.5rem;
+
+  @include abstracts.mq($from: mobileSearch) {
+    flex: 0 0 $searchbox-btn-width;
+    margin-left: 0.5rem;
+  }
+}
+
+
+.formulaire_spip {
+  &.formulaire_ecrire_auteur {
+    max-width: abstracts.$text-max-width;
+    & input[type="text"],
+    & input[type="email"],
+    & input[type="submit"],
+    & textarea {
+      width: 100%;
+    }
+  }
 }

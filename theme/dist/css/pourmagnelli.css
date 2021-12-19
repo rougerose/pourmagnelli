@@ -1110,7 +1110,7 @@ button {
   left: 0;
   width: 100%;
   z-index: 6;
-  padding: 1rem 1.5rem 1.75rem;
+  padding: 1rem 1rem 1.75rem;
   border-top: 0.125rem solid red;
   background-color: #252528;
 }
@@ -1137,7 +1137,7 @@ button {
   margin-top: 5em;
   padding: 1rem 1rem 2rem;
 }
-@media (min-width: 48em) {
+@media (min-width: 40em) {
   .-sitenav-mobile .c-dialog_container {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -1396,7 +1396,7 @@ button {
   font-size: 1.125rem;
   line-height: 1.11;
 }
-.c-sitenav a, .c-sitenav button {
+.c-sitenav a, .c-sitenav button:not([type=submit]) {
   -webkit-text-decoration: underline rgba(255, 0, 0, 0);
           text-decoration: underline rgba(255, 0, 0, 0);
   text-underline-offset: 0.5rem;
@@ -1404,7 +1404,7 @@ button {
   transition: text-decoration-color 0.3s ease, text-underline-offset 0.3s ease;
   transition: text-decoration-color 0.3s ease, text-underline-offset 0.3s ease, -webkit-text-decoration-color 0.3s ease;
 }
-.c-sitenav a:hover, .c-sitenav button:hover {
+.c-sitenav a:hover, .c-sitenav button:not([type=submit]):hover {
   -webkit-text-decoration-color: red;
           text-decoration-color: red;
   text-underline-offset: 0.25rem;
@@ -1671,6 +1671,11 @@ button {
   background-color: red;
 }
 
+.formulaire_spip legend {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
 .formulaire_spip label {
   display: block;
   margin-bottom: 0.5rem;
@@ -1694,6 +1699,16 @@ button {
   border-width: 0.125rem;
   border-style: solid;
 }
+.formulaire_spip input:focus, .formulaire_spip input:focus-visible,
+.formulaire_spip textarea:focus,
+.formulaire_spip textarea:focus-visible,
+.formulaire_spip select:focus,
+.formulaire_spip select:focus-visible,
+.formulaire_spip button:focus,
+.formulaire_spip button:focus-visible {
+  outline-offset: 0.125rem;
+  outline: #815bc2 solid;
+}
 .formulaire_spip button {
   display: inline-flex;
   justify-content: center;
@@ -1705,8 +1720,9 @@ button {
 .formulaire_spip input[type=email],
 .formulaire_spip textarea,
 .formulaire_spip select {
-  border: 0.0625rem solid rgba(93, 93, 101, 0.2);
-  background-color: rgba(76, 76, 82, 0.5);
+  border-radius: 0.25rem;
+  border: 0.0625rem solid rgba(20, 20, 21, 0.2);
+  background-color: rgba(231, 231, 233, 0.8);
   transition: background-color 0.3s ease;
   color: #252528;
 }
@@ -1715,14 +1731,15 @@ button {
 .formulaire_spip input[type=email]:focus,
 .formulaire_spip textarea:focus,
 .formulaire_spip select:focus {
-  background-color: #fff;
+  background-color: rgba(231, 231, 233, 0.99);
 }
 .formulaire_spip input[type=submit],
 .formulaire_spip button[type=submit] {
+  border-radius: 0.25rem;
   border-color: transparent;
-  background-color: #fff;
-  color: #252528;
-  transition: background 0.3s ease;
+  background-color: #46277c;
+  color: #fff;
+  transition: background-color 0.3s ease;
 }
 .formulaire_spip input[type=submit]:hover,
 .formulaire_spip button[type=submit]:hover {
@@ -1746,47 +1763,65 @@ button {
 }
 .formulaire_spip .erreur_message {
   font-style: italic;
+  font-size: 0.9375rem;
+  color: #ffa8a8;
+}
+.formulaire_spip .previsu {
+  padding: 0 2rem 0.5rem;
+  margin-bottom: 3rem;
+  background-color: rgba(113, 113, 122, 0.2);
+  border-radius: 0.25rem;
+}
+.formulaire_spip .previsu div {
+  margin-bottom: 1.5rem;
 }
 .formulaire_spip .reponse_formulaire {
   padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+.formulaire_spip .reponse_formulaire.reponse_formulaire_erreur {
+  background-color: rgba(168, 0, 0, 0.5);
+  color: red;
+  color: #ffd6d6;
+}
+.formulaire_spip .reponse_formulaire.reponse_formulaire_ok {
+  background-color: #7cb342;
+  color: #141415;
 }
 
-.l-recherche_form {
-  position: relative;
-  z-index: inherit;
-  overflow: hidden;
+.l-recherche_form .editer-groupe {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .l-recherche_label {
+  flex: 0 0 100%;
   font-weight: 600;
   font-size: 1.25rem;
 }
 
 input[type=search].l-recherche_input {
-  border-radius: 0.25rem;
-  padding-right: calc(8rem + 0.5rem);
-  width: 100%;
-}
-input[type=search].l-recherche_input:not(:-moz-placeholder-shown) ~ .l-recherche_btn {
-  transform: translateX(-100%);
-}
-input[type=search].l-recherche_input:not(:-ms-input-placeholder) ~ .l-recherche_btn {
-  transform: translateX(-100%);
-}
-input[type=search].l-recherche_input:not(:placeholder-shown) ~ .l-recherche_btn {
-  transform: translateX(-100%);
+  flex: 2 0 auto;
+  margin-bottom: 0.5rem;
 }
 
 button[type=submit].l-recherche_btn {
-  border-radius: 0.25rem;
-  border-width: 0.0625rem;
-  background-color: #46277c;
-  color: #fff;
-  position: absolute;
-  bottom: 0;
-  left: 100%;
-  width: 8rem;
-  transition: transform 0.4s ease;
+  flex: 1 0 8rem;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 23.75em) {
+  button[type=submit].l-recherche_btn {
+    flex: 0 0 8rem;
+    margin-left: 0.5rem;
+  }
+}
+
+.formulaire_spip.formulaire_ecrire_auteur {
+  max-width: 37.5rem;
+}
+.formulaire_spip.formulaire_ecrire_auteur input[type=text], .formulaire_spip.formulaire_ecrire_auteur input[type=email], .formulaire_spip.formulaire_ecrire_auteur input[type=submit], .formulaire_spip.formulaire_ecrire_auteur textarea {
+  width: 100%;
 }
 
 @media (min-width: 64em) {
