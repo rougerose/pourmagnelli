@@ -1,0 +1,9 @@
+<B_articles_rubrique>
+  #ANCRE_PAGINATION
+  <div class="p-rubrique_bodySection -articles">
+    <BOUCLE_articles_rubrique(ARTICLES){id_article IN #ENV{articles}}{#ENV{critere_debut}, n}{pagination #ENV{pagination, 5}}>
+      <INCLURE{fond=inclure/resume/article-rubrique, id_article, class=-standard} />
+    </BOUCLE_articles_rubrique>
+  </div>
+  [<nav class="pagination c-pagination -std" role="navigation">(#PAGINATION)</nav>]
+</B_articles_rubrique>
