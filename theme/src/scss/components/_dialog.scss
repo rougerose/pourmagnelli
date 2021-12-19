@@ -127,8 +127,7 @@
     background-color: map.get(abstracts.$site-colors, "background");
 
     @include abstracts.mq($from: sm) {
-      padding-left: abstracts.$wrapper-padding-desktop;
-      padding-right: abstracts.$wrapper-padding-desktop;
+      padding: abstracts.$wrapper-padding-desktop abstracts.$wrapper-padding-desktop 1.75rem;
     }
   }
 }
