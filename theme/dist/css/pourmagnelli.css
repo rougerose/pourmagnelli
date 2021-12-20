@@ -484,60 +484,70 @@ html {
   font-style: normal;
   font-weight: 300;
   src: url("../fonts/gsn/GillSansNovaLight.woff") format("woff");
+  font-display: swap;
 }
 @font-face {
   font-family: "gsn";
   font-style: italic;
   font-weight: 300;
   src: url("../fonts/gsn/GillSansNovaLightItalic.woff") format("woff");
+  font-display: swap;
 }
 @font-face {
   font-family: "gsn";
   font-style: normal;
   font-weight: 400;
   src: url("../fonts/gsn/GillSansNovaBook.woff") format("woff");
+  font-display: swap;
 }
 @font-face {
   font-family: "gsn";
   font-style: italic;
   font-weight: 400;
   src: url("../fonts/gsn/GillSansNovaBookItalic.woff") format("woff");
+  font-display: swap;
 }
 @font-face {
   font-family: "gsn";
   font-style: normal;
   font-weight: 500;
   src: url("../fonts/gsn/GillSansNovaMedium.woff") format("woff");
+  font-display: swap;
 }
 @font-face {
   font-family: "gsn";
   font-style: italic;
   font-weight: 500;
   src: url("../fonts/gsn/GillSansNovaMediumItalic.woff") format("woff");
+  font-display: swap;
 }
 @font-face {
   font-family: "gsn";
   font-style: normal;
   font-weight: 600;
   src: url("../fonts/gsn/GillSansNovaSemibold.woff") format("woff");
+  font-display: swap;
 }
 @font-face {
   font-family: "gsn";
   font-style: italic;
   font-weight: 600;
   src: url("../fonts/gsn/GillSansNovaSemiboldItalic.woff") format("woff");
+  font-display: swap;
 }
 @font-face {
   font-family: "gsn";
   font-style: normal;
   font-weight: 700;
   src: url("../fonts/gsn/GillSansNovaBold.woff") format("woff");
+  font-display: swap;
 }
 @font-face {
   font-family: "gsn";
   font-style: italic;
   font-weight: 700;
   src: url("../fonts/gsn/GillSansNovaBoldItalic.woff") format("woff");
+  font-display: swap;
 }
 button {
   letter-spacing: inherit;
@@ -1116,8 +1126,7 @@ button {
 }
 @media (min-width: 40em) {
   .c-dialog_header.-sitenav-mobile {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding: 1.5rem 1.5rem 1.75rem;
   }
 }
 
@@ -1658,14 +1667,21 @@ button {
   margin-left: 0;
   list-style: circle inside;
 }
-.t-spip-texte .c-sommaire-article a {
-  border: none;
+.t-spip-texte .c-sommaire-article .spip_ancre {
+  -webkit-text-decoration: underline #fff;
+          text-decoration: underline #fff;
+  text-underline-offset: 0.5rem;
+  transition: text-underline-offset 0.3s ease, -webkit-text-decoration-color 0.3s ease;
+  transition: text-decoration-color 0.3s ease, text-underline-offset 0.3s ease;
+  transition: text-decoration-color 0.3s ease, text-underline-offset 0.3s ease, -webkit-text-decoration-color 0.3s ease;
 }
-.t-spip-texte .c-sommaire-article a:visited {
+.t-spip-texte .c-sommaire-article .spip_ancre:visited {
   color: currentColor;
 }
-.t-spip-texte .c-sommaire-article a:hover {
-  color: red;
+.t-spip-texte .c-sommaire-article .spip_ancre:hover {
+  -webkit-text-decoration-color: red;
+          text-decoration-color: red;
+  text-underline-offset: 0.25rem;
 }
 @media (min-width: 48em) {
   .c-sommaire-article {
