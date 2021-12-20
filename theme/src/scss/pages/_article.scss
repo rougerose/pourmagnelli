@@ -177,6 +177,7 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
   // Variante -timeline
   // ========================================
   &.-timeline {
+    margin-top: 4rem;
 
     // La colonne de texte est centrée dans la page,
     // en fonction de la largeur max du conteneur

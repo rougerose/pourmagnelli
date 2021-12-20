@@ -2074,6 +2074,9 @@ button[type=submit].l-recherche_btn {
   margin-bottom: 6rem;
   background-color: rgba(20, 20, 21, 0.5);
 }
+.p-article_bodySection.-timeline {
+  margin-top: 4rem;
+}
 @media (min-width: 48em) {
   .p-article_bodySection.-timeline {
     position: relative;
