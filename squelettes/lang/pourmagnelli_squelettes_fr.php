@@ -5,6 +5,9 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 }
 
 $GLOBALS[$GLOBALS['idx_lang']] = array(
+	// B
+	'button_menu' => "Menu",
+
 	// D
 	'dialog_fermer' => "Fermer",
 

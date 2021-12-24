@@ -69,6 +69,7 @@
   input[type="email"],
   textarea,
   select {
+    padding: 0.5rem;
     border-radius: 0.25rem;
     border: rem.convert(1px) solid rgba(map.get(abstracts.$gray, "blue", "900"), 0.2);
     background-color: rgba(map.get(abstracts.$gray, "blue", "100"), 0.8);
@@ -82,12 +83,11 @@
 
   input[type="submit"],
   button[type="submit"] {
+    padding: 0.5rem;
     border-radius: 0.25rem;
     border-color: transparent;
     background-color: map.get(abstracts.$purple-deep, "600");
     color: map.get(abstracts.$site-colors, "text");
-    // background-color: map.get(abstracts.$site-colors, "background-invert");
-    // color: map.get(abstracts.$site-colors, "text-invert");
     transition: background-color 0.3s ease;
 
     &:hover {
