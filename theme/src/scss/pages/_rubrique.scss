@@ -30,10 +30,31 @@
   &.-intro {
     display: grid;
     gap: 3rem;
+    grid-template-columns: auto 1fr auto;
 
     @include abstracts.mq($from: md) {
       grid-template-columns: repeat(2, 1fr);
       align-items: center;
+    }
+
+    @include abstracts.mq($from: lg) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  // Variante -homeSite
+  // ========================================
+  &.-homeSite {
+    display: grid;
+    gap: 3rem;
+
+    @include abstracts.mq($from: md) {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+    }
+
+    @include abstracts.mq($from: lg) {
+      grid-template-columns: repeat(8, 1fr);
     }
   }
 
@@ -58,7 +79,15 @@
     display: grid;
     gap: 3rem;
 
-    @include abstracts.mq($from: md) {
+    @include abstracts.mq($from: xsm, $until: sm) {
+      grid-template-columns: auto 1fr auto;
+
+      & > .c-resume {
+        grid-column: 2 / 3;
+      }
+    }
+
+    @include abstracts.mq($from: sm) {
       grid-template-columns: repeat(2, 1fr);
       align-items: center;
     }
@@ -78,7 +107,7 @@
   display: grid;
   gap: 3rem;
 
-  @include abstracts.mq($from: md) {
+  @include abstracts.mq($from: xsm) {
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
   }
@@ -91,15 +120,53 @@
 
 // .p-rubrique_intro
 // ========================================
-// .p-rubrique_intro {}
+.p-rubrique_intro {
+
+  .-homeSite & {
+    @include abstracts.mq($from: lg) {
+      grid-column: 1 / 6;
+    }
+  }
+
+  .-intro & {
+    @include abstracts.mq($until: md) {
+      grid-column: 2 / 3;
+      grid-row-start: 1;
+    }
+
+    @include abstracts.mq($from: lg) {
+      grid-column: 1 / 5;
+    }
+  }
+}
 
 
 // .p-rubrique_actu
 // ========================================
 .p-rubrique_actu {
-  .-intro & {
+
+  .-homeSite & {
+    & img {
+      margin: 0 auto;
+      @include abstracts.mq($from: xsm, $until: lg) {
+        max-width: 368px;
+      }
+    }
+
     @include abstracts.mq($from: lg) {
-      padding: 0 6rem;
+      grid-column: 6 / -1;
+    }
+  }
+
+  .-intro & {
+
+    @include abstracts.mq($until: md) {
+      grid-row-start: 2;
+      grid-column: 2 / 3;
+    }
+
+    @include abstracts.mq($from: lg) {
+      grid-column: 5 / -1;
     }
   }
 }
