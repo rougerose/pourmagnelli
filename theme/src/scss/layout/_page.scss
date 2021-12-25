@@ -15,6 +15,7 @@
 
 .l-page_content {
   padding-top: 5rem;
+  flex: 1 0 auto;
 
   @include abstracts.mq($from: md) {
     padding-top: 8rem;
@@ -25,6 +26,7 @@
 .l-page_footer {
   position: relative;
   padding-bottom: 1.8rem;
+  flex-shrink: 0;
 
   @include abstracts.mq($from: lg) {
     padding: 3rem 0 3.6rem;
