@@ -28,9 +28,10 @@
     margin-bottom: 1.5rem;
     // margin-left: auto;
     // margin-right: auto;
-    max-width: abstracts.$text-max-width;
+    max-width: abstracts.$text-max-width-mobile;
 
     @include abstracts.mq($from: md) {
+      max-width: abstracts.$text-max-width;
       margin-left: 0;
       margin-right: auto;
     }
@@ -85,7 +86,7 @@
   & h5,
   & h6 {
     margin: 3rem 0 1.5rem;
-    max-width: abstracts.$text-max-width;
+    max-width: abstracts.$text-max-width-mobile;
     line-height: 1.2;
 
 
@@ -97,6 +98,7 @@
 
     @include abstracts.mq($from: md) {
       margin-left: 0;
+      max-width: abstracts.$text-max-width;
     }
   }
 
@@ -205,13 +207,17 @@
     margin: 3rem 0;
     border: none;
     height: 2px;
-    max-width: abstracts.$text-max-width;
+    max-width: abstracts.$text-max-width-mobile;
     background: linear-gradient(
       90deg,
       $color-gradient-1 0%,
       $color-gradient-2 50%,
       $color-gradient-1 100%
     );
+
+    @include abstracts.mq($from: md) {
+    max-width: abstracts.$text-max-width;
+    }
   }
 
 
@@ -279,11 +285,12 @@
   // dans un champ texte sont sans effet.
 
   & .spip_document {
-    max-width: abstracts.$text-max-width;
+    max-width: abstracts.$text-max-width-mobile;
     margin-left: 0;
     margin-right: auto;
 
     @include abstracts.mq($from: md) {
+      max-width: abstracts.$text-max-width;
       margin-left: 0;
     }
   }
@@ -296,6 +303,10 @@
 
     & .spip_doc_inner {
       flex-direction: column;
+
+      @include abstracts.mq($until: md) {
+        max-width: 450px;
+      }
     }
 
     // [1] Si l'image est d'une taille inférieure à la largeur de la colonne,
@@ -353,6 +364,10 @@
   &.-portfolio {
     .spip_document_image {
       margin: 0;
+    }
+
+    & .spip_doc_inner {
+      max-width: 100%;
     }
   }
 

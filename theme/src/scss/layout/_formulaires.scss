@@ -181,12 +181,16 @@ button[type="submit"].l-recherche_btn {
 
 .formulaire_spip {
   &.formulaire_ecrire_auteur {
-    max-width: abstracts.$text-max-width;
+    max-width: abstracts.$text-max-width-mobile;
     & input[type="text"],
     & input[type="email"],
     & input[type="submit"],
     & textarea {
       width: 100%;
+    }
+
+    @include abstracts.mq($from: md) {
+      max-width: abstracts.$text-max-width;
     }
   }
 }
