@@ -12,7 +12,7 @@
   align-items: baseline;
   padding-top: 1rem;
 
-  @include abstracts.mq($from: md) {
+  @include abstracts.mq($from: sm) {
     padding-top: 1.5rem;
   }
 }
