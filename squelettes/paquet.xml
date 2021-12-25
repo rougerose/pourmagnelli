@@ -18,4 +18,5 @@
 	<necessite nom="suivant_precedent" compatibilite="[2.0.0;[" />
 	<necessite nom="metasplus" compatibilite="[2.3.13;[" />
 	<utilise nom="medias" />
+	<utilise nom="favicon" />
 </paquet>
