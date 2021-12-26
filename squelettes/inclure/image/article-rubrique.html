@@ -1,0 +1,44 @@
+[(#REM)
+<!--
+  < 400    : 367
+  400/767  : 160/336
+  768/1023 : 336/464
+  1024/    : 184/248
+
+  @1  -> @2
+  160 -> 320
+  184 -> 368
+  248 -> 496
+  336 -> 672
+  367 -> 734
+  464 -> 928
+-->
+][(#SET{logo, #ENV{fichier}|image_reduire{928, 0}|extraire_attribut{src}})]
+[(#GET{logo}|largeur|>{734}|?{
+  [(#SET{logo-734, #GET{logo}|image_reduire{734, 0}|extraire_attribut{src}})],
+  [(#SET{logo-734, #GET{logo}})]
+})]
+[(#GET{logo-734}|largeur|>{672}|?{
+  [(#SET{logo-672, #GET{logo-734}|image_reduire{672, 0}|extraire_attribut{src}})],
+  [(#SET{logo-672, #GET{logo-734}})]
+})]
+[(#GET{logo-672}|largeur|>{496}|?{
+  [(#SET{logo-496, #GET{logo-672}|image_reduire{496, 0}|extraire_attribut{src}})],
+  [(#SET{logo-496, #GET{logo-672}})]
+})]
+[(#GET{logo-496}|largeur|>{368}|?{
+  [(#SET{logo-368, #GET{logo-496}|image_reduire{368, 0}|extraire_attribut{src}})],
+  [(#SET{logo-368, #GET{logo-496}})]
+})]
+[(#GET{logo-368}|largeur|>{248}|?{
+  [(#SET{logo-248, #GET{logo-368}|image_reduire{248, 0}|extraire_attribut{src}})],
+  [(#SET{logo-248, #GET{logo-368}})]
+})]
+[(#GET{logo-248}|largeur|>{184}|?{
+  [(#SET{logo-184, #GET{logo-248}|image_reduire{184, 0}|extraire_attribut{src}})],
+  [(#SET{logo-184, #GET{logo-248}})]
+})]
+<img src="#GET{logo}" alt="#ENV{alt}" class="c-resume_img"
+  srcset="[(#GET{logo-184}) 184w,][ (#GET{logo-248}) 248w,][ (#GET{logo-368}) 368w,][ (#GET{logo-496}) 496w,][ (#GET{logo-672}) 672w,][ (#GET{logo-734}) 734w,][ (#GET{logo}) 928w]"
+  sizes="(max-width: 399px) 100vw, (max-width: 1023px) 50vw, (min-width: 1024px) 25vw, 464px">
+#FILTRE{trim}

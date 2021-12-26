@@ -13,7 +13,7 @@
                 [(#REM)
                   <!-- La première image est utilisée comme bannière (logo) de l'article --> ]
                 <BOUCLE_image_logo(DOCUMENTS){id_article}{media=image}{vu=non}{par rang_lien, num titre}{!par date}{0,1}>
-                  [(#INCLURE{fond=modeles/image, id=#ID_DOCUMENT, largeur=600, hauteur=0})]
+                  <INCLURE{fond=inclure/image/logo-article, id=#ID_DOCUMENT}/>
                 </BOUCLE_image_logo>
               </div>
             </B_image_logo>

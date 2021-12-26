@@ -6,21 +6,18 @@
 <BOUCLE_image (DOCUMENTS) {media=image} {id_document=#ENV{id,#ENV{id_document}}} {inclus=image} {mode?} {tout}>
   [(#SET{autolien,#LARGEUR|>={800}|ou{#HAUTEUR|>={800}}|oui})]
   [(#GET{autolien}|oui)
-    [(#LARGEUR|>{600}|?{
-      [(#SET{image_s, #FICHIER|image_reduire{600,0}|extraire_attribut{src}})],
-      [(#SET{image_s, #FICHIER})]
+    [(#SET{image_xl, #FICHIER|image_reduire{1600, 0}|extraire_attribut{src}})]
+    [(#GET{image_xl}|largeur|>{1024}|?{
+      [(#SET{image_l, #GET{image_xl}|image_reduire{1024, 0}|extraire_attribut{src}})],
+      [(#SET{image_l, #GET{image_xl}})]
     })]
-    [(#LARGEUR|>{900}|?{
-      [(#SET{image_m, #FICHIER|image_reduire{900,0}|extraire_attribut{src}})],
-      [(#SET{image_m, #FICHIER})]
+    [(#GET{image_l}|largeur|>{900}|?{
+      [(#SET{image_m, #GET{image_l}|image_reduire{900, 0}|extraire_attribut{src}})],
+      [(#SET{image_m, #GET{image_l}})]
     })]
-    [(#LARGEUR|>{1024}|?{
-      [(#SET{image_l, #FICHIER|image_reduire{1024,0}|extraire_attribut{src}})],
-      [(#SET{image_l, #FICHIER})]
-    })]
-    [(#LARGEUR|>{1600}|?{
-      [(#SET{image_xl, #FICHIER|image_reduire{1600,0}|extraire_attribut{src}})],
-      [(#SET{image_xl, #FICHIER})]
+    [(#GET{image_m}|largeur|>{600}|?{
+      [(#SET{image_s, #GET{image_m}|image_reduire{600, 0}|extraire_attribut{src}})],
+      [(#SET{image_s, #GET{image_m}})]
     })]
   ][(#SET{image,[(#ENV{largeur}|ou{#ENV{hauteur}}|?{
 		[(#FICHIER|image_reduire{#ENV{largeur,10000},#ENV{hauteur,10000}})],
