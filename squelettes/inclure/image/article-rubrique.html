@@ -14,7 +14,9 @@
   464 -> 928
 -->
 ][(#SET{logo, #ENV{fichier}|image_reduire{928, 0}|extraire_attribut{src}})]
-[(#GET{logo}|largeur|>{734}|?{
+[(#SET{largeur, #GET{logo}|largeur})]
+[(#SET{hauteur, #GET{logo}|hauteur})]
+[(#GET{largeur}|>{734}|?{
   [(#SET{logo-734, #GET{logo}|image_reduire{734, 0}|extraire_attribut{src}})],
   [(#SET{logo-734, #GET{logo}})]
 })]
@@ -40,5 +42,5 @@
 })]
 <img src="#GET{logo}" alt="#ENV{alt}" class="c-resume_img"
   srcset="[(#GET{logo-184}) 184w,][ (#GET{logo-248}) 248w,][ (#GET{logo-368}) 368w,][ (#GET{logo-496}) 496w,][ (#GET{logo-672}) 672w,][ (#GET{logo-734}) 734w,][ (#GET{logo}) 928w]"
-  sizes="(max-width: 399px) 100vw, (max-width: 1023px) 50vw, (min-width: 1024px) 25vw, 464px">
+  sizes="(max-width: 399px) 100vw, (max-width: 1023px) 50vw, (min-width: 1024px) 25vw, 464px" width="#GET{largeur}" height="#GET{hauteur}">
 #FILTRE{trim}

@@ -13,7 +13,9 @@
     450 -> 900
   -->
   ][(#SET{logo, #FICHIER|image_reduire{900, 0}|extraire_attribut{src}})]
-  [(#GET{logo}|largeur|>{716}|?{
+  [(#SET{largeur, #GET{logo}|largeur})]
+  [(#SET{hauteur, #GET{logo}|hauteur})]
+  [(#GET{largeur}|>{716}|?{
     [(#SET{logo-716, #GET{logo}|image_reduire{716, 0}|extraire_attribut{src}})],
     [(#SET{logo-716, #GET{logo}})]
   })]

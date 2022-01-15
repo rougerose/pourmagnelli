@@ -9,7 +9,9 @@
     436 -> 872
   -->
   ][(#SET{logo, #FICHIER|image_reduire{872,0}|extraire_attribut{src}})]
-  [(#GET{logo}|largeur|>{436}|?{
+  [(#SET{largeur, #GET{logo}|largeur})]
+  [(#SET{hauteur, #GET{logo}|hauteur})]
+  [(#GET{largeur}|>{436}|?{
     [(#SET{logo-436, #GET{logo}|image_reduire{436,0}|extraire_attribut{src}})],
     [(#SET{logo-436, #GET{logo}})]
   })]

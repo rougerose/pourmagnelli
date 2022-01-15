@@ -8,12 +8,14 @@
             <div class="p-rubrique_actu">
               <BOUCLE_portrait(DOCUMENTS){descriptif=introduction site}{statut IN prepa, prop, publie}>
                 [(#SET{logo, #FICHIER|image_reduire{792, 0}|extraire_attribut{src}})]
+                [(#SET{largeur, #GET{logo}|largeur})]
+                [(#SET{hauteur, #GET{logo}|hauteur})]
                 [(#SET{logo-288, #GET{logo}|image_reduire{288,0}|extraire_attribut{src}})]
                 [(#SET{logo-576, #GET{logo}|image_reduire{576,0}|extraire_attribut{src}})]
                 [(#SET{logo-396, #GET{logo}|image_reduire{396,0}|extraire_attribut{src}})]
                 <img src="#GET{logo}" alt="[(#TITRE|textebrut|sinon{#NOM_SITE_SPIP}|trim)]"
                   srcset="[(#GET{logo-288}) 288w,][ (#GET{logo-576}) 576w,][ (#GET{logo-396}) 396w,][ (#GET{logo}) 792w]"
-                  sizes="(max-width: 47.93em) 100vw, (max-width: 63.93em) 50vw, 396px"
+                  sizes="(max-width: 47.93em) 100vw, (max-width: 63.93em) 50vw, 396px" width="#GET{largeur}" height="#GET{hauteur}"
                 >
               </BOUCLE_portrait>
             </div>
