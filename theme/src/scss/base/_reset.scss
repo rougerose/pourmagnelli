@@ -1,3 +1,9 @@
-button {
+@use "modern-css-reset/dist/reset";
+
+button,
+input,
+optgroup,
+select,
+textarea {
   letter-spacing: inherit;
 }
