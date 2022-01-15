@@ -9,7 +9,7 @@
 // 2- Base
 @use "tailwindcss/base";
 @use "base" as b;
-@use "tailwindcss/utilities";
+// @use "tailwindcss/utilities";
 
 // 3- Vendors
 @use "vendors";
@@ -26,6 +26,9 @@
 
 // 7- Themes
 @use "themes";
+
+// utilities
+@use "utilities";
 
 // Styles print
 @use "vendors/print";
