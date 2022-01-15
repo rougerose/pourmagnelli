@@ -1,0 +1,24 @@
+// ========================================
+// c-illustration
+// ========================================
+
+// images d'illustration présentées en page d'accueil et de rubrique
+
+@use "sass:map";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+.c-illustration {
+  figcaption {
+    border-left: rem.convert(1px) solid map.get(abstracts.$red, "700");
+    margin-top: 0.75rem;
+    padding-left: 1rem;
+    color: map.get(abstracts.$gray, "blue", "100");
+    line-height: 1.2;
+    font-size: rem.convert(14px);
+
+    & div:first-child {
+        margin-top: rem.convert(-3px);
+    }
+  }
+}
