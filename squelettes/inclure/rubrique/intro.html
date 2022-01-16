@@ -1,10 +1,12 @@
 <BOUCLE_rubrique_intro(RUBRIQUES){id_rubrique}>
   <div class="p-rubrique_bodySection -intro">
     <div class="p-rubrique_intro t-spip-texte">#TEXTE</div>
-    <div class="p-rubrique_actu">
-      <BOUCLE_article_rubrique(ARTICLES){id_article IN #ENV{articles}}{!par date}{0,1}>
-        <INCLURE{fond=inclure/resume/article-rubrique, id_article, class=-standard} />
-      </BOUCLE_article_rubrique>
-    </div>
+    <B_article_actu_1>
+      <div class="p-rubrique_actu">
+        <BOUCLE_article_actu_1(ARTICLES){id_article IN #ENV{articles}}{!par date}{0,1}>
+          <INCLURE{fond=inclure/resume/article-rubrique, id_article, class=-standard} />
+        </BOUCLE_article_actu_1>
+      </div>
+    </B_article_actu_1>
   </div>
 </BOUCLE_rubrique_intro>

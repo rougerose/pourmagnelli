@@ -7,17 +7,34 @@
 @use "sass-rem/rem";
 
 .c-logo {
-  width: rem.convert(220px);
+  width: map.get(abstracts.$logo-width, "sm");
   line-height: 1.11;
 
   @include abstracts.mq($from: md) {
-    width: rem.convert(300px);
+    width: map.get(abstracts.$logo-width, "lg");
+  }
+
+  // Variante -footer
+  // ========================================
+  &.-footer {
+    width: map.get(abstracts.$logo-width, "sm");
+    margin-right: 2rem;
+
+    @include abstracts.mq($from: lg) {
+      margin-left: map.get(abstracts.$logo-pour-width, "lg") - map.get(abstracts.$logo-pour-width, "sm");
+    }
   }
 }
 
-.c-logo_pour {
-  fill: map.get(abstracts.$site-colors, "logo-pour");
+.c-logo_link {
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+}
 
+.c-logo_pour {
+  margin-right: 0.75rem;
+  fill: map.get(abstracts.$site-colors, "logo-pour");
 }
 
 .c-logo_magnelli {

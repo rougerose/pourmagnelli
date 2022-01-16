@@ -1,0 +1,130 @@
+@use "sass:meta";
+@use "sass:color";
+
+/*!
+ * Gutenberg
+ *
+ * MIT Fabien Sa
+ * https://github.com/BafS/Gutenberg
+ */
+
+// Variables
+@import 'gutenberg-css/scss/variables';
+
+@media print {
+  $base-font-family: "gsn", #{meta.inspect($font-family-sans-serif)};
+  $headers-font-family: "gsn", #{meta.inspect($font-family-sans-serif)};
+  // $page-padding-left: 1.8cm;
+  // $page-padding-right: 1.8cm;
+  $page-padding-top: 1.8cm;
+  $page-padding-bottom: 1.8cm;
+
+  // Normalize
+  // @import 'normalize.css/normalize';
+  @import 'print-reset';
+  @import 'gutenberg-css/scss/pagination';
+  @import 'gutenberg-css/scss/page';
+  @import 'gutenberg-css/scss/reformat';
+  @import 'gutenberg-css/scss/utilities';
+
+  // Règles générales
+  // ========================================
+  ::before {
+    color: black;
+  }
+
+  // header
+  // ========================================
+  .l-page_header {
+    border: none;
+  }
+
+  .l-header {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .c-logo_pour,
+  .c-logo_magnelli {
+    fill: black;
+  }
+
+  a.c-logo_link {
+    &::after {
+      content: "";
+    }
+  }
+
+  // Accueil
+  // ========================================
+  .-standard {
+    & .c-resume_texte {
+      grid-row: 3 / 4;
+    }
+  }
+
+  .l-contenu_lien-tous,
+  .t-spip-texte blockquote {
+    border-color: black;
+  }
+
+
+  //
+  // ========================================
+
+  .p-article_soustitre {
+    color: black;
+  }
+
+  .t-spip-texte {
+    & hr {
+      border: 0;
+      border-bottom: 2px solid $hr-color;
+      height: 0;
+      margin: $spacing * 1.5 0;
+      padding: 0;
+    }
+
+    & a {
+      text-decoration: none;
+    }
+
+    & h2::before,
+    & h3::before,
+    & h4::before,
+    & h5::before,
+    & h6::before,
+    & a:visited,
+    & ul li::marker,
+    & ol li::marker,
+    & .spip_note_ref,
+    & .spip_note,
+    & .spip_doc_credits,
+    & .spip_document .spip_doc_descriptif,
+    &.-date,
+    &.-timeline > section > h2:first-child {
+      color: black;
+    }
+
+    &.-timeline > section > h2:first-child::before {
+      background-color: black;
+      border-color: white;
+    }
+  }
+
+  .p-article_body.-timeline::before,
+  .c-ca_avatar {
+    background-color: black;
+  }
+
+
+  // Élements à masquer
+  // ========================================
+  .spip-admin-float,
+  .c-sitenav.-sitenav-lg,
+  .l-page_footer,
+  .c-breadcrumb,
+  .c-pagination.-prev-next {
+    display: none;
+  }
+}

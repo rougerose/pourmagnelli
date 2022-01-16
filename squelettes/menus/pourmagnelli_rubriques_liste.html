@@ -11,12 +11,12 @@
 <BOUCLE_appel(CONDITION){si #ENV{appel_menu}|oui}>
   <BOUCLE_rubrique_racine(RUBRIQUES){id_rubrique=#GET{id_rubrique}}>
     [(#GET{ajouter_racine}|=={oui}|oui)
-    <li class="c-sitenav_item -sub[ (#ENV{css})][ (#ID_RUBRIQUE|menus_exposer{rubrique, #ENV*{env}, 'is-active'})]">
-      <a href="#URL_RUBRIQUE"><span class="c-sitenav_label">#TITRE</span></a>
+    <li class="c-sitenav_item -sub[ (#ENV{css})][ (#ENV{env/variante})]">
+      <a href="#URL_RUBRIQUE" class="[(#ID_RUBRIQUE|menus_exposer{rubrique, #ENV*{env}, 'is-active'})]">#TITRE</a>
     </li>
     ]<BOUCLE_rubriques(RUBRIQUES){id_parent}{par num titre}>
-      <li class="c-sitenav_item -sub[ (#ENV{css})][ (#ID_RUBRIQUE|menus_exposer{rubrique, #ENV*{env}, 'is-active'})]">
-        <a href="#URL_RUBRIQUE"><span class="c-sitenav_label">#TITRE</span></a>
+      <li class="c-sitenav_item -sub[ (#ENV{css})][ (#ENV{env/variante})]">
+        <a href="#URL_RUBRIQUE" class="[(#ID_RUBRIQUE|menus_exposer{rubrique, #ENV*{env}, 'is-active'})]">#TITRE</a>
       </li>
     </BOUCLE_rubriques>
   </BOUCLE_rubrique_racine>

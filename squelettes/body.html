@@ -1,10 +1,15 @@
-<body class="l-page">
+<body id="top-of-page" class="l-page">
+  <div id="top-of-page-observer-target"></div>
   <header class="l-page_header" role="banner">
     <INCLURE{fond=header/#ENV{type-page}, env} />
   </header>
   <main class="l-page_content">
     <INCLURE{fond=content/#ENV{type-page}, env} />
   </main>
+  <footer class="l-page_footer">
+    <INCLURE{fond=footer/#ENV{type-page}, env} />
+  </footer>
   <INCLURE{fond=inclure/dialog/dialog_sitenav_mobile, env} />
   <INCLURE{fond=inclure/dialog/dialog_recherche, env} />
+  <INCLURE{fond=inclure/dialog/dialog_photoswipe, env} />
 </body>

@@ -1,15 +1,15 @@
 <BOUCLE_article(ARTICLES){id_article}>
-  <article class="p-article" itemscope itemtype="http://schema.org/Article">
+  <article class="p-article l-contenu" itemscope itemtype="http://schema.org/Article">
     <div class="l-wrapper">
       <div class="l-wrapper-content">
-        <header class="p-article_header">
-          <h1 class="p-article_titre" itemprop="headline name">#TITRE</h1>
+        <header class="p-article_header l-contenu_header">
+          <h1 class="p-article_titre l-contenu_titre" itemprop="headline name">#TITRE</h1>
           [<p class="p-article_soustitre">(#SOUSTITRE)</p>]
         </header>
         <div class="p-article_body -timeline" itemprop="articleBody">
           <div class="p-article_bodySection -timeline -texte">
             [(#REM) <!-- pas de logo --> ]
-            <div class="p-article_section -textePrincipal">
+            <div class="p-article_section -textePrincipale">
               [<div class="p-article_chapo t-spip-texte">(#CHAPO|image_reduire{600, 0})</div>]
               [<div class="p-article_texte t-spip-texte -timeline">(#TEXTE|image_reduire{600, 0})</div>]
             </div>
@@ -29,7 +29,7 @@
               <p class="p-article_date">Publié le <time itemprop="dateCreated" datetime="[(#DATE|date_iso)]">[(#DATE|affdate)]</time></p>
             </div>
           </div>
-          <!-- Nav Précédent Suivant dans un container standard (?) -->
+          <INCLURE{fond=inclure/article/nav_prev_next, id_article} />
         </div>
       </div>
     </div>

@@ -2,10 +2,23 @@
 // layout variables
 // ========================================
 
+@use "sass:map";
 @use "sass-rem/rem";
+
+// logo
+$logo-width: (
+  "sm": rem.convert(220px),
+  "lg": rem.convert(300px),
+);
+
+$logo-pour-width: (
+  "sm": rem.convert(46px),
+  "lg": rem.convert(60px),
+);
 
 // text
 $text-max-width: rem.convert(600px);
+$text-max-width-mobile: rem.convert(540px);
 
 // -timeline
 $timeline-container-margin: 1.5rem;
@@ -15,8 +28,10 @@ $timeline-dot-size: rem.convert(28px);
 $wrapper-padding-mobile: 1rem;
 $wrapper-padding-desktop: 1.5rem;
 $wrapper-max-width: rem.convert(1280px);
+$wrapper-content-margin-left: map.get($logo-pour-width, "lg") + 0.75rem; // longueur élément + marge droite
 
 // z-index
 $zindex-default: 1;
 $zindex-sitenav-dropdown: 2;
 $zindex-dialog: 5;
+$zindex-top-of-page: 4;

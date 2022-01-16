@@ -1,0 +1,10 @@
+<B_rubriques>
+  <section class="c-recherche-resultats_section[(#GRAND_TOTAL|<={#ENV{pagination}}|oui) -sep]">
+    #ANCRE_PAGINATION
+    <h2 class="c-recherche-resultats_titre-section">[(#ENV{rubriques}|count|singulier_ou_pluriel{pourmagnelli_squelettes:info_recherche_rubrique, pourmagnelli_squelettes:info_recherche_rubriques, nb})]</h2>
+    <BOUCLE_rubriques(RUBRIQUES){id_rubrique IN #ENV{rubriques}}{pagination #ENV{pagination, 5}}>
+      <INCLURE{fond=inclure/resume/rubrique-recherche, id_rubrique, position=#COMPTEUR_BOUCLE} />
+    </BOUCLE_rubriques>
+    [<nav class="pagination c-pagination -recherche" role="navigation">(#PAGINATION)</nav>]
+  </section>
+</B_rubriques>

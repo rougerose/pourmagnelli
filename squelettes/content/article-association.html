@@ -1,14 +1,14 @@
 <BOUCLE_article(ARTICLES){id_article}>
-  <article class="p-article" itemscope itemtype="http://schema.org/Article">
+  <article class="p-article l-contenu" itemscope itemtype="http://schema.org/Article">
     <div class="l-wrapper">
       <div class="l-wrapper-content">
-        <header class="p-article_header">
-          <h1 class="p-article_titre" itemprop="headline name">#TITRE</h1>
+        <header class="p-article_header l-contenu_header">
+          <h1 class="p-article_titre l-contenu_titre" itemprop="headline name">#TITRE</h1>
           [<p class="p-article_soustitre">(#SOUSTITRE)</p>]
         </header>
         <div class="p-article_body -grid" itemprop="articleBody">
           <div class="p-article_bodySection -grid -texte">
-            <div class="p-article_section -sommaire t-spip-texte">
+            <div class="p-article_section -sommaire-article t-spip-texte">
               [(#SOMMAIRE{#TEXTE})]
             </div>
             <div class="p-article_section -textePrincipal">
@@ -25,14 +25,6 @@
               </aside>]
             </div>
           </div>
-          [(#REM) <!-- Le portfolio --> ]
-          <B_portfolio>
-            <div class="p-article_bodySection -portfolio">
-              <BOUCLE_portfolio(DOCUMENTS){id_article}{media=image}{vu=non}{par rang_lien, id_document, num titre}{1, 1}>
-
-              </BOUCLE_portfolio>
-            </div>
-          </B_portfolio>
           <div class="p-article_bodySection -grid -footer">
             <div class="p-article_section -texteSecondaire t-spip-texte -date">
               <p class="p-article_date">Publié le <time itemprop="dateCreated" datetime="[(#DATE|date_iso)]">[(#DATE|affdate)]</time></p>

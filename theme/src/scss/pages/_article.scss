@@ -12,21 +12,9 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
 // Règles relative à la structure
 // ========================================
 
-.p-article {
-  padding-top: 4rem;
+// .p-article {}
 
-  @include abstracts.mq($from: lg) {
-    padding-top: 8rem;
-  }
-}
-
-.p-article_header {
-  padding-bottom: 4rem;
-
-  @include abstracts.mq($from: lg) {
-    padding-bottom: 6rem;
-  }
-}
+// .p-article_header {}
 
 .p-article_body {
 
@@ -42,6 +30,14 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
       background-size: 1px 100%;
       background-repeat: no-repeat;
     }
+
+    // &::after {
+    //   content: "";
+    //   width: 1px;
+    //   height: 100%;
+    //   background-color: blue;
+
+    // }
   }
 
   // Variante -timeline
@@ -83,10 +79,7 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
     // [1]  Variante -texte :
     //      1 colonne par défaut ; 2 colonnes écran >= lg.
     //      Elle est appliquée au contenu principal de l'article.
-    // [2]  Variante -portfolio :
-    //      1 colonne.
-    //      Elle est appliquée aux images en version slider.
-    // [3]  Variante -footer :
+    // [2]  Variante -footer :
     //      1 colonne par défaut ; 2 colonnes sur écran >= lg
     //      Les blocs enfants sont disposés différemment selon les mq.
 
@@ -94,6 +87,7 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
     // [1] Variante -texte
     // ========================================
     &.-texte {
+      margin-top: 4rem;
       // Par défaut, grille sur 1 colonne.
 
       // Version par défaut
@@ -129,7 +123,7 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
           // &.-logo {}
 
           // Le sommaire est à gauche
-          &.-sommaire {
+          &.-sommaire-article {
             position: relative;
           }
 
@@ -142,12 +136,14 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
       }
     }
 
-    // [3] Variante -footer
+    // [2] Variante -footer
     // ========================================
     &.-footer {
       // 1 colonne par défaut.
 
       & .p-article_section {
+        padding-bottom: 3rem;
+
         &.-texteSecondaire {
           // Surcharger la disposition de ce type de bloc déjà défini plus haut.
           grid-row: auto;
@@ -155,10 +151,10 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
       }
 
       // Version mq >= lg
-      @include abstracts.mq($from: lg) {
+      @include abstracts.mq($from: md) {
         // 2 colonnes
         grid-template-columns: 1fr 2fr;
-        gap: 0 3rem;
+        gap: 0 4rem;
 
         & .p-article_section {
 
@@ -171,9 +167,17 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
     }
   }
 
+  // Variante -portfolio
+  // ========================================
+  &.-portfolio {
+    margin-bottom: 6rem;
+    background-color: rgba(map.get(abstracts.$gray, "blue", "900"), 0.5);
+  }
+
   // Variante -timeline
   // ========================================
   &.-timeline {
+    margin-top: 4rem;
 
     // La colonne de texte est centrée dans la page,
     // en fonction de la largeur max du conteneur
@@ -193,22 +197,14 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
 
 // Règles par défaut
 
-.p-article_titre {
-  font-size: rem.convert(24px);
-  font-weight: 500;
-  line-height: 1.2;
-
-  @include abstracts.mq($from: md) {
-    font-size: rem.convert(32px);
-  }
-}
+// .p-article_titre {}
 
 .p-article_soustitre {
   margin-top: 1rem;
   font-size: rem.convert(24px);
   font-weight: 300;
   line-height: 1.2;
-  color: map.get(abstracts.$gray, "blue", "200");
+  color: map.get(abstracts.$red, "600");
 
   @include abstracts.mq($from: md) {
     margin-top: 0.5rem;
@@ -217,10 +213,10 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
 }
 
 .p-article_chapo {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 
   &.t-spip-texte {
-    font-size: 20px;
+    font-size: rem.convert(20px);
     line-height: 1.25;
   }
 }
@@ -236,9 +232,10 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
   margin-bottom: 4rem;
   margin-left: auto;
   margin-right: auto;
-  max-width: abstracts.$text-max-width;
+  max-width: abstracts.$text-max-width-mobile;
 
   @include abstracts.mq($from: md) {
+    max-width: abstracts.$text-max-width;
     margin-left: 0;
     margin-bottom: 6rem;
   }
@@ -250,5 +247,7 @@ $color-body-bg: rgba(map.get(abstracts.$red, "700"), 0.7);
     margin-bottom: 6rem;
   }
 }
+
+// .p-article_portfolio {}
 
 // .p-article_date {}

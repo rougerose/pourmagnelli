@@ -12,11 +12,11 @@
   <BOUCLE_article(ARTICLES){id_article=#GET{id_article}}>
     [(#SET{sommaire, #TEXTE|sommaire_recenser})]
     [(#GET{ajouter_racine}|=={oui}|oui)
-      <li class="c-sitenav_item -sub[ (#ENV{css})][ (#ID_ARTICLE|menus_exposer{article, #ENV*{env}, 'is-active'})]">
-        <a href="#URL_ARTICLE"><span class="c-sitenav_label">#TITRE</span></a>
+      <li class="c-sitenav_item -sub[ (#ENV{css})][ (#ENV{env/variante})]">
+        <a href="#URL_ARTICLE" class="[(#ID_ARTICLE|menus_exposer{article, #ENV*{env}, 'is-active'})]">#TITRE</a>
       </li>
     ]<BOUCLE_sommaire(POUR){tableau #GET{sommaire}}>
-      <li class="c-sitenav_item -sub[ (#ENV{css})]"><a href="[(#URL_ARTICLE|ancre_url{#VALEUR{href}})]"><span class="c-sitenav_label">#VALEUR{titre}</span></a></li>
+      <li class="c-sitenav_item -sub[ (#ENV{css})][ (#ENV{env/variante})] js-sommaire-hash"><a href="[(#URL_ARTICLE|ancre_url{#VALEUR{href}})]">#VALEUR{titre}</a></li>
     </BOUCLE_sommaire>
   </BOUCLE_article>
 </BOUCLE_appel>

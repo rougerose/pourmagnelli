@@ -1,0 +1,72 @@
+<BOUCLE_image(DOCUMENTS){media=image}{id_document=#ENV{id,#ENV{id_document}}}{inclus=image}{mode?}{tout}>
+  [(#REM)
+  <!--
+    < 768    : 288/450
+    768/1023 : 218/304
+    1024/    : 272/358
+
+    @1  -> @2
+    218 -> 436
+    272 -> 544
+    288 -> 576
+    358 -> 716
+    450 -> 900
+  -->
+  ][(#SET{logo, #FICHIER|image_reduire{900, 0}|extraire_attribut{src}})]
+  [(#SET{largeur, #GET{logo}|largeur})]
+  [(#SET{hauteur, #GET{logo}|hauteur})]
+  [(#GET{largeur}|>{716}|?{
+    [(#SET{logo-716, #GET{logo}|image_reduire{716, 0}|extraire_attribut{src}})],
+    [(#SET{logo-716, #GET{logo}})]
+  })]
+  [(#GET{logo-716}|largeur|>{576}|?{
+    [(#SET{logo-576, #GET{logo-716}|image_reduire{576, 0}|extraire_attribut{src}})],
+    [(#SET{logo-576, #GET{logo-716}})]
+  })]
+  [(#GET{logo-576}|largeur|>{450}|?{
+    [(#SET{logo-450, #GET{logo-576}|image_reduire{450, 0}|extraire_attribut{src}})],
+    [(#SET{logo-450, #GET{logo-576}})]
+  })]
+  [(#GET{logo-450}|largeur|>{358}|?{
+    [(#SET{logo-358, #GET{logo-450}|image_reduire{358, 0}|extraire_attribut{src}})],
+    [(#SET{logo-358, #GET{logo-450}})]
+  })]
+  [(#GET{logo-358}|largeur|>{218}|?{
+    [(#SET{logo-218, #GET{logo-358}|image_reduire{218, 0}|extraire_attribut{src}})],
+    [(#SET{logo-218, #GET{logo-358}})]
+  })]
+
+  [(#SET{autolien,#LARGEUR|>={800}|ou{#HAUTEUR|>={800}}|oui})]
+  [(#GET{autolien}|oui)
+    [(#SET{image_xl, #FICHIER|image_reduire{1600, 0}|extraire_attribut{src}})]
+    [(#GET{image_xl}|largeur|>{1024}|?{
+      [(#SET{image_l, #GET{image_xl}|image_reduire{1024, 0}|extraire_attribut{src}})],
+      [(#SET{image_l, #GET{image_xl}})]
+    })]
+    [(#GET{image_l}|largeur|>{900}|?{
+      [(#SET{image_m, #GET{image_l}|image_reduire{900, 0}|extraire_attribut{src}})],
+      [(#SET{image_m, #GET{image_l}})]
+    })]
+    [(#GET{image_m}|largeur|>{600}|?{
+      [(#SET{image_s, #GET{image_m}|image_reduire{600, 0}|extraire_attribut{src}})],
+      [(#SET{image_s, #GET{image_m}})]
+    })]
+  ]
+  [(#SET{alt, #ALT|sinon{#TITRE|textebrut}|sinon{''}|trim})]
+  [(#SET{legende,#INCLURE{fond=modeles/document_legende, env}|trim})]
+
+  <div class="[(#ID_DOCUMENT|medias_modele_document_standard_classes{image}) ]spip_lien_ok" [
+    (#ID_DOCUMENT|medias_modele_document_standard_attributs{image})]>
+    <figure class="spip_doc_inner">
+        [(#GET{autolien}|oui)
+          <a href="#GET{image_xl}" class="spip_doc_lien" type="#MIME_TYPE"
+            data-size="[(#GET{image_xl}|largeur)][x(#GET{image_xl}|hauteur)]" data-s="[(#GET{image_s})]" data-s-size="[(#GET{image_s}|largeur)][x(#GET{image_s}|hauteur)]" data-m="[(#GET{image_m})]" data-m-size="[(#GET{image_m}|largeur)][x(#GET{image_m}|hauteur)]" data-l="[(#GET{image_l})]" data-l-size="[(#GET{image_l}|largeur)][x(#GET{image_l}|hauteur)]" [ data-title="(#TITRE|textebrut)" ][data-desc="(#DESCRIPTIF|textebrut)" ][ data-author="(#CREDITS|textebrut)" ] data-pswp-index="">]
+            <img src="#GET{logo}" alt="#GET{alt}"
+              srcset="[(#GET{logo-218}) 218w,][ (#GET{logo-358}) 358w,][ (#GET{logo-450}) 450w,][ (#GET{logo-576}) 576w,][ (#GET{logo-716}) 716w,][ (#GET{logo}) 900w]"
+              sizes="(min-width: 768px) 33vw, 450px">
+          [(#GET{autolien}|?{</a>})]
+        #GET{legende}
+    </figure>
+  </div>
+</BOUCLE_image>
+#FILTRE{trim}

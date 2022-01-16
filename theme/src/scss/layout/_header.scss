@@ -1,0 +1,18 @@
+// ========================================
+// c-header
+// ========================================
+
+@use "sass:map";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+.l-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 1rem;
+
+  @include abstracts.mq($from: sm) {
+    padding-top: 1.5rem;
+  }
+}

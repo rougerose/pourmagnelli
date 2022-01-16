@@ -1,0 +1,28 @@
+// ========================================
+// c-recherche-resultats
+// ========================================
+
+// Remarque : composant est disposé à l'intérieur de .p-article_section
+
+
+@use "sass:map";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+// .c-recherche-resultats {}
+
+.c-recherche-resultats_section {
+  max-width: abstracts.$text-max-width;
+  margin-bottom: 3rem;
+}
+
+.c-recherche-resultats_titre-section {
+  font-size: rem.convert(24px);
+  font-weight: 400;
+
+  &::before {
+    content: "—";
+    margin-right: 0.5rem;
+    color: map.get(abstracts.$site-colors, "primary");
+  }
+}

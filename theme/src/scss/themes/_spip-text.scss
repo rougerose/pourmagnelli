@@ -28,9 +28,10 @@
     margin-bottom: 1.5rem;
     // margin-left: auto;
     // margin-right: auto;
-    max-width: abstracts.$text-max-width;
+    max-width: abstracts.$text-max-width-mobile;
 
     @include abstracts.mq($from: md) {
+      max-width: abstracts.$text-max-width;
       margin-left: 0;
       margin-right: auto;
     }
@@ -45,11 +46,12 @@
   // ========================================
   & a {
     color: currentColor;
-    border-bottom: rem.convert(1px) solid map.get(abstracts.$red, "400");
+    text-decoration: underline rgba(map.get(abstracts.$site-colors, "primary"), 1);
+    text-underline-offset: rem.convert(4px);
     transition: color 0.3s ease;
 
     &:visited {
-      color: map.get(abstracts.$red, "100");
+      color: map.get(abstracts.$red, "50");
     }
 
     &:hover {
@@ -84,7 +86,7 @@
   & h5,
   & h6 {
     margin: 3rem 0 1.5rem;
-    max-width: abstracts.$text-max-width;
+    max-width: abstracts.$text-max-width-mobile;
     line-height: 1.2;
 
 
@@ -96,6 +98,7 @@
 
     @include abstracts.mq($from: md) {
       margin-left: 0;
+      max-width: abstracts.$text-max-width;
     }
   }
 
@@ -204,13 +207,17 @@
     margin: 3rem 0;
     border: none;
     height: 2px;
-    max-width: abstracts.$text-max-width;
+    max-width: abstracts.$text-max-width-mobile;
     background: linear-gradient(
       90deg,
       $color-gradient-1 0%,
       $color-gradient-2 50%,
       $color-gradient-1 100%
     );
+
+    @include abstracts.mq($from: md) {
+    max-width: abstracts.$text-max-width;
+    }
   }
 
 
@@ -255,7 +262,7 @@
   }
 
   & blockquote {
-    border-left: rem.convert(2px) solid map.get(abstracts.$red, "700");
+    border-left: rem.convert(4px) solid rgba(map.get(abstracts.$red, "700"), 0.5);
     padding-left: 1rem;
     font-size: 1rem;
   }
@@ -278,11 +285,12 @@
   // dans un champ texte sont sans effet.
 
   & .spip_document {
-    max-width: abstracts.$text-max-width;
+    max-width: abstracts.$text-max-width-mobile;
     margin-left: 0;
     margin-right: auto;
 
     @include abstracts.mq($from: md) {
+      max-width: abstracts.$text-max-width;
       margin-left: 0;
     }
   }
@@ -295,44 +303,71 @@
 
     & .spip_doc_inner {
       flex-direction: column;
+
+      @include abstracts.mq($until: md) {
+        max-width: 450px;
+      }
     }
 
     // [1] Si l'image est d'une taille inférieure à la largeur de la colonne,
-    // ajout d'un arrière-plan et centrer l'image dans le conteneur.
-    & .spip_doc_lien {
-      background-color: rgba(map.get(abstracts.$gray, "blue", "900"), 0.5); // [1]
-    }
+    // ajout d'un arrière-plan et centrer l'image dans le conteneur,
+    // à condition que le lien a.spip_doc_lien englobe l'image.
+    //
+    // [2] Si ce n'est pas le cas, on annule la marge auto à gauche
+    // et l'image est présentée sans arrière-plan.
 
     & img {
       margin: auto; // [1]
     }
 
+    & .spip_doc_lien {
+      background-color: rgba(map.get(abstracts.$gray, "blue", "900"), 0.5); // [1]
+    }
+
+    & .spip_doc_inner {
+      > img {
+        margin-left: 0; // [2]
+      }
+    }
+
     & .spip_doc_titre {
-      font-size: rem.convert(16px);
+      font-size: 1rem;
+      line-height: 1.1;
     }
 
     & .spip_doc_legende {
-      border-left: rem.convert(1px) solid map.get(abstracts.$site-colors, "primary");
+      border-left: rem.convert(1px) solid map.get(abstracts.$red, "700");
       margin-top: 0.75rem;
       padding-left: 1rem;
+      color: map.get(abstracts.$gray, "blue", "100");
+      line-height: 1.2;
 
       & div:first-child,
       & .spip_doc_titre {
         margin-top: rem.convert(-3px);
       }
     }
-
-    // @include abstracts.mq($from: md) {
-    //   margin-top: 4rem;
-    //   margin-bottom: 4rem;
-    // }
   }
 
-  // Lorsque l'image est utilisée comme logo d'article,
-  // supprimer la marge haute.
   &.-logo {
     .spip_document_image {
       margin-top: 0;
+      margin-bottom: 4rem;
+      @include abstracts.mq($from: md) {
+        margin-top: 0;
+        margin-bottom: 6rem;
+      }
+    }
+  }
+
+  // Contexte -portfolio, aucune marge sur le conteneur.
+  &.-portfolio {
+    .spip_document_image {
+      margin: 0;
+    }
+
+    & .spip_doc_inner {
+      max-width: 100%;
     }
   }
 
@@ -380,14 +415,11 @@
 
   & .spip_doc_lien {
     display: flex;
+    flex-direction: column; // empêcher un étirement de l'image avec Safari
     border: none;
   }
 
-  & .spip_doc_legende {
-    //margin-right: auto; // contraindre à la largeur (maximum) du contenu.
-    font-size: 1rem;
-    line-height: 1.2;
-  }
+  // & .spip_doc_legende {}
 
   & .spip_doc_titre {
     margin: 0;
@@ -401,7 +433,7 @@
   & .spip_doc_credits {
     font-size: rem.convert(14px);
     font-weight: 300;
-    margin-top: 0.75rem;
+    margin-top: 0.5rem;
 
     & p {
       margin-bottom: 0;
@@ -468,7 +500,7 @@
   // ========================================
   &.-date {
     font-weight: 300;
-    font-size: rem.convert(16px);
+    font-size: rem.convert(15px);
     color: rgba(map.get(abstracts.$site-colors, "text"), 0.5);
   }
 
@@ -543,6 +575,7 @@
           position: absolute;
           right: 100%;
           margin: 0 3rem 0 0;
+          white-space: nowrap; // éviter un retour à la ligne avec Safari.
 
           &::before {
             left: calc(100% + ($tl-container-margin - math.div($tl-dot-size, 2)));

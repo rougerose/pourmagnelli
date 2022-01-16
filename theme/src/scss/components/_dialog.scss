@@ -85,7 +85,7 @@
     width: 100%;
     max-width: $max-width;
     border-radius: rem.convert(4px);
-    box-shadow: abstracts.$box-shadow;
+    box-shadow: map.get(abstracts.$box-shadow, "l1");
     transition-property: opacity, transform;
     transition-duration: 0.3s;
     transition-timing-function: cubic-bezier(.25,.46,.45,.94);
@@ -113,14 +113,22 @@
 
   // variante mobile
   &.-sitenav-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: abstracts.$zindex-dialog + 1;
+    padding: abstracts.$wrapper-padding-mobile abstracts.$wrapper-padding-mobile 1.75rem;
     border-top: map.get(abstracts.$border, "header");
     // Arrière-plan opaque, dans l'hypothèse d'un contenu avec scroll
     background-color: map.get(abstracts.$site-colors, "background");
+
+    @include abstracts.mq($from: sm) {
+      padding: abstracts.$wrapper-padding-desktop abstracts.$wrapper-padding-desktop 1.75rem;
+    }
   }
 }
 
@@ -161,7 +169,7 @@
     margin-top: 5em;
     padding: 1rem abstracts.$wrapper-padding-mobile 2rem;
 
-    @include abstracts.mq($from: md) {
+    @include abstracts.mq($from: sm) {
       padding-left: abstracts.$wrapper-padding-desktop;
       padding-right: abstracts.$wrapper-padding-desktop;
     }

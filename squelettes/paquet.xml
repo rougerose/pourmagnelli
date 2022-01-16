@@ -1,9 +1,9 @@
 <paquet
 	prefix="pourmagnelli_squelettes"
 	categorie="squelette"
-	version="1.0.0-alpha"
-	etat="test"
-	compatibilite="[4.0.0;4.99.*]"
+	version="1.0.0"
+	etat="stable"
+	compatibilite="[4.0.0;4.0.*]"
 	logo="prive/themes/spip/images/pourmagnelli_squelettes-128.png"
 >
 	<nom>Pour Magnelli : squelettes du site</nom>
@@ -14,5 +14,9 @@
 	<necessite nom="pages" compatibilite="[1.5.6;[" />
 	<necessite nom="sommaire" compatibilite="[1.3.3;[" />
 	<necessite nom="compositions" compatibilite="[3.9.3;[" />
+	<necessite nom="ps" compatibilite="[1.0.0;[" />
+	<necessite nom="suivant_precedent" compatibilite="[2.0.0;[" />
+	<necessite nom="metasplus" compatibilite="[2.3.13;[" />
 	<utilise nom="medias" />
+	<utilise nom="favicon" />
 </paquet>

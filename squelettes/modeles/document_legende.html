@@ -9,6 +9,8 @@
   -->
 ]<BOUCLE_legendaire(DOCUMENTS){id_document=#ENV{id,#ENV{id_document}}}{tout}>
   [(#ENV*{titre, #TITRE}|trim|sinon{#ENV*{descriptif, #DESCRIPTIF}|trim}|sinon{#ENV*{credits, #CREDITS}|trim}|oui)
+    [(#SET{desc, ''})]
+    [(#SET{desc, #ENV*{descriptif, #DESCRIPTIF}|trim|sinon{#ENV*{credits, #CREDITS}|trim}})]
     <figcaption class="spip_doc_legende">
       <h3 class="spip_doc_titre [(#ENV{titre}|non)#EDIT{titre}]">
         [(#MODE|=={document}|oui)
@@ -17,11 +19,14 @@
         [(#MODE|=={document}|oui)
           </a>]
       </h3>
-      <div class="spip_doc_descriptif [(#ENV{descriptif}|non)#EDIT{descriptif}]">
-        [<div>(#ENV*{descriptif, #DESCRIPTIF|propre})</div>]
-        [(#MODE|=={document}|oui)
-          <p>#TYPE_DOCUMENT[ &ndash; (#TAILLE|taille_en_octets)]</p>
-        ][<div class="spip_doc_credits [(#ENV{credits}|non)#EDIT{credits}]">(#ENV*{credits,#CREDITS}|propre)</div>]
+      [(#GET{desc}|oui)
+        <div class="spip_doc_descriptif [(#ENV{descriptif}|non)#EDIT{descriptif}]">
+          [<div>(#ENV*{descriptif, #DESCRIPTIF|propre})</div>]
+          [(#MODE|=={document}|oui)
+            <p>#TYPE_DOCUMENT[ &ndash; (#TAILLE|taille_en_octets)]</p>
+          ][<div class="spip_doc_credits [(#ENV{credits}|non)#EDIT{credits}]">(#ENV*{credits,#CREDITS}|propre)</div>]
+        </div>
+      ]
     </figcaption>
   ]
 </BOUCLE_legendaire>

@@ -1,13 +1,13 @@
 <div class="l-wrapper">
-  <div class="flex justify-between items-baseline pt-4 md:pt-6">
+  <div class="l-header">
     <div class="c-logo">
-      <a class="flex items-baseline w-full" href="#URL_SITE_SPIP">
-        <div class="sr-only">#NOM_SITE_SPIP</div>
+      <a class="c-logo_link" href="#URL_SITE_SPIP">
+        <div class="u-visually-hidden">#NOM_SITE_SPIP</div>
         <INCLURE{fond=images/logo-pourmagnelli.svg} />
       </a>
     </div>
     <INCLURE{fond=inclure/sitenav/sitenav_racine, env, identifiant='sitenav_lg', variante='-sitenav-lg'} />
-    <button class="hamburger hamburger--squeeze c-sitenav_trigger -sitenav-mobile" type="button" data-a11y-dialog-show="dialog-sitenav-mobile">
+    <button class="hamburger hamburger--squeeze c-sitenav_trigger -sitenav-mobile" type="button" data-a11y-dialog-show="dialog-sitenav-mobile" aria-label="<:pourmagnelli_squelettes:button_menu:>">
       <span class="hamburger-box"><span class="hamburger-inner"></span></span>
     </button>
   </div>

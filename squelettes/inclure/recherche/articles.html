@@ -1,0 +1,10 @@
+<B_articles>
+  <section class="c-recherche-resultats_section[(#GRAND_TOTAL|<={#ENV{pagination}}|oui) -sep]">
+    #ANCRE_PAGINATION
+    <h2 class="c-recherche-resultats_titre-section">[(#ENV{articles}|count|singulier_ou_pluriel{pourmagnelli_squelettes:info_recherche_article, pourmagnelli_squelettes:info_recherche_articles, nb})]</h2>
+    <BOUCLE_articles(ARTICLES){id_article IN #ENV{articles}}{pagination #ENV{pagination, 5}}>
+      <INCLURE{fond=inclure/resume/article-recherche, id_article, position=#COMPTEUR_BOUCLE}/>
+    </BOUCLE_articles>
+    [<nav class="pagination c-pagination -recherche" role="navigation">(#PAGINATION)</nav>]
+  </section>
+</B_articles>

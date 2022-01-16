@@ -2,17 +2,15 @@
   <div class="c-dialog_overlay" data-a11y-dialog-hide></div>
   <div class="c-dialog_content -sitenav-mobile" role="document">
     <div class="c-dialog_header -sitenav-mobile">
-      <div class="flex justify-between items-baseline p-4 md:px-6 md:pt-6 pb-7">
-        <h1 id="sitenav-mobile-titre" class="c-dialog_titre c-logo">
-          <span class="flex items-baseline w-full">
-            <span class="sr-only">#NOM_SITE_SPIP</span>
-            <INCLURE{fond=images/logo-pourmagnelli.svg} />
-          </span>
-        </h1>
-        <button class="hamburger hamburger--squeeze c-dialog_close c-sitenav_trigger -dialog" type="button" data-a11y-dialog-hide aria-label="<:pourmagnelli_squelettes:navigation_fermer:>">
-          <span class="hamburger-box"><span class="hamburger-inner"></span></span>
-        </button>
-      </div>
+      <h1 id="sitenav-mobile-titre" class="c-dialog_titre c-logo">
+        <a href="#URL_SITE_SPIP" class="c-logo_link">
+          <span class="u-visually-hidden">#NOM_SITE_SPIP</span>
+          <INCLURE{fond=images/logo-pourmagnelli.svg} />
+        </a>
+      </h1>
+      <button class="hamburger hamburger--squeeze c-dialog_close c-sitenav_trigger -dialog" type="button" data-a11y-dialog-hide aria-label="<:pourmagnelli_squelettes:navigation_fermer:>">
+        <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+      </button>
     </div>
     <div class="c-dialog_body -sitenav-mobile">
       <div class="c-dialog_container">

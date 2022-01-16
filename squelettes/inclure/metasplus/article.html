@@ -1,0 +1,18 @@
+#SET{logos, ''}
+<BOUCLE_logo_vu_non(DOCUMENTS){id_article}{media=image}{vu=non}{par rang_lien, num titre}{!par date}{0,1}>
+  [(#SET{logos, #LISTE{
+    #ARRAY{url, #FICHIER,
+      alt, #TITRE|textebrut|sinon{#ALT|sinon{''}}
+    }
+  }})]
+</BOUCLE_logo_vu_non>
+  <BOUCLE_logo_vu_oui(DOCUMENTS){id_article}{par rang_lien, num titre}{!par date}{media=image}{vu=oui}{0,1}>
+    [(#SET{logos, #LISTE{
+      #ARRAY{
+        url, #FICHIER,
+        alt, #TITRE|textebrut|sinon{#ALT|sinon{''}}
+      }
+    }})]
+  </BOUCLE_logo_vu_oui>
+<//B_logo_vu_non>
+<INCLURE{fond=inclure/metasplus/dist, logos=#GET{logos}, env} />

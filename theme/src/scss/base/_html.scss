@@ -1,4 +1,3 @@
-
 @use "sass:map";
 @use "../abstracts";
 
@@ -7,4 +6,15 @@ html {
   background-color: map.get(abstracts.$site-colors, "background");
   font-weight: 400;
   letter-spacing: 0.04rem;
+}
+
+// Pied de page en bas de fenêtre quelque soit la hauteur de la page
+// cf. https://css-tricks.com/couple-takes-sticky-footer/
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
 }

@@ -10,21 +10,21 @@
 // Règles de mise en page communes à tous les contenus
 
 .l-contenu {
-  padding-top: 4rem;
-
-  @include abstracts.mq($from: lg) {
-    padding-top: 8rem;
-  }
-}
-
-
-.l-contenu_header {
   padding-bottom: 4rem;
 
   @include abstracts.mq($from: lg) {
     padding-bottom: 6rem;
   }
 }
+
+
+// .l-contenu_header {
+//   // padding-bottom: 4rem;
+
+//   @include abstracts.mq($from: lg) {
+//     // padding-bottom: 6rem;
+//   }
+// }
 
 
 // .l-contenu_body {}
@@ -60,14 +60,15 @@
   padding: 0.5rem;
   margin: 2rem auto;
   text-transform: uppercase;
-  font-size: rem.convert(14px);
-  line-height: 1;
+  font-size: rem.convert(13px);
+  line-height: 1.3;
   border: 1px solid map.get(abstracts.$site-colors, "primary");
   text-align: center;
   border-radius: rem.convert(4px);
-  transition: color 0.3s ease;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    color: map.get(abstracts.$site-colors, "primary");
+    background-color: map.get(abstracts.$site-colors, "primary");
   }
 }

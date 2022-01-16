@@ -1,0 +1,46 @@
+// ========================================
+// c-sommaire
+// ========================================
+
+@use "sass:map";
+@use "../abstracts";
+@use "sass-rem/rem";
+
+.c-sommaire-article {
+  display: none;
+
+  .t-spip-texte & {
+    & ul {
+      & li {
+        margin-left: 0;
+        list-style: circle inside;
+      }
+    }
+
+    & .spip_ancre {
+      text-decoration: underline map.get(abstracts.$site-colors, "text");
+      text-underline-offset: rem.convert(8px);
+      transition: text-decoration-color 0.3s ease, text-underline-offset 0.3s ease;
+
+      &:visited {
+        color: currentColor;
+      }
+
+      &:hover {
+        text-decoration-color: map.get(abstracts.$site-colors, "primary");
+        text-underline-offset: rem.convert(4px);
+      }
+
+
+      // &:hover {
+      //   color: map.get(abstracts.$site-colors, "link-hover");
+      // }
+    }
+  }
+
+  @include abstracts.mq($from: md) {
+    display: block;
+    position: sticky;
+    top: 1rem;
+  }
+}

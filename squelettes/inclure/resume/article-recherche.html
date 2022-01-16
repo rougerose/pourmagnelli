@@ -1,0 +1,14 @@
+<BOUCLE_resume_article_recherche(ARTICLES){id_article}>
+  <article class="c-resume -recherche">
+    <div class="c-resume_texte">
+      <h3 class="c-resume_title">[<span>(#ENV{position})</span> ]<a href="#URL_ARTICLE" class="c-resume_link">#TITRE</a></h3>
+      [<p class="c-resume_subtitle"><a href="#URL_ARTICLE" class="c-resume_link">(#SOUSTITRE)</a></p>]
+      <div class="c-resume_desc">
+        [(#INTRODUCTION{200})]
+        <p class="c-resume_more">
+          <a href="#URL_ARTICLE" class="c-resume_link"><:pourmagnelli_squelettes:lire_suite:></a>
+        </p>
+      </div>
+    </div>
+  </article>
+</BOUCLE_resume_article_recherche>

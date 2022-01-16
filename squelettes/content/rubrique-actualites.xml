@@ -1,0 +1,5 @@
+<composition>
+  <nom><multi>Rubrique Actualités</multi></nom>
+  <description>Composition pour la rubrique Actualités</description>
+  <icon>images/objet-liste-contenus.png</icon>
+</composition>

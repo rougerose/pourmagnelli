@@ -1,0 +1,59 @@
+<BOUCLE_image(DOCUMENTS){id_document=#ENV{id,#ENV{id_document}}}{tout}>
+  [(#REM)
+  <!--
+    < 1023 : 160/436
+    1024/  : 436
+
+    @1  -> @2
+    160 -> 320
+    436 -> 872
+  -->
+  ][(#SET{logo, #FICHIER|image_reduire{872,0}|extraire_attribut{src}})]
+  [(#SET{largeur, #GET{logo}|largeur})]
+  [(#SET{hauteur, #GET{logo}|hauteur})]
+  [(#GET{largeur}|>{436}|?{
+    [(#SET{logo-436, #GET{logo}|image_reduire{436,0}|extraire_attribut{src}})],
+    [(#SET{logo-436, #GET{logo}})]
+  })]
+  [(#GET{logo-436}|largeur|>{320}|?{
+    [(#SET{logo-320, #GET{logo-436}|image_reduire{320, 0}|extraire_attribut{src}})],
+    [(#SET{logo-320, #GET{logo-436}})]
+  })]
+  [(#GET{logo-320}|largeur|>{160}|?{
+    [(#SET{logo-160, #GET{logo-320}|image_reduire{160, 0}|extraire_attribut{src}})],
+    [(#SET{logo-160, #GET{logo-320}})]
+  })]
+  [(#SET{autolien,#LARGEUR|>={800}|ou{#HAUTEUR|>={800}}|oui})]
+  [(#GET{autolien}|oui)
+    [(#SET{image_xl, #FICHIER|image_reduire{1600, 0}|extraire_attribut{src}})]
+    [(#GET{image_xl}|largeur|>{1024}|?{
+      [(#SET{image_l, #GET{image_xl}|image_reduire{1024, 0}|extraire_attribut{src}})],
+      [(#SET{image_l, #GET{image_xl}})]
+    })]
+    [(#GET{image_l}|largeur|>{900}|?{
+      [(#SET{image_m, #GET{image_l}|image_reduire{900, 0}|extraire_attribut{src}})],
+      [(#SET{image_m, #GET{image_l}})]
+    })]
+    [(#GET{image_m}|largeur|>{600}|?{
+      [(#SET{image_s, #GET{image_m}|image_reduire{600, 0}|extraire_attribut{src}})],
+      [(#SET{image_s, #GET{image_m}})]
+    })]
+  ]
+  [(#SET{alt, #ALT|sinon{#TITRE|textebrut}|sinon{''}|trim})]
+  [(#SET{legende,#INCLURE{fond=modeles/document_legende, env}|trim})]
+
+  <div class="[(#ID_DOCUMENT|medias_modele_document_standard_classes{image}) ]spip_lien_ok" [
+    (#ID_DOCUMENT|medias_modele_document_standard_attributs{image})]>
+    <figure class="spip_doc_inner">
+        [(#GET{autolien}|oui)
+          <a href="#GET{image_xl}" class="spip_doc_lien" type="#MIME_TYPE"
+            data-size="[(#GET{image_xl}|largeur)][x(#GET{image_xl}|hauteur)]" data-s="[(#GET{image_s})]" data-s-size="[(#GET{image_s}|largeur)][x(#GET{image_s}|hauteur)]" data-m="[(#GET{image_m})]" data-m-size="[(#GET{image_m}|largeur)][x(#GET{image_m}|hauteur)]" data-l="[(#GET{image_l})]" data-l-size="[(#GET{image_l}|largeur)][x(#GET{image_l}|hauteur)]" [ data-title="(#TITRE|textebrut)" ][data-desc="(#DESCRIPTIF|textebrut)" ][ data-author="(#CREDITS|textebrut)" ] data-pswp-index="">]
+            <img src="#GET{logo}" alt="#GET{alt}"
+              srcset="[(#GET{logo-160}) 160w,][ (#GET{logo-320}) 320w,][ (#GET{logo-436}) 436w,][ (#GET{logo}) 872w]"
+              sizes="(min-width: 1024px) 50vw, 320px">
+          [(#GET{autolien}|?{</a>})]
+        #GET{legende}
+    </figure>
+  </div>
+</BOUCLE_image>
+#FILTRE{trim}
