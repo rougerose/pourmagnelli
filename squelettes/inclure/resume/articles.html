@@ -1,7 +1,7 @@
 <B_articles_rubrique>
   #ANCRE_PAGINATION
   <div class="p-rubrique_bodySection -articles">
-    <BOUCLE_articles_rubrique(ARTICLES){id_article IN #ENV{articles}}{#ENV{critere_debut}, n}{pagination #ENV{pagination, 5}}>
+    <BOUCLE_articles_rubrique(ARTICLES){id_article IN #ENV{articles}}{pagination #ENV{pagination, 5}}{#ENV{critere_debut},n}>
       <INCLURE{fond=inclure/resume/article-rubrique, id_article, class=-standard} />
     </BOUCLE_articles_rubrique>
   </div>

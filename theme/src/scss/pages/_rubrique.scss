@@ -38,7 +38,7 @@
     }
 
     @include abstracts.mq($from: lg) {
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 
@@ -135,7 +135,7 @@
     }
 
     @include abstracts.mq($from: lg) {
-      grid-column: 1 / 5;
+      grid-column: 1 / 3;
     }
   }
 }
@@ -166,7 +166,10 @@
     }
 
     @include abstracts.mq($from: lg) {
-      grid-column: 5 / -1;
+      // grid-column: 5 / -1;
+      grid-column: 3 / -1;
+      margin-left: 25%;
+      margin-right: 25%;
     }
   }
 }

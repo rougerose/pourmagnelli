@@ -1,3 +1,10 @@
+[(#REM)
+  <!--
+    Composition pour la rubrique Actualités.
+    Dans l'hypothèse où la rubrique contient plus d'un article,
+    ceux-ci s'affichent 4 par 4 sous le texte d'introduction.
+   -->
+]
 <BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
   #SET{articles, #ARRAY} [(#SET{intro, #TEXTE|?{' ', ''}})]
   <BOUCLE_articles(ARTICLES){id_rubrique}{!par date}>
@@ -11,7 +18,7 @@
         </header>
         <div class="p-rubrique_body l-contenu_body">
           <BOUCLE_condition_intro(CONDITION){si #GET{intro}|oui}>
-            <INCLURE{fond=inclure/rubrique/intro, id_rubrique, articles=#GET{articles}}/>
+            <INCLURE{fond=inclure/rubrique/actualites-intro, id_rubrique, articles=#GET{articles}}/>
           </BOUCLE_condition_intro>
 
           <B_sousrubriques>
@@ -23,12 +30,6 @@
               </BOUCLE_article_sousrubrique>
             </BOUCLE_sousrubriques>
           </B_sousrubriques>
-            [(#SET{critere_debut, 0})]
-            [(#GET{intro}|oui) #SET{critere_debut, 1} ]
-            <div class="p-rubrique_bodySection -sousrubrique">
-              <INCLURE{fond=inclure/resume/articles, articles=#GET{articles}, critere_debut=#GET{critere_debut}, pagination=12, ajax, env}/>
-            </div>
-          <//B_sousrubriques>
         </div>
       </div>
     </div>
