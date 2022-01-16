@@ -27,13 +27,9 @@
   // ========================================
   &.-rubrique-magnelli {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: baseline;
     margin-bottom: 1.5rem;
-
-    @include abstracts.mq($from: md) {
-      flex-direction: row;
-    }
   }
 
   // resume/[article-rubrique]-recherche
@@ -141,18 +137,18 @@
     }
   }
 
-  @include abstracts.mq($from: md) {
+  // @include abstracts.mq($from: lg) {
 
-    .-rubrique-magnelli & {
-      margin-left: $tiret-size-md;
-      font-size: $tiret-size-md;
+  //   .-rubrique-magnelli & {
+  //     margin-left: $tiret-size-md;
+  //     font-size: $tiret-size-md;
 
-      &::before {
-        margin-left: -($tiret-size-md);
-        font-size: $tiret-size-md;
-      }
-    }
-  }
+  //     &::before {
+  //       margin-left: -($tiret-size-md);
+  //       font-size: $tiret-size-md;
+  //     }
+  //   }
+  // }
 }
 
 
@@ -226,6 +222,6 @@
   // Contexte -rubrique-magnelli
   // ========================================
   .-rubrique-magnelli & {
-    margin-left: 2rem;
+    margin-left: 2.2rem;
   }
 }

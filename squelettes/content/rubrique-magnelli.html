@@ -6,9 +6,36 @@
           <h1 class="p-rubrique_titre l-contenu_titre">#TITRE</h1>
         </header>
         <div class="p-rubrique_body l-contenu_body">
-          <BOUCLE_articles(ARTICLES){id_rubrique}{par num titre}{!par date}>
-            <INCLURE{fond=inclure/resume/article-rubrique-magnelli, id_article, class="-rubrique-magnelli"}/>
-          </BOUCLE_articles>
+          <div class="p-rubrique_bodySection -Magnelli">
+            <div class="p-rubrique_intro">
+              <BOUCLE_articles(ARTICLES){id_rubrique}{par num titre}{!par date}>
+                <INCLURE{fond=inclure/resume/article-rubrique-magnelli, id_article, class="-rubrique-magnelli"}/>
+              </BOUCLE_articles>
+            </div>
+            <div class="p-rubrique_actu">
+              <B_illustration>
+                <figure class="c-illustration">
+                  <BOUCLE_illustration(DOCUMENTS){id_rubrique}{0,1}{media=image}>
+                    <!--
+                      768 / 1536
+                      544 / 1088
+                     -->
+                    [(#SET{logo, #FICHIER|image_reduire{1536, 0}|extraire_attribut{src}})]
+                    [(#SET{largeur, #GET{logo}|largeur})]
+                    [(#SET{hauteur, #GET{logo}|hauteur})]
+                    [(#SET{logo-1088, #GET{logo}|image_reduire{1088,0}|extraire_attribut{src}})]
+                    [(#SET{logo-768, #GET{logo}|image_reduire{768,0}|extraire_attribut{src}})]
+                    [(#SET{logo-544, #GET{logo}|image_reduire{544,0}|extraire_attribut{src}})]
+                    <img src="#GET{logo}" alt="[(#TITRE|textebrut|sinon{#NOM_SITE_SPIP}|trim)]"
+                      srcset="[(#GET{logo-544}) 544w,][ (#GET{logo-768}) 768w,][ (#GET{logo-1088}) 1088w,][ (#GET{logo}) 1536w]"
+                      sizes="(min-width: 48em) 50vw, 1536px" width="#GET{largeur}" height="#GET{hauteur}"
+                    >
+                    <figcaption class="spip_doc_legende"><div class="spip_doc_titre">[(#TITRE)]</div></figcaption>
+                  </BOUCLE_illustration>
+                </figure>
+              </B_illustration>
+            </div>
+          </div>
         </div>
       </div>
     </div>
