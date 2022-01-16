@@ -1,9 +1,9 @@
 <paquet
 	prefix="pourmagnelli_squelettes"
 	categorie="squelette"
-	version="1.0.0-alpha"
-	etat="test"
-	compatibilite="[4.0.0;4.99.*]"
+	version="1.0.0"
+	etat="stable"
+	compatibilite="[4.0.0;4.0.*]"
 	logo="prive/themes/spip/images/pourmagnelli_squelettes-128.png"
 >
 	<nom>Pour Magnelli : squelettes du site</nom>
