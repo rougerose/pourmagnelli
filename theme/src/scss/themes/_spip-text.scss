@@ -272,7 +272,7 @@
 
   & code,
   & .spip_code {
-    @apply font-mono;
+    font: monospace;
     font-size: rem.convert(14px);
   }
 

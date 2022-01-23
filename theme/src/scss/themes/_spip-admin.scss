@@ -23,7 +23,7 @@ $admin-btn-color-bg: map.get(abstracts.$gray, "blue", "300");
 
 // Boutons
 .spip-admin-float .spip-admin-boutons {
-  @apply font-mono;
+  font: monospace;
   margin: 0 0.25rem 0 0;
   border-radius: rem.convert(4px);
   box-shadow: map.get(abstracts.$box-shadow, "l2");
