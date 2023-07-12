@@ -9,14 +9,19 @@
 	<nom>Pour Magnelli : squelettes du site</nom>
 	<auteur lien="http://rouge-rose.net">christophe le drean</auteur>
 	<licence>GPL v3</licence>
-	<necessite nom="zcore" compatibilite="[3.0.0;[" />
-	<necessite nom="menus" compatibilite="[2.0.1;[" />
-	<necessite nom="pages" compatibilite="[1.5.6;[" />
-	<necessite nom="sommaire" compatibilite="[1.3.3;[" />
-	<necessite nom="compositions" compatibilite="[3.9.3;[" />
+	<necessite nom="compositions" />
+	<necessite nom="contacts" />
+	<necessite nom="facteur" />
+	<necessite nom="favicon" />
+	<necessite nom="fulltext" />
+	<necessite nom="menus" />
+	<necessite nom="metasplus" />
+	<necessite nom="pages" />
+	<necessite nom="porte_plume_intertitres" />
 	<necessite nom="ps" compatibilite="[1.0.0;[" />
-	<necessite nom="suivant_precedent" compatibilite="[2.0.0;[" />
-	<necessite nom="metasplus" compatibilite="[2.3.13;[" />
+	<necessite nom="sommaire" />
+	<necessite nom="suivant_precedent" />
+	<necessite nom="typo_guillemets" />
+	<necessite nom="zcore" />
 	<utilise nom="medias" />
-	<utilise nom="favicon" />
 </paquet>
