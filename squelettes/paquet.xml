@@ -3,7 +3,7 @@
 	categorie="squelette"
 	version="1.0.1"
 	etat="stable"
-	compatibilite="[4.0.0;4.0.*]"
+	compatibilite="[4.0.0;4.2.*]"
 	logo="prive/themes/spip/images/pourmagnelli_squelettes-128.png"
 >
 	<nom>Pour Magnelli : squelettes du site</nom>
