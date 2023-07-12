@@ -1,9 +1,9 @@
 {
   "name": "pourmagnelli.org",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "main": "index.js",
   "repository": "https://github.com/rougerose/pourmagnelli.git",
-  "author": "christophe le drean <christophe@rouge-rose.net>",
+  "author": "christophe le drean",
   "license": "GPL v3",
   "private": true,
   "scripts": {
