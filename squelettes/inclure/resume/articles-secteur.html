@@ -7,7 +7,7 @@
         Constituer la liste des articles.
       -->
     ]<B_resume_articles>
-      <BOUCLE_resume_articles(ARTICLES){branche}{par id_rubrique}>
+      <BOUCLE_resume_articles(ARTICLES){branche}{!par date}{par id_rubrique}>
         [(#ID_RUBRIQUE|unique|oui)
           [(#SET{articles, #GET{articles}|push{#ID_ARTICLE}})]
         ]
