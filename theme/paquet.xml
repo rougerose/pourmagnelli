@@ -1,9 +1,9 @@
 <paquet
 	prefix="pourmagnelli_theme"
 	categorie="theme"
-	version="1.0.3"
+	version="1.0.4"
 	etat="stable"
-	compatibilite="[4.0.0;4.2.*]"
+	compatibilite="[4.0.0;4.4.*]"
 	logo="prive/themes/spip/images/pourmagnelli_theme-128.png"
 >
 	<nom>Pour Magnelli : thème graphique</nom>
@@ -13,7 +13,7 @@
 	<necessite nom="pourmagnelli_squelettes" />
   <pipeline nom="insert_head" inclure="pourmagnelli_theme_pipelines.php" />
 	<chemin path="" />
-  <spip compatibilite="[4.0.0;4.2.*]">
+  <spip compatibilite="[4.0.0;4.4.*]">
 		<style type="public" source="dist/css/pourmagnelli.css" />
 	</spip>
 </paquet>
