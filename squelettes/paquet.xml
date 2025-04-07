@@ -1,7 +1,7 @@
 <paquet
 	prefix="pourmagnelli_squelettes"
 	categorie="squelette"
-	version="1.0.3"
+	version="1.0.4"
 	etat="stable"
 	compatibilite="[4.0.0;4.4.*]"
 	logo="prive/themes/spip/images/pourmagnelli_squelettes-128.png"
