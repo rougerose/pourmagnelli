@@ -1,0 +1,15 @@
+{
+    "repositories": {
+        "spip": {
+            "type": "composer",
+            "url": "https://get.spip.net/composer"
+        }
+    },
+    "require-dev": {
+        "spip-league/easy-coding-standard": "^1.1"
+    },
+    "scripts": {
+        "check-cs": "vendor/bin/ecs check --ansi",
+        "fix-cs": "vendor/bin/ecs check --fix --ansi"
+    }
+}
