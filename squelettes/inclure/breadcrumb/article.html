@@ -1,26 +1,25 @@
 <BOUCLE_breadcrumb_article(ARTICLES){id_article}>
-  <B_hierarchie_article>
-    <nav class="c-breadcrumb" aria-label="Breadcrumbs">
-      <div class="l-wrapper">
-        #SET{compteur, 1}
-        <ul class="c-breadcrumb_list" itemscope itemtype="https://schema.org/BreadcrumbList">
+  #SET{compteur, 1}
+  <nav class="c-breadcrumb" aria-label="Breadcrumbs">
+    <div class="l-wrapper">
+      <ul class="c-breadcrumb_list" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li class="c-breadcrumb_item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a class="c-breadcrumb_link" itemprop="item" href="#URL_SITE_SPIP"><span itemprop="name" class="c-breadcrumb_name"><:accueil_site:> #GET{compteur}</span></a>
+          <meta itemprop="position" content="#GET{compteur}" />
+        </li>
+        <BOUCLE_hierarchie_article(HIERARCHIE){id_article}>
+          [(#SET{compteur, #GET{compteur}|plus{1}})]
           <li class="c-breadcrumb_item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a class="c-breadcrumb_link" itemprop="item" href="#URL_SITE_SPIP"><span itemprop="name" class="c-breadcrumb_name"><:accueil_site:></span></a>
+            <a class="c-breadcrumb_link" itemprop="item" href="#URL_RUBRIQUE"><span itemprop="name" class="c-breadcrumb_name">#TITRE </span></a>
             <meta itemprop="position" content="#GET{compteur}" />
           </li>
-          <BOUCLE_hierarchie_article(HIERARCHIE){id_article}>
-            [(#SET{compteur, #COMPTEUR_BOUCLE|plus{1}})]
-            <li class="c-breadcrumb_item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <a class="c-breadcrumb_link" itemprop="item" href="#URL_RUBRIQUE"><span itemprop="name" class="c-breadcrumb_name">#TITRE</span></a>
-              <meta itemprop="position" content="#GET{compteur}" />
-            </li>
-            </BOUCLE_hierarchie_article>
-            <li class="c-breadcrumb_item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <span itemprop="name" aria-current="page" class="c-breadcrumb_name">#TITRE</span>
-              <meta itemprop="position" content="[(#GET{compteur}|plus{1})]" />
-            </li>
-        </ul>
-      </div>
-    </nav>
-  </B_hierarchie_article>
+          </BOUCLE_hierarchie_article>
+          [(#SET{compteur, #GET{compteur}|plus{1}})]
+          <li class="c-breadcrumb_item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span class="c-breadcrumb_name" aria-current="page" itemprop="name">#TITRE</span>
+            <meta itemprop="position" content="[(#GET{compteur})]" />
+          </li>
+      </ul>
+    </div>
+  </nav>
 </BOUCLE_breadcrumb_article>
